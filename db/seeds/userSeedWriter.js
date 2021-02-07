@@ -7,11 +7,12 @@ const seedUsers = () => {
   let x = 0;
   while (x <= 5) {
     const user = {
-      randomEmail: faker.internet.email(),
-      userPass: "password",
-      randomPicture: faker.image.avatar(),
+      email: faker.internet.email(),
+      Password: "password",
+      picture: faker.image.avatar(),
     };
-    const queryString = `INSERT INTO users(email, password, profile_picture)Values('${user.randomEmail}', '${user.userPass}', '${user.randomPicture}');`;
+    const queryString = `INSERT INTO users(email, password, profile_picture)
+    Values('${user.email}', '${user.password}', '${user.picture}');`;
     users.push(queryString);
     x++;
   }
