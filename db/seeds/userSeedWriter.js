@@ -2,6 +2,7 @@ const faker = require("faker");
 const fs = require("fs");
 const users = [];
 
+// Creates 6 random user Queries and writes them to a sql file
 const seedUsers = () => {
   let x = 0;
   while (x <= 5) {
