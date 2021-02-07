@@ -1,10 +1,13 @@
-$(() => {
+$(document).ready(() => {
+
+  // Dummy test AJAX request
   $.ajax({
     method: "GET",
-    url: "/api/users"
-  }).done((users) => {
-    for(user of users) {
+    url: "/users"
+  }).done((res) => {
+    for (let user of res.users) {
       $("<div>").text(user.name).appendTo($("body"));
     }
-  });;
+  });
+
 });
