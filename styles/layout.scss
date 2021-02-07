@@ -42,7 +42,7 @@ body {
   font-size: 0.8em;
 }
 
-.login-buttons button {
+.logins button, .menu button {
   border: none;
   font: inherit;
   color: inherit;
@@ -50,7 +50,7 @@ body {
   position: relative;
 }
 
-.logins button:before {
+.logins button:before, .menu button::before  {
   content: "";
   position: absolute;
   width: 100%;
@@ -65,12 +65,12 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-.logins button:focus {
+.logins button:focus, .menu button:focus {
   outline: none;
   box-shadow: none;
 }
 
-.logins button:hover:before {
+.logins button:hover:before, .menu button:hover::before {
   visibility: visible;
   transform: scaleX(1);
 }
@@ -91,14 +91,14 @@ body {
   font-size: 1.2em;
 }
 
-.menu ul {
-  list-style-type: none;
-  margin-left: 30px;
-
+.menu {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
-  gap: 5px;
+  gap: 15px;
+
+  margin-bottom: 200px; /* remove this when figure out flexbox */
 }
 
 .sidebar {
@@ -109,9 +109,6 @@ body {
   top: 0;
   left: 0;
   z-index: 999;
-
-  background-color: none;
-
 
   font-family: "Gotham Light", sans-serif;
   color: #FFFFFF;
@@ -135,6 +132,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  margin-bottom: 150px; /* remove this when figure out flexbox */
 }
 
 a[data-toggle="collapse"] {
