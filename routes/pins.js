@@ -41,7 +41,31 @@ module.exports = (db) => {
   // Add pins to my wall
   // This route is triggered by both creating a new pin OR liking someone else's
   router.post('/', (req, res) => {
-    // do something
+
+    // Replace this dummy user_id with the one specified in the user's session
+    const userId = 1;
+    const pinData = {...req.body, userId};
+
+    const queryString = `
+      INSERT INTO pins(user_id, topic_id, title, url, description, media)
+      VALUES($1, $2, $3, $4, $5, $6)
+      RETURNING *;
+      `;
+    const values = [pinData.userId, pinData.topicId, pinData.title, pinData.url, pinData.description, pinData.media];
+
+    console.log(values);
+
+    db.query(queryString, values)
+      .then(data => {
+        const newPin = data.rows[0];
+        res.json({ newPin });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+
   });
 
   // Edit pins on my wall (if the passed user_id is it's owner)
