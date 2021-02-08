@@ -8,23 +8,20 @@ const router  = express.Router();
 
 module.exports = (db) => {
 
-  // Browse all users (dummy test db query - not currently scoped)
-  router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
+  // Responds with the wall cotents given the user id
+  router.get('/:user_id', (req, res) => {
+
+    db.query(`SELECT * FROM pins
+              WHERE user_id = ${req.params.user_id};`)
       .then(data => {
-        const users = data.rows;
-        res.json({ users });
+        const pins = data.rows;
+        res.json({ pins });
       })
       .catch(err => {
         res
           .status(500)
           .json({ error: err.message });
       });
-  });
-
-  // Responds with the wall cotents given the user id
-  router.get('/:user_id', (req, res) => {
-    // do something
   });
 
   return router;
