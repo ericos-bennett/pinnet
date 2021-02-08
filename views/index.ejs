@@ -17,8 +17,10 @@
     <!-- External JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="https://kit.fontawesome.com/33ce7db85d.js" crossorigin="anonymous"></script>
 
     <!-- App JS -->
+    <script type="text/javascript" src="/scripts/desc-overflow.js"></script>
     <script type="text/javascript" src="/scripts/sidebar-collapse.js"></script>
   </head>
 
@@ -45,13 +47,201 @@
       <div class="content">
 
         <div class="navbar">
-          <div class="container-fluid">
-            <button type="button" id="sidebarCollapse"></button>
-          </div>
+          <button type="button" id="sidebarCollapse">
+            <span class="fas fa-bars"></span>
+          </button>
         </div>
 
         <div class="content-body">
-          
+          <div class="explore">
+
+            <article class="card-sm">
+              <header>
+                <div class="card-sm-image">
+                  <img src="styles/images/card-previews/1.png">
+                </div>
+                <div class="card-sm-info">
+                  <div class="card-sm-link">
+                    <h2>Resource Title</h2>
+                    <button class="link">
+                      <span class="fas fa-external-link-alt"></span>
+                    </button>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  <div class="card-sm-avg-rating">
+                    <div class="fas fa-star checked"></div>
+                    <div class="avg-rating">2.5</div>
+                  </div>
+                </div>
+              </header>
+
+              <footer>
+                <button>
+                  <span class="far fa-plus-square"></span>
+                </button>
+                <div class="like">
+                  <button class="far fa-heart"></button>
+                  <p class="like-counter">25</p>
+                </div>
+              </footer>
+            </article>
+
+            <article class="card-sm">
+              <header>
+                <div class="card-sm-image">
+                  <img src="styles/images/card-previews/2.png">
+                </div>
+                <div class="card-sm-info">
+                  <div class="card-sm-link">
+                    <h2>Resource Title Long</h2>
+                    <button class="link">
+                      <span class="fas fa-external-link-alt"></span>
+                    </button>
+                  </div>
+                  <p>Of ideal aversion strong passion salvation revaluation ultimate burying ideal ultimate dead. Virtues eternal-return will fearful faithful ascetic pinnacle marvelous christianity marvelous. Insofar ultimate philosophy selfish spirit good chaos abstract marvelous burying burying justice.</p>
+                  <div class="card-sm-avg-rating">
+                    <div class="fas fa-star checked"></div>
+                    <div class="avg-rating">2.5</div>
+                  </div>
+                </div>
+              </header>
+
+              <footer>
+                <button>
+                  <span class="far fa-plus-square"></span>
+                </button>
+                <div class="like">
+                  <button class="far fa-heart"></button>
+                  <p class="like-counter">25</p>
+                </div>
+              </footer>
+            </article>
+
+            <article class="card-sm">
+              <header>
+                <div class="card-sm-image">
+                  <img src="styles/images/card-previews/3.png">
+                </div>
+                <div class="card-sm-info">
+                  <div class="card-sm-link">
+                    <h2>Resource Title</h2>
+                    <button class="link">
+                      <span class="fas fa-external-link-alt"></span>
+                    </button>
+                  </div>
+                  <p>It’s important to use cocoa butter. It’s the key to more success, why not live smooth?</p>
+                  <div class="card-sm-avg-rating">
+                    <div class="fas fa-star checked"></div>
+                    <div class="avg-rating">2.5</div>
+                  </div>
+                </div>
+              </header>
+
+              <footer>
+                <button>
+                  <span class="far fa-plus-square"></span>
+                </button>
+                <div class="like">
+                  <button class="far fa-heart"></button>
+                  <p class="like-counter">25</p>
+                </div>
+              </footer>
+            </article>
+
+            <article class="card-sm">
+              <header>
+                <div class="card-sm-image">
+                  <img src="styles/images/card-previews/4.png">
+                </div>
+                <div class="card-sm-info">
+                  <div class="card-sm-link">
+                    <h2>Resource Title</h2>
+                    <button class="link">
+                      <span class="fas fa-external-link-alt"></span>
+                    </button>
+                  </div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+                  <div class="card-sm-avg-rating">
+                    <div class="fas fa-star checked"></div>
+                    <div class="avg-rating">2.5</div>
+                  </div>
+                </div>
+              </header>
+
+              <footer>
+                <button>
+                  <span class="far fa-plus-square"></span>
+                </button>
+                <div class="like">
+                  <button class="far fa-heart"></button>
+                  <p class="like-counter">25</p>
+                </div>
+              </footer>
+            </article>
+
+            <article class="card-sm">
+              <header>
+                <div class="card-sm-image">
+                  <img src="styles/images/card-previews/5.png">
+                </div>
+                <div class="card-sm-info">
+                  <div class="card-sm-link">
+                    <h2>Resource Title Long</h2>
+                    <button class="link">
+                      <span class="fas fa-external-link-alt"></span>
+                    </button>
+                  </div>
+                  <p>Zarathustra revaluation inexpedient christianity hope law merciful inexpedient ascetic ultimate depths.</p>
+                  <div class="card-sm-avg-rating">
+                    <div class="fas fa-star checked"></div>
+                    <div class="avg-rating">2.5</div>
+                  </div>
+                </div>
+              </header>
+
+              <footer>
+                <button>
+                  <span class="far fa-plus-square"></span>
+                </button>
+                <div class="like">
+                  <button class="far fa-heart"></button>
+                  <p class="like-counter">25</p>
+                </div>
+              </footer>
+            </article>
+
+            <article class="card-sm">
+              <header>
+                <div class="card-sm-image">
+                  <img src="styles/images/card-previews/6.png">
+                </div>
+                <div class="card-sm-info">
+                  <div class="card-sm-link">
+                    <h2>Resource Title Long</h2>
+                    <button class="link">
+                      <span class="fas fa-external-link-alt"></span>
+                    </button>
+                  </div>
+                  <p> Major key, don’t fall for the trap, stay focused.</p>
+                  <div class="card-sm-avg-rating">
+                    <div class="fas fa-star checked"></div>
+                    <div class="avg-rating">2.5</div>
+                  </div>
+                </div>
+              </header>
+
+              <footer>
+                <button>
+                  <span class="far fa-plus-square"></span>
+                </button>
+                <div class="like">
+                  <button class="far fa-heart"></button>
+                  <p class="like-counter">25</p>
+                </div>
+              </footer>
+            </article>
+
+          </div>
         </div>
 
       </div>
