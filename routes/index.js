@@ -3,18 +3,17 @@ const router  = express.Router();
 
 // Import all the user routes
 const usersRoutes = require("./users");
-
+const pinsRoutes = require('./pins');
 
 module.exports = (db) => {
+
+  // Reroute user and pins routes to their respective files
+  router.use("/users", usersRoutes(db));
+  router.use("/pins", pinsRoutes(db));
 
   // Renders the main welcome page
   router.get("/", (req, res) => {
     res.render("index");
-  });
-
-  // Route for the search bar
-  router.get('/search', (req, res) => {
-    // do something...
   });
 
   // Route to get the registration page
@@ -48,9 +47,6 @@ module.exports = (db) => {
   router.post('/logout', (req, res) => {
     // do something...
   });
-
-  // Reroute user routes to the users.js file
-  router.use("/users", usersRoutes(db));
 
   return router;
 };
