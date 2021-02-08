@@ -29,7 +29,13 @@
                   <p><%= pin.description %> </p>
                   <div class="card-sm-avg-rating">
                     <div class="fas fa-star checked"></div>
-                    <div class="avg-rating"><%= pin.rating %> </div>
+                    <div class="avg-rating">
+                      <% if(pin.rating === null){ %>
+                        <%=Number(pin.rating) %>
+                      <% }else{ %>
+                        <%=Number(pin.rating).toFixed(1)%>
+                      <% } %>
+                    </div>
                   </div>
                 </div>
               </header>
