@@ -10,26 +10,26 @@
             <span class="fas fa-bars"></span>
           </button>
         </div>
-
         <div class="content-body">
           <div class="explore">
 
+            <% for(const pin of pins){ %>
             <article class="card-sm">
               <header>
                 <div class="card-sm-image">
-                  <img src="styles/images/card-previews/1.png">
+                  <img src="<%= pin.media %> ">
                 </div>
                 <div class="card-sm-info">
                   <div class="card-sm-link">
-                    <h2>Resource Title</h2>
+                    <h2><%= pin.title %> </h2>
                     <button class="link">
                       <span class="fas fa-external-link-alt"></span>
                     </button>
                   </div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  <p><%= pin.description %> </p>
                   <div class="card-sm-avg-rating">
                     <div class="fas fa-star checked"></div>
-                    <div class="avg-rating">2.5</div>
+                    <div class="avg-rating"><%= pin.rating %> </div>
                   </div>
                 </div>
               </header>
@@ -44,8 +44,9 @@
                 </div>
               </footer>
             </article>
+            <% } %>
 
-            <article class="card-sm">
+            <!-- <article class="card-sm">
               <header>
                 <div class="card-sm-image">
                   <img src="styles/images/card-previews/2.png">
@@ -199,7 +200,7 @@
                 </div>
               </footer>
 
-            </article>
+            </article> -->
           </div>
         </div>
       </div>
