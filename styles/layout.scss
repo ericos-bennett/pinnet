@@ -29,6 +29,15 @@ body {
   background-image: linear-gradient(30deg, #5143B9, #44A8C4);
 }
 
+/* Override all button style defaults. */
+button {
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  position: relative;
+}
+
 /* ---------------------------------------------------
   SIDEBAR
 ----------------------------------------------------- */
@@ -40,14 +49,6 @@ body {
   gap: 25px;
 
   font-size: 0.8em;
-}
-
-.logins button, .menu button {
-  border: none;
-  font: inherit;
-  color: inherit;
-  background-color: transparent;
-  position: relative;
 }
 
 .logins button:before, .menu button::before  {
@@ -171,12 +172,15 @@ a[data-toggle="collapse"] {
 
 .content {
   width: calc(100% - 250px);
+  height: 100%;
   padding: 50px;
   min-height: 100vh;
   transition: all 0.3s;
   position: absolute;
   top: 0;
   right: 0;
+
+  position: fixed;
 
   background-color: #FCFCFC;
 
@@ -186,6 +190,131 @@ a[data-toggle="collapse"] {
 
 .content.active {
   width: 100%;
+}
+
+.explore {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  overflow: scroll;
+}
+
+/* ---------------------------------------------------
+  CARD (SMALL)
+----------------------------------------------------- */
+
+h2 {
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+
+  font-family: "Gotham Black";
+  font-size: 1.5em;
+}
+
+.card-sm {
+  width: 450px;
+  height: 250px;
+
+  margin-right: 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  border: 1px red solid;
+}
+
+.card-sm footer {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.card-sm header {
+  width: 100%;
+  height: 200px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+
+  border: #EEEEEE 2px solid;
+  border-radius: 25px;
+}
+
+.card-sm header:hover {
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(171,171,171,0.30);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(171,171,171,0.30);
+  box-shadow: 0px 0px 15px 0px rgba(171,171,171,0.30);
+  border-radius: 25px;
+}
+
+.card-sm-image {
+  width: 160px;
+  height: 160px;
+
+  background-color: pink;
+  border-radius: 25px;
+}
+
+.card-sm-info {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  max-height: 160px;
+
+  border: 2px solid pink;
+}
+
+.card-sm-info p {
+  font-size: 0.8em;
+
+  overflow: hidden;
+}
+
+.card-sm-link {
+  display: flex;
+  flex-direction: row;
+}
+
+.external-link-alt {
+  font-size: 0.8em;
+}
+
+
+/* ---------------------------------------------------
+  LIKES
+----------------------------------------------------- */
+
+.like {
+  display: flex;
+  flex-direction: row;
+}
+
+.like-counter {
+  font-size: 0.8em;
+}
+
+/* ---------------------------------------------------
+  RATINGS
+----------------------------------------------------- */
+
+.card-sm-avg-rating {
+  display: flex;
+  flex-direction: row;
+
+  color: orange;
+  font-size: 0.8em;
 }
 
 /* ---------------------------------------------------
