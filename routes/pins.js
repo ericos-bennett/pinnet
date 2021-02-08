@@ -16,7 +16,7 @@ module.exports = (db) => {
     console.log(search);
 
     const queryString = `
-      SELECT pins.id AS pins_id, user_id, url, title, description, media, name AS topic, created_at
+      SELECT pins.id AS pins_id, username, url, title, description, media, name AS topic, created_at
       FROM pins
       JOIN topics ON topic_id = topics.id
       JOIN users ON user_id = users.id
