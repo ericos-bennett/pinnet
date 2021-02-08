@@ -18,7 +18,7 @@
 }
 
 /* ---------------------------------------------------
-  LAYOUT
+  GENERAL
 ----------------------------------------------------- */
 
 body {
@@ -26,7 +26,7 @@ body {
   height: 100%;
 
   background-attachment: fixed;
-  background-image: linear-gradient(45deg, #44A8C4, #5143B9);
+  background-image: linear-gradient(30deg, #5143B9, #44A8C4);
 }
 
 /* ---------------------------------------------------
@@ -144,13 +144,19 @@ a[data-toggle="collapse"] {
   TOGGLE BAR
 ----------------------------------------------------- */
 
-.navbar {
-  padding: 15px 10px;
-  background: #fff;
+#sidebarCollapse {
+  width: 50px;
+  height: 50px;
+
+  background: url(images/menu.png) no-repeat;
+  background-size: contain;
+  background-position: center;
+
   border: none;
-  border-radius: 0;
-  margin-bottom: 40px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  margin-bottom: 50px;
 }
 
 .navbar-btn {
@@ -165,7 +171,7 @@ a[data-toggle="collapse"] {
 
 .content {
   width: calc(100% - 250px);
-  padding: 40px;
+  padding: 50px;
   min-height: 100vh;
   transition: all 0.3s;
   position: absolute;
