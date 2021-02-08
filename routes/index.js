@@ -12,9 +12,15 @@ module.exports = (db) => {
 
   // Renders the main welcome page
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM pins;`)
+    db.query(
+      `select pins.*, avg(rating) as rating
+      from pins
+    LEFT JOIN ratings on pins.id = pin_id
+    GROUP by pins.id;`
+    )
       .then((data) => {
         const pins = data.rows;
+        console.log(pins);
         res.render("index", { pins: pins });
       })
       .catch((err) => {
