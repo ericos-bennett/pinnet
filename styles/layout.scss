@@ -30,7 +30,7 @@ body {
   height: 100%;
 
   background-attachment: fixed;
-  background-image: linear-gradient(30deg, #5143B9, #44A8C4);
+  background-image: linear-gradient(30deg, #5143b9, #44a8c4);
 }
 
 /* Override all button style defaults. */
@@ -54,8 +54,13 @@ button {
 
   font-size: 0.8em;
 }
+.logins a {
+  text-decoration: none;
+  color: #ffffff;
+}
 
-.logins button:before, .menu button::before  {
+.logins button:before,
+.menu button::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -63,19 +68,21 @@ button {
   bottom: 0;
   left: 0;
 
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 
   visibility: hidden;
   transform: scaleX(0);
   transition: all 0.3s ease-in-out;
 }
 
-.logins button:focus, .menu button:focus {
+.logins button:focus,
+.menu button:focus {
   outline: none;
   box-shadow: none;
 }
 
-.logins button:hover:before, .menu button:hover::before {
+.logins button:hover:before,
+.menu button:hover::before {
   visibility: visible;
   transform: scaleX(1);
 }
@@ -116,7 +123,7 @@ button {
   z-index: 999;
 
   font-family: "Gotham Light", sans-serif;
-  color: #FFFFFF;
+  color: #ffffff;
 
   display: flex;
   flex-direction: column;
@@ -156,16 +163,16 @@ a[data-toggle="collapse"] {
   border: none;
 
   font-size: 25px;
-  color: #ABABAB;
+  color: #ababab;
 
-  border: #ABABAB 2px solid;
+  border: #ababab 2px solid;
   border-radius: 10px;
 }
 
 #sidebarCollapse:hover {
-  color: #5143B9;
+  color: #5143b9;
 
-  border: #5143B9 2px solid;
+  border: #5143b9 2px solid;
 }
 
 /* ---------------------------------------------------
@@ -184,7 +191,7 @@ a[data-toggle="collapse"] {
 
   position: fixed;
 
-  background-color: #FCFCFC;
+  background-color: #fcfcfc;
 
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
@@ -206,7 +213,7 @@ a[data-toggle="collapse"] {
   flex-wrap: wrap;
   gap: 15px;
 
-  overflow-y:scroll;
+  overflow-y: scroll;
 
   /* Hides the scrollbar on IE and Firefox */
   -ms-overflow-style: none;
@@ -248,7 +255,7 @@ h2 {
 
   visibility: hidden;
 
-  color: #ABABAB;
+  color: #ababab;
 }
 
 .card-sm header {
@@ -261,14 +268,14 @@ h2 {
   justify-content: center;
   gap: 25px;
 
-  border: #EEEEEE 2px solid;
+  border: #eeeeee 2px solid;
   border-radius: 25px;
 }
 
 .card-sm header:hover {
-  -webkit-box-shadow: 0px 0px 15px 0px rgba(171,171,171,0.30);
-  -moz-box-shadow: 0px 0px 15px 0px rgba(171,171,171,0.30);
-  box-shadow: 0px 0px 15px 0px rgba(171,171,171,0.30);
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(171, 171, 171, 0.3);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(171, 171, 171, 0.3);
+  box-shadow: 0px 0px 15px 0px rgba(171, 171, 171, 0.3);
   border-radius: 25px;
 }
 
@@ -280,13 +287,13 @@ h2 {
   width: 160px;
   height: 160px;
 
-  background-color: #44A8C4;
+  background-color: #44a8c4;
   border-radius: 25px;
 }
 
 .card-sm-image img {
-  max-width:100%;
-  max-height:100%;
+  max-width: 100%;
+  max-height: 100%;
 
   border-radius: inherit;
 }
@@ -316,11 +323,11 @@ h2 {
 }
 
 .link {
-  color: #ABABAB;
+  color: #ababab;
 }
 
 .link:hover {
-  color: #5143B9;
+  color: #5143b9;
 }
 
 /* ---------------------------------------------------
@@ -328,11 +335,11 @@ h2 {
 ----------------------------------------------------- */
 
 .fa-heart:hover {
-  color: #5143B9;
+  color: #5143b9;
 }
 
 .fa-plus-square:hover {
-  color: #5143B9;
+  color: #5143b9;
 }
 
 .like {
@@ -362,15 +369,35 @@ h2 {
 
 @media (max-width: 768px) {
   .sidebar {
-      margin-left: -250px;
+    margin-left: -250px;
   }
   .sidebar.active {
-      margin-left: 0;
+    margin-left: 0;
   }
   .content {
-      width: 100%;
+    width: 100%;
   }
   .content.active {
-      width: calc(100% - 250px);
+    width: calc(100% - 250px);
   }
+}
+
+/* ---------------------------------------------------
+ Auth Styles
+----------------------------------------------------- */
+.auth {
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth form {
+  width: 50%;
+}
+.auth form .container {
+  display: flex;
+  justify-content: space-between;
 }
