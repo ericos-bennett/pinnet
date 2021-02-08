@@ -1,6 +1,6 @@
 $(document).ready(function () {
-  $(".sidebar").mCustomScrollbar({
-      theme: "minimal"
+  $('.sidebar').mCustomScrollbar({
+      theme: 'minimal'
   });
 
   $('#sidebarCollapse').on('click', function () {
