@@ -379,9 +379,9 @@ h2 {
 }
 
 /* ---------------------------------------------------
- Login Page
+ Auth Styles
 ----------------------------------------------------- */
-#login {
+.auth {
   height: 100%;
   margin: auto;
   display: flex;
@@ -390,10 +390,10 @@ h2 {
   align-items: center;
 }
 
-#login form {
+.auth form {
   width: 50%;
 }
-#login form .container {
+.auth form .container {
   display: flex;
   justify-content: space-between;
 }
