@@ -21,6 +21,10 @@
   GENERAL
 ----------------------------------------------------- */
 
+.content-body {
+  height: 100%;
+}
+
 body {
   width: 100%;
   height: 100%;
@@ -156,10 +160,6 @@ a[data-toggle="collapse"] {
   border: none;
 }
 
-.navbar {
-  margin-bottom: 50px;
-}
-
 .navbar-btn {
   box-shadow: none;
   outline: none;
@@ -193,12 +193,28 @@ a[data-toggle="collapse"] {
 }
 
 .explore {
+  width: 100%;
+  height: 100%;
+
+  padding-top: 50px;
+  padding-bottom: 50px;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 15px;
 
-  overflow: scroll;
+  overflow-y:scroll;
+
+  /* Hides the scrollbar on IE and Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Hides the scrollbar on Chrome, Safari, and Opera */
+.explore::-webkit-scrollbar {
+  display: none;
 }
 
 /* ---------------------------------------------------
@@ -217,9 +233,6 @@ h2 {
 
 .card-sm {
   width: 450px;
-  height: 250px;
-
-  margin-right: 25px;
 
   display: flex;
   flex-direction: column;
@@ -234,6 +247,8 @@ h2 {
   align-content: center;
   justify-content: center;
   gap: 5px;
+
+  visibility: hidden;
 }
 
 .card-sm header {
@@ -255,6 +270,10 @@ h2 {
   -moz-box-shadow: 0px 0px 15px 0px rgba(171,171,171,0.30);
   box-shadow: 0px 0px 15px 0px rgba(171,171,171,0.30);
   border-radius: 25px;
+}
+
+.card-sm:hover footer {
+  visibility: unset;
 }
 
 .card-sm-image {
@@ -290,7 +309,6 @@ h2 {
 .external-link-alt {
   font-size: 0.8em;
 }
-
 
 /* ---------------------------------------------------
   LIKES
