@@ -8,13 +8,10 @@ const router  = express.Router();
 
 module.exports = (db) => {
 
-  // Route for the search bar ('/pins')
+  // Route for the search bar ('/pins?search=[query]')
   router.get('/', (req, res) => {
 
-
     const search = `%${req.query.search}%`.toLowerCase();
-    console.log(search);
-
     const queryString = `
       SELECT pins.id AS pins_id, username, url, title, description, media, name AS topic, created_at
       FROM pins
@@ -23,6 +20,7 @@ module.exports = (db) => {
       WHERE LOWER(name) LIKE $1
         OR LOWER(title) LIKE $1
         OR LOWER(description) LIKE $1
+        OR LOWER(username) LIKE $1
       ORDER BY created_at DESC;
     ;`;
     const values = [search];
