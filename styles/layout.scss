@@ -153,17 +153,19 @@ a[data-toggle="collapse"] {
   width: 50px;
   height: 50px;
 
-  background: url(images/menu.png) no-repeat;
-  background-size: contain;
-  background-position: center;
-
   border: none;
+
+  font-size: 25px;
+  color: #ABABAB;
+
+  border: #ABABAB 2px solid;
+  border-radius: 10px;
 }
 
-.navbar-btn {
-  box-shadow: none;
-  outline: none;
-  border: none;
+#sidebarCollapse:hover {
+  color: #44A8C4;
+
+  border: #44A8C4 2px solid;
 }
 
 /* ---------------------------------------------------
@@ -237,8 +239,6 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-
-  border: 1px red solid;
 }
 
 .card-sm footer {
@@ -280,7 +280,7 @@ h2 {
   width: 160px;
   height: 160px;
 
-  background-color: pink;
+  background-color: #44A8C4;
   border-radius: 25px;
 }
 
