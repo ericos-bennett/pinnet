@@ -90,7 +90,7 @@ module.exports = (db) => {
       if (req.body.media) queryString += `media = '${req.body.media}', `;
 
       // fix this when/if there's time, right now you can't edit the pin's topic
-      // because it's asynchronous, these queries runs AFTER the main update
+      // because it's asynchronous, these queries runs AFTER the main db update
       if (req.body.topic) {
 
         // let topicId;
@@ -143,7 +143,12 @@ module.exports = (db) => {
   // Delete pins on my wall (if the passed user_id is it's owner)
   router.delete('/:pin_id', (req, res) => {
 
+    // Replace this dummy user_id with the one specified in the user's session
+    // Write some code to validate that the request comes from the user who made the pin
+    const userId = 1;
+
     const pinId = req.params.pin_id;
+
     const queryString = `
       DELETE FROM pins
       WHERE id = $1;
@@ -156,12 +161,53 @@ module.exports = (db) => {
 
   // Leave a comment on someone's pin
   router.post('/:pin_id/comment', (req, res) => {
-    // do something
+
+    // Replace this dummy user_id with the one specified in the user's session
+    // Write some code to validate that the request comes from the user who made the pin
+    const userId = 1;
+
+    const pinId = req.params.pin_id;
+    const commentBody = req.body.commentBody;
+
+    const queryString = `
+      INSERT INTO comments (user_id, pin_id, comment_body)
+      VALUES ($1, $2, $3)
+      RETURNING *;
+    `;
+    const values = [userId, pinId, commentBody];
+
+    db.query(queryString, values)
+      .then(data => {
+        const newComment = data.rows[0];
+        res.json(newComment);
+      })
+      .catch(err => console.log(err));
   });
 
   // Rate someone's pin
   router.post('/:pin_id/rating', (req, res) => {
-    // do something
+
+    // Replace this dummy user_id with the one specified in the user's session
+    // Write some code to validate that the request comes from the user who made the pin
+    const userId = 1;
+
+    const pinId = req.params.pin_id;
+    const rating = req.body.rating;
+
+    const queryString = `
+      INSERT INTO ratings (user_id, pin_id, rating)
+      VALUES ($1, $2, $3)
+      RETURNING *;
+    `;
+    const values = [userId, pinId, rating];
+
+    db.query(queryString, values)
+      .then(data => {
+        const newRating = data.rows[0];
+        res.json(newRating);
+      })
+      .catch(err => console.log(err));
+
   });
 
   return router;
