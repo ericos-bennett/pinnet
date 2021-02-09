@@ -79,11 +79,11 @@ module.exports = (db) => {
   // Sign in route
   // User must NOT be signed in to access this route
   router.post("/login", (req, res) => {
-    if (req.cookies === undefined) {
-      res.redirect('/');
+    if (req.cookies.userId) {
+      res.status(403).send('⚠️ You&#39;re already logged in.');
     } else {
       if (req.body.email === '' || req.body.password === '') {
-        res.status(404).send('Email and/or password cannot be empty.\nPlease try again.');
+        res.status(400).send('⚠️ Email and/or password cannot be empty.\nPlease try again.');
         return;
       }
 
@@ -105,7 +105,7 @@ module.exports = (db) => {
             res.cookie('userId', user.id);
             res.redirect('/');
           } else {
-            res.status(404).send('Email and/or password are wrong.\nPlease try again.');
+            res.status(400).send('⚠️ Email and/or password are wrong.\nPlease try again.');
           }
         })
         .catch((err) => {
