@@ -28,13 +28,11 @@ module.exports = (db) => {
   // Renders register page
   // If user is logged in, redirects to home page
   router.get('/register', (req, res) => {
-    res.render("register");
-
-    // if (req.session.userId) {
-    //   res.redirect('/');
-    // } else {
-    //   res.render("register");
-    // }
+    if (req.cookies.userId) {
+      res.status(403).send('⚠️ You&#39;re already logged in.');
+    } else {
+      res.render("register");
+    }
   });
 
   // Registration route to create a new user and sign them in
