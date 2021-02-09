@@ -9,6 +9,7 @@ const usersRoutes = require("./users");
 const pinsRoutes = require("./pins");
 
 module.exports = (db) => {
+
   // Reroute user and pins routes to their respective files
   router.use("/users", usersRoutes(db));
   router.use("/pins", pinsRoutes(db));
@@ -25,8 +26,7 @@ module.exports = (db) => {
       });
   });
 
-  // Renders register page
-  // If user is logged in, redirects to home page
+  // Renders register page, if user is logged in, redirects to home page
   router.get('/register', (req, res) => {
     if (req.cookies.userId) {
       res.status(403).send('⚠️ You&#39;re already logged in.');
@@ -64,15 +64,13 @@ module.exports = (db) => {
         .then(data => {
           const user = data.rows[0]; // Data is retrieved from the users table.
           res.cookie('userId', user.id);
-          
+
           res.redirect('/');
         });
     }
   });
 
-  // Route to get the login page
-  // If login is on the same 'main page', we don't need this GET request and could just use the following POST for authentication
-  // User must NOT be signed in to access this route
+  // Route to get the login page - user must NOT be signed in to access this
   router.get("/login", (req, res) => {
     if (req.cookies.userId) {
       res.redirect("/");
@@ -81,8 +79,7 @@ module.exports = (db) => {
     }
   });
 
-  // Sign in route
-  // User must NOT be signed in to access this route
+  // Sign in route - user must NOT be signed in to access this
   router.post("/login", (req, res) => {
     if (req.cookies.userId) {
       res.status(403).send('⚠️ You&#39;re already logged in.');
@@ -119,10 +116,9 @@ module.exports = (db) => {
     }
   });
 
-  // Log out route
-  // User must be signed in to access this route
+  // Log out route - ser must be signed in to access
   router.post("/logout", (req, res) => {
-    if (req.cookies.userId) {
+    if (!req.cookies.userId) {
       res.status(404).send('⚠️ You cannot do that.');
     } else {
       res.clearCookie("userId");
