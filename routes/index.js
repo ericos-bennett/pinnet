@@ -73,7 +73,11 @@ module.exports = (db) => {
   // If login is on the same 'main page', we don't need this GET request and could just use the following POST for authentication
   // User must NOT be signed in to access this route
   router.get("/login", (req, res) => {
-    res.render("login");
+    if (req.cookies.userId) {
+      res.redirect("/");
+    } else {
+      res.render("login");
+    }
   });
 
   // Sign in route
@@ -99,7 +103,7 @@ module.exports = (db) => {
 
       db.query(queryString, values)
         .then(data => {
-          const user = data.rows[0];
+          const user = data.rows[0]; // Data is retrieved from the users table.
 
           if (user) {
             res.cookie('userId', user.id);
