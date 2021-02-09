@@ -31,8 +31,6 @@ VALUES(2, 20,1);
 INSERT INTO ratings(user_id,pin_id,rating)
 VALUES(2, 21,3);
 INSERT INTO ratings(user_id,pin_id,rating)
-VALUES(2, 13,4);
-INSERT INTO ratings(user_id,pin_id,rating)
 VALUES(2, 11,4);
 INSERT INTO ratings(user_id,pin_id,rating)
 VALUES(3, 5,1);
