@@ -16,10 +16,12 @@ module.exports = (db) => {
 
   // Renders the main welcome page
   router.get("/", (req, res) => {
+
     db.query(`SELECT * FROM pins;`)
       .then((data) => {
         const pins = data.rows;
-        res.render("index", { pins: pins });
+        const userId = req.cookies.userId;
+        res.render("index", { pins, userId });
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -28,10 +30,11 @@ module.exports = (db) => {
 
   // Renders register page, if user is logged in, redirects to home page
   router.get('/register', (req, res) => {
+
     if (req.cookies.userId) {
       res.status(403).send('⚠️ You&#39;re already logged in.');
     } else {
-      res.render("register");
+      res.render("register", { userId : null });
     }
   });
 
@@ -75,7 +78,7 @@ module.exports = (db) => {
     if (req.cookies.userId) {
       res.redirect("/");
     } else {
-      res.render("login");
+      res.render("login", { userId : null });
     }
   });
 
