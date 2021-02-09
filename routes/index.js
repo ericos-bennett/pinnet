@@ -121,7 +121,12 @@ module.exports = (db) => {
   // Log out route
   // User must be signed in to access this route
   router.post("/logout", (req, res) => {
-    // do something...
+    if (req.cookies.userId) {
+      res.status(404).send('⚠️ You cannot do that.');
+    } else {
+      res.clearCookie("userId");
+      res.redirect("/");
+    }
   });
 
   return router;
