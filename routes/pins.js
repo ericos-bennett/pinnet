@@ -8,7 +8,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
 
-  // Route for the search bar ('/pins?search=[query]')
+  // Route for the search bar ('/pins?search=[query]') - case insensitive
   router.get('/', (req, res) => {
 
     const search = `%${req.query.search}%`.toLowerCase();
@@ -42,26 +42,33 @@ module.exports = (db) => {
   // This route is triggered by both creating a new pin OR liking someone else's
   router.post('/', (req, res) => {
 
-    const userId = req.cookies.userId;
-    const pinData = {...req.body, userId};
+    // const userId = req.cookies.userId;
+    const pinData = {...req.body, userId : req.cookies.userId};
 
-    const queryString = `
+    // Only send the query if all required values are truthy
+    if (pinData.userId && pinData.title && pinData.url && pinData.media) {
+
+      const queryString = `
       INSERT INTO pins(user_id, topic_id, title, url, description, media)
       VALUES($1, $2, $3, $4, $5, $6)
       RETURNING *;
       `;
-    const values = [pinData.userId, pinData.topicId, pinData.title, pinData.url, pinData.description, pinData.media];
+      const values = [pinData.userId, pinData.topicId, pinData.title, pinData.url, pinData.description, pinData.media];
 
-    db.query(queryString, values)
-      .then(data => {
-        const newPin = data.rows[0];
-        res.json({ newPin });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
+      db.query(queryString, values)
+        .then(data => {
+          const newPin = data.rows[0];
+          res.json({ newPin });
+        })
+        .catch(err => {
+          res
+            .status(500)
+            .json({ error: err.message });
+        });
+
+    } else {
+      res.end();
+    }
 
   });
 
@@ -155,19 +162,27 @@ module.exports = (db) => {
     const pinId = req.params.pin_id;
     const commentBody = req.body.commentBody;
 
-    const queryString = `
-      INSERT INTO comments (user_id, pin_id, comment_body)
-      VALUES ($1, $2, $3)
-      RETURNING *;
-    `;
-    const values = [userId, pinId, commentBody];
+    // Only send the query if all values are truthy
+    if (userId && pinId && commentBody) {
 
-    db.query(queryString, values)
-      .then(data => {
-        const newComment = data.rows[0];
-        res.json(newComment);
-      })
-      .catch(err => console.log(err));
+      const queryString = `
+        INSERT INTO comments (user_id, pin_id, comment_body)
+        VALUES ($1, $2, $3)
+        RETURNING *;
+      `;
+      const values = [userId, pinId, commentBody];
+
+      db.query(queryString, values)
+        .then(data => {
+          const newComment = data.rows[0];
+          res.json(newComment);
+        })
+        .catch(err => console.log(err));
+
+    } else {
+      res.end();
+    }
+
   });
 
   // Rate someone's pin (only one rating user/pin pair allowed)
@@ -177,20 +192,27 @@ module.exports = (db) => {
     const pinId = req.params.pin_id;
     const rating = req.body.rating;
 
-    const queryString = `
+    // Only send the query if all values are truthy
+    if (userId && pinId && rating) {
+
+      const queryString = `
       INSERT INTO ratings (user_id, pin_id, rating)
       VALUES ($1, $2, $3)
       ON CONFLICT (user_id, pin_id) DO NOTHING
       RETURNING *;
     `;
-    const values = [userId, pinId, rating];
+      const values = [userId, pinId, rating];
 
-    db.query(queryString, values)
-      .then(data => {
-        const newRating = data.rows[0];
-        res.json(newRating);
-      })
-      .catch(err => console.log(err));
+      db.query(queryString, values)
+        .then(data => {
+          const newRating = data.rows[0];
+          res.json(newRating);
+        })
+        .catch(err => console.log(err));
+
+    } else {
+      res.end();
+    }
 
   });
 
