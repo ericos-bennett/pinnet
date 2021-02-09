@@ -163,7 +163,6 @@ module.exports = (db) => {
   router.post('/:pin_id/comment', (req, res) => {
 
     // Replace this dummy user_id with the one specified in the user's session
-    // Write some code to validate that the request comes from the user who made the pin
     const userId = 1;
 
     const pinId = req.params.pin_id;
@@ -188,7 +187,6 @@ module.exports = (db) => {
   router.post('/:pin_id/rating', (req, res) => {
 
     // Replace this dummy user_id with the one specified in the user's session
-    // Write some code to validate that the request comes from the user who made the pin
     const userId = 1;
 
     const pinId = req.params.pin_id;
@@ -197,8 +195,10 @@ module.exports = (db) => {
     const queryString = `
       INSERT INTO ratings (user_id, pin_id, rating)
       VALUES ($1, $2, $3)
+      ON CONFLICT (user_id, pin_id) DO NOTHING
       RETURNING *;
     `;
+
     const values = [userId, pinId, rating];
 
     db.query(queryString, values)
