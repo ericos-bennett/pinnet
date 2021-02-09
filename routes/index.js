@@ -38,33 +38,36 @@ module.exports = (db) => {
   // Registration route to create a new user and sign them in
   // User must NOT be signed in to access this route
   router.post('/register', (req, res) => {
-    // const values = [
-    //   req.body.username,
-    //   req.body.email,
-    //   req.body.password,
-    // ];
+    if (req.cookies.userId) {
+      res.status(403).send('⚠️ You&#39;re already logged in.');
+    } else {
+      if (req.body.username === '' ||
+          req.body.email === '' ||
+          req.body.password === '') {
+        res.status(400).send('⚠️ Username, email and/or password cannot be empty.\nPlease try again.');
+        return;
+      }
 
-    // console.log(values);
+      const values = [
+        req.body.username,
+        req.body.email,
+        req.body.password,
+      ];
 
-    // const queryString = `
-    //   INSERT INTO users (username, email, password)
-    //   VALUES ($1, $2, $3)
-    //   RETURNING *;
-    // `;
+      const queryString = `
+        INSERT INTO users (username, email, password)
+        VALUES ($1, $2, $3)
+        RETURNING *;
+      `;
 
-    // db.query(queryString, values)
-    //   .then(res => res.rows[0])
-    //   .catch(err => {
-    //     res
-    //       .status(500)
-    //       .json({ error: err.message });
-    //   });
-
-    // if (req.session.userId) {
-    //   res.status(404).send('⚠️ ERROR: cannot register for an account while logged in.');
-    // } else {
-
-    // }
+      db.query(queryString, values)
+        .then(data => {
+          const user = data.rows[0]; // Data is retrieved from the users table.
+          res.cookie('userId', user.id);
+          
+          res.redirect('/');
+        });
+    }
   });
 
   // Route to get the login page
