@@ -11,8 +11,15 @@ const connectionString = process.env.DATABASE_URL ||
   `postgresql://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}?sslmode=disable`;
 const client = new Client();
 
+// Grants user auth
+// const grantUserAuth = () => {
+//   const sql = `ALTER USER labber WITH SUPERUSER`;
+//   console.log(chalk.cyan(`-> Granting user authorization ...`));
+//   client.querySync(sql);
+// };
+
 // Loads the schema files from db/schema
-const runSchemaFiles = function () {
+const runSchemaFiles = function() {
   console.log(chalk.cyan(`-> Loading Schema Files ...`));
   const schemaFilenames = fs.readdirSync('./db/schema');
 
@@ -23,7 +30,8 @@ const runSchemaFiles = function () {
   }
 };
 
-const runSeedFiles = function () {
+// Loads the seed files from db/seeds
+const runSeedFiles = function() {
   console.log(chalk.cyan(`-> Loading Seeds ...`));
   const schemaFilenames = fs.readdirSync('./db/seeds');
 
@@ -37,6 +45,7 @@ const runSeedFiles = function () {
 try {
   console.log(`-> Connecting to PG using ${connectionString} ...`);
   client.connectSync(connectionString);
+  // grantUserAuth();
   runSchemaFiles();
   runSeedFiles();
   client.end();

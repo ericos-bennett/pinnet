@@ -41,6 +41,10 @@ button {
   color: orange;
 }
 
+.like-count {
+  color: #CB3365;
+}
+
 .content {
   width: calc(100% - 250px);
   height: 100%;
@@ -145,12 +149,6 @@ h2 {
 
   font-family: "Gotham Light", sans-serif;
   color: #ffffff;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 70vh;
-  top: 10vh;
 
   transition: all 0.3s;
 }
@@ -291,7 +289,12 @@ h2 {
 
   visibility: hidden;
 
-  color: #ababab;
+
+  font-size: 1em;
+  color: #ABABAB;
+
+  padding-top: 5px;
+  padding-right: 25px;
 }
 
 .card-sm header {
@@ -322,6 +325,7 @@ h2 {
 .card-sm-avg-rating {
   display: flex;
   flex-direction: row;
+  gap: 25px;
   font-size: 0.8em;
   align-items: center;
   color: red;
@@ -366,6 +370,7 @@ h2 {
   flex-direction: row;
 }
 
+
 .external-link-alt {
   font-size: 0.8em;
 }
@@ -399,7 +404,20 @@ h2 {
   font-size: 0.8em;
 }
 
+.like,
+.fa-external-link-alt {
+  color: #ABABAB;
+}
+
+.like:hover,
+.fa-external-link-alt:hover {
+  color: #5143B9;
+}
+
+
+
 /* ---------------------------------------------------
+
   AUTH STYLES
 ----------------------------------------------------- */
 
@@ -599,6 +617,15 @@ hr {
   margin: auto auto;
   margin-bottom: 40px;
 }
+
+.stats {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+
+  font-size: 1em;
+}
+
 /* ---------------------------------------------------
   SEARCH BAR
 ----------------------------------------------------- */
