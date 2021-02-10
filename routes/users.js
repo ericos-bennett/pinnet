@@ -14,7 +14,7 @@ module.exports = (db) => {
     const userLink = req.params.user_id;
 
     const queryString = `
-      SELECT pins.*, count(favourites.id), ROUND(avg(ratings.rating), 1)
+      SELECT pins.*, count(favourites.id) AS like_count, ROUND(avg(ratings.rating), 1) AS rating
       FROM pins
       LEFT JOIN favourites
       ON pins.id = favourites.pin_id
