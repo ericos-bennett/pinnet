@@ -72,7 +72,7 @@ module.exports = (db) => {
           res.cookie('userId', user.id);
 
           res.redirect('/');
-        });
+        }).catch(err => console.log(err));
     }
   });
 
