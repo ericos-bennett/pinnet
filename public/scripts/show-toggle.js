@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $(".display").click(function (e) {
+  $(".display").on("click", function (e) {
     if ($(event.target).hasClass("close")) {
       $(this).find("div.pop-out").removeClass("show");
       $(this).find("div.pop-out").addClass("hide");
