@@ -1,7 +1,5 @@
 <div class="sidebar">
-
   <div class="sidebar-container">
-
     <a href="/" class="sidebar-header">
       <div class="logo-icon"></div>
       <h1>pinnet</h1>
@@ -9,29 +7,31 @@
 
     <!-- User is logged in -->
     <% if (userId) { %>
-      <div class="menu">
-        <a href="/">Explore</a>
-        <a href="/users/<%= userId %>">My Pins</a>
-      </div>
+    <div class="menu">
+      <a href="/">Explore</a>
+      <a href="/users/<%= userId %>">My Pins</a>
+      <p class="create-pin">
+        <i class="fas fa-plus"></i>
+        <i class="fas fa-map-pin"></i>
+      </p>
+    </div>
 
-      <div class="logins">
-        <form class="form-inline" method="POST" action="/logout">
-          <button>Log Out</button>
-        </form>
-      </div>
+    <div class="logins">
+      <form class="form-inline" method="POST" action="/logout">
+        <button>Log Out</button>
+      </form>
+    </div>
 
-      <!-- User is not logged in -->
+    <!-- User is not logged in -->
     <% } else { %>
-      <div class="menu">
-        <a href="/">Explore</a>
-      </div>
+    <div class="menu">
+      <a href="/">Explore</a>
+    </div>
 
-      <div class="logins">
-        <a href="/login">Login</a>
-        <a href="/register">Register</a>
-      </div>
+    <div class="logins">
+      <a href="/login">Login</a>
+      <a href="/register">Register</a>
+    </div>
     <% } %>
-
   </div>
-
 </div>
