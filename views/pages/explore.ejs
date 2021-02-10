@@ -12,7 +12,7 @@
         </div>
         <p><%= pin.description %></p>
         <div class="card-sm-avg-rating">
-          <div class="fas fa-star checked">
+          <div id="rating" class="fas fa-star checked">
             <% if(Number(pin.rating) !== 0.0) { %> <%=
             Number(pin.rating).toFixed(1) %> <% } else { %> <%=
             Number(pin.rating).toFixed()%> <% } %>
@@ -31,7 +31,10 @@
     <!-- Pop-Out Content -->
     <div class="pop-out hide">
       <div class="pop-content">
-        <div class="close">+</div>
+        <div class="top-show">
+          <div class="time"><%= pin.created_at%>By:</div>
+          <div class="close">+</div>
+        </div>
         <header>
           <img src="<%= pin.media %> " />
           <div class="text">
@@ -43,11 +46,13 @@
           </div>
         </header>
         <footer class="show">
-          <div class="fas fa-star checked">
-            <% if(Number(pin.rating) !== 0.0) { %> <%=
-            Number(pin.rating).toFixed(1) %> <% } else { %>
-            <p>No Rating Yet</p>
-            <% } %>
+          <div class="card-sm-avg-rating">
+            <div id="rating" class="fas fa-star checked">
+              <% if(Number(pin.rating) !== 0.0) { %> <%=
+              Number(pin.rating).toFixed(1) %> <% } else { %> <%=
+              Number(pin.rating).toFixed()%> <% } %>
+            </div>
+            <div class="fas fa-heart like-count"><%= pin.like_count %></div>
           </div>
           <div class="buttons">
             <button>
