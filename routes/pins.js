@@ -27,6 +27,8 @@ module.exports = (db) => {
       ON pins.id = ratings.pin_id
       LEFT JOIN users
       ON pins.user_id = users.id
+      WHERE LOWER(title) LIKE $1
+        OR LOWER(description) LIKE $1
       GROUP BY pins.id, users.id
       ORDER BY created_at DESC;
     ;`;
