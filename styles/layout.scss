@@ -26,7 +26,7 @@ body {
   height: 100%;
 
   background-attachment: fixed;
-  background-image: linear-gradient(30deg, #5143B9, #44A8C4);
+  background-image: linear-gradient(30deg, #5143b9, #44a8c4);
 }
 
 /* Override all button style defaults */
@@ -52,7 +52,7 @@ button {
 
   position: fixed;
 
-  background-color: #FCFCFC;
+  background-color: #fcfcfc;
 
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
@@ -84,7 +84,7 @@ h2 {
 }
 .logins a {
   text-decoration: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .logins button:before,
@@ -95,7 +95,7 @@ h2 {
   bottom: 0;
   left: 0;
 
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 
   visibility: hidden;
   transform: scaleX(0);
@@ -144,7 +144,7 @@ h2 {
   left: 0;
 
   font-family: "Gotham Light", sans-serif;
-  color: #FFFFFF;
+  color: #ffffff;
 
   display: flex;
   flex-direction: column;
@@ -169,13 +169,15 @@ h2 {
   top: 10vh;
 }
 
-#mCSB_1:active, #mCSB_1:hover, #mCSB_1:focus {
+#mCSB_1:active,
+#mCSB_1:hover,
+#mCSB_1:focus {
   outline: 0;
 }
 
 .sidebar a {
   text-decoration: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .sidebar button {
@@ -186,13 +188,12 @@ h2 {
 .sidebar-header {
   font-family: "Gotham Black", sans-serif;
   text-decoration: none;
-  color: #FFFFFF;
+  color: #ffffff;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 
 /* ---------------------------------------------------
   SIDEBAR TOGGLE
@@ -209,19 +210,20 @@ h2 {
   border: none;
 
   font-size: 25px;
-  color: #ABABAB;
+  color: #ababab;
 
-  border: #ABABAB 2px solid;
+  border: #ababab 2px solid;
   border-radius: 10px;
 }
 
 #sidebarCollapse:hover {
-  color: #5143B9;
+  color: #5143b9;
 
-  border: #5143B9 2px solid;
+  border: #5143b9 2px solid;
 }
 
-#sidebarCollapse:active, #sidebarCollapse:focus {
+#sidebarCollapse:active,
+#sidebarCollapse:focus {
   outline: 0;
 }
 
@@ -242,19 +244,16 @@ h2 {
   overflow-y: scroll;
 }
 
-::-webkit-scrollbar
-{
-  width: 12px;  /* for vertical scrollbars */
+::-webkit-scrollbar {
+  width: 12px; /* for vertical scrollbars */
   height: 12px; /* for horizontal scrollbars */
 }
 
-::-webkit-scrollbar-track
-{
+::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.05);
 }
 
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.2);
 }
 
@@ -274,7 +273,7 @@ h2 {
 }
 
 .card-sm h2:hover {
-  color: #5143B9;
+  color: #5143b9;
 }
 
 .card-sm {
@@ -292,7 +291,7 @@ h2 {
 
   visibility: hidden;
 
-  color: #ABABAB;
+  color: #ababab;
 }
 
 .card-sm header {
@@ -305,7 +304,7 @@ h2 {
   justify-content: center;
   gap: 25px;
 
-  border: #EEEEEE 2px solid;
+  border: #eeeeee 2px solid;
   border-radius: 25px;
 }
 
@@ -331,7 +330,7 @@ h2 {
   width: 160px;
   height: 160px;
 
-  background-color: #44A8C4;
+  background-color: #44a8c4;
   border-radius: 25px;
 }
 
@@ -367,11 +366,11 @@ h2 {
 }
 
 .link {
-  color: #ABABAB;
+  color: #ababab;
 }
 
 .link:hover {
-  color: #5143B9;
+  color: #5143b9;
 }
 
 /* ---------------------------------------------------
@@ -379,11 +378,11 @@ h2 {
 ----------------------------------------------------- */
 
 .fa-heart:hover {
-  color: #5143B9;
+  color: #5143b9;
 }
 
 .fa-plus-square:hover {
-  color: #5143B9;
+  color: #5143b9;
 }
 
 .like {
@@ -425,11 +424,11 @@ h2 {
 }
 
 .btn {
-  background-color: #5143B9;
+  background-color: #5143b9;
 }
 
 .btn:hover {
-  background-color: #7469C9;
+  background-color: #7469c9;
 }
 
 .form-group {
@@ -441,7 +440,7 @@ h2 {
   align-items: center;
 }
 
-.form-group label{
+.form-group label {
   width: 150px;
 }
 
@@ -454,14 +453,14 @@ h2 {
 }
 
 .login-register-submit p {
-  color: #ABABAB;
+  color: #ababab;
   font-size: 0.8em;
 
   margin-top: 50px;
 }
 
 .login-register-submit a {
-  color: #ABABAB;
+  color: #ababab;
 }
 
 .required {
@@ -471,187 +470,136 @@ h2 {
 /* ---------------------------------------------------
   CARD MODAL POPUP
 ----------------------------------------------------- */
-
-#screen, #modal {
-  display: none;
+// controls black out background
+.pop-out {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
   position: absolute;
-}
-
-#screen {
-  // Aligns the screen to take up the container.
   top: 0;
   left: 0;
-  bottom: 0;
-  right: 0;
-
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 1;
-
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-}
-
-#modal {
-  // Centers the modal in the middle of the container.
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  height: calc(100% - 200px);
-  width: calc(100% - 15vw);
-  z-index: 2;
-
-  padding-right: 50px;
-  padding-left: 50px;
-
-  background: #FCFCFC;
-  border: 10px solid #516BFD;
-
-  font-family: "Gotham Light", sans-serif;
-
-  overflow-y: scroll;
-
-  ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #ABABAB;
-    border-radius: 15px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover{
-    background: #5143B9;
-  }
-
-  ::-webkit-scrollbar-track{
-    background: #FCFCFC;
-    border-radius: 15px;
-  }
-
-  border-radius: 25px;
-
-  // !!!! Really laggy for me so commented out for now.
-  // animation: fadeIn ease 0.7s;
-
-  // @keyframes fadeIn {
-  //   0% {
-  //     opacity: 0;
-  //   }
-  //   100% {
-  //     opacity: 1;
-  //   }
-  // }
-}
-
-.close {
-  color: #ABABAB;
-  font-size: 2vw;
-
-  cursor: pointer;
-}
-
-.close:hover {
-  color: #5143B9;
-}
-
-.modal-container {
-  display: flex;
-  flex-direction: column;
-
-  padding-top: 15px;
-}
-
-.modal-container header {
-  display: flex;
-  flex-direction: row;
-}
-
-.modal-creator-info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.modal-creator-name {
-  font-size: 0.8em;
-}
-
-.modal-creator-time {
-  font-size: 0.6em;
-}
-
-.modal-image {
-  width: 300px;
-  height: 300px;
-
-  margin-right: 25px;
-
-  background-color: #44A8C4;
-  border-radius: 25px;
-}
-
-.modal-image img {
-  max-width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-
-  border-radius: inherit;
-}
-
-.modal-info {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
 
-.modal-link {
-
-  margin-bottom: 30px;
-
-  font-size: 2em;
-}
-
-.modal-nav {
-  position: sticky;
-  top: 0;
-  width: 100%;
-
-  padding-top: 25px;
-  padding-bottom: 25px;
-
+//controls all styles withing the pop-out card
+.pop-content {
+  height: 800px;
+  width: 800px;
+  margin: auto auto;
+  background-color: #fff;
+  border-radius: 25px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  border: 10px solid black;
+  border-color: #516bfd;
+  font-family: "Gotham light";
+  animation: fadeIn ease 0.7s;
 
-  background-color: #FCFCFC;
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 
-  z-index: 99;
+  header {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    border: none;
+    text-align: center;
+
+    div {
+      width: 95%;
+      margin: 0 auto;
+      padding: 0;
+
+      img {
+        width: 90%;
+        height: 90%;
+        border-radius: 15px;
+      }
+    }
+  }
+  h2 {
+    text-align: center;
+    font-family: "Gotham black";
+    margin-bottom: 20px;
+  }
+
+  header:hover {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    font-size: 18px;
+
+    .fa-star {
+      color: orange;
+    }
+  }
+
+  .buttons {
+    display: flex;
+  }
+}
+// controls the model close
+.close {
+  font-size: 42px;
+  align-self: flex-end;
+  padding: 10px;
+  transform: rotate(45deg);
+  cursor: pointer;
+  z-index: 999;
+}
+// hide show toggle
+.show {
+  display: flex;
+}
+.hide {
+  display: none;
 }
 
+hr {
+  width: 80%;
+  padding-bottom: 10px;
+  margin: 0 auto;
+}
 /* ---------------------------------------------------
   SEARCH BAR
 ----------------------------------------------------- */
 
 #search {
-  background: #EEEEEE;
-  color: #ABABAB;
+  background: #eeeeee;
+  color: #ababab;
   border-radius: 50px;
 }
 
-#search::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #ABABAB;
+#search::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ababab;
   opacity: 1; /* Firefox */
 }
 
-#search:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: #ABABAB;
+#search:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #ababab;
 }
 
-#search::-ms-input-placeholder { /* Microsoft Edge */
-  color: #ABABAB;
+#search::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #ababab;
 }
 
 /* ---------------------------------------------------
