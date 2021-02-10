@@ -30,7 +30,7 @@ body {
   height: 100%;
 
   background-attachment: fixed;
-  background-image: linear-gradient(30deg, #5143b9, #44a8c4);
+  background-image: linear-gradient(30deg, #5143B9, #44A8C4);
 }
 
 /* Override all button style defaults. */
@@ -182,9 +182,9 @@ a[data-toggle="collapse"] {
 }
 
 #sidebarCollapse:hover {
-  color: #5143b9;
+  color: #5143B9;
 
-  border: #5143b9 2px solid;
+  border: #5143B9 2px solid;
 }
 
 /* ---------------------------------------------------
@@ -227,14 +227,24 @@ a[data-toggle="collapse"] {
 
   overflow-y: scroll;
 
-  /* Hides the scrollbar on IE and Firefox */
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
 
-/* Hides the scrollbar on Chrome, Safari, and Opera */
-.explore::-webkit-scrollbar {
-  display: none;
+  ::-webkit-scrollbar-thumb {
+    background: #ABABAB;
+    border-radius: 15px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover{
+    background: #5143B9;
+  }
+
+  ::-webkit-scrollbar-track{
+    background: #fcfcfc;
+    border-radius: 15px;
+  }
 }
 
 /* ---------------------------------------------------
@@ -298,7 +308,7 @@ h2 {
   width: 160px;
   height: 160px;
 
-  background-color: #44a8c4;
+  background-color: #44A8C4;
   border-radius: 25px;
 }
 
@@ -338,7 +348,7 @@ h2 {
 }
 
 .link:hover {
-  color: #5143b9;
+  color: #5143B9;
 }
 
 /* ---------------------------------------------------
@@ -346,11 +356,11 @@ h2 {
 ----------------------------------------------------- */
 
 .fa-heart:hover {
-  color: #5143b9;
+  color: #5143B9;
 }
 
 .fa-plus-square:hover {
-  color: #5143b9;
+  color: #5143B9;
 }
 
 .like {
@@ -433,6 +443,25 @@ h2 {
 
 .pop-container {
   overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ABABAB;
+    border-radius: 15px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover{
+    background: #5143B9;
+  }
+  
+  ::-webkit-scrollbar-track{
+    background: #fcfcfc;
+    border-radius: 15px;
+  }
 
   header {
     width: 100%;
