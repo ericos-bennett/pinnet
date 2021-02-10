@@ -28,7 +28,8 @@ module.exports = (db) => {
     ).then((data) => {
       const pins = data.rows;
       const userId = req.cookies.userId;
-      res.render("index", { pins, userId });
+      const page = "explore";
+      res.render("index", { pins, userId, page });
     })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -41,7 +42,8 @@ module.exports = (db) => {
     if (req.cookies.userId) {
       res.status(403).send('⚠️ You&#39;re already logged in.');
     } else {
-      res.render("register", { userId : null });
+      const page = "register";
+      res.render("index", { userId : null, page });
     }
   });
 
@@ -85,7 +87,8 @@ module.exports = (db) => {
     if (req.cookies.userId) {
       res.redirect("/");
     } else {
-      res.render("login", { userId : null });
+      const page = "login"
+      res.render("index", { userId : null, page });
     }
   });
 
