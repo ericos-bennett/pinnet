@@ -53,23 +53,23 @@ module.exports = (db) => {
   // Add pins to my wall via the create form
   router.post('/', (req, res) => {
 
+    const userId = req.cookies.userId;
+
     // const userId = req.cookies.userId;
-    const pinData = {...req.body, userId : req.cookies.userId};
+    const pinData = {...req.body, userId};
 
     // Only send the query if all required values are truthy
     if (pinData.userId && pinData.title && pinData.url && pinData.media) {
 
       const queryString = `
       INSERT INTO pins(user_id, title, url, description, media)
-      VALUES($1, $2, $3, $4, $5)
-      RETURNING *;
+      VALUES($1, $2, $3, $4, $5);
       `;
       const values = [pinData.userId, pinData.title, pinData.url, pinData.description, pinData.media];
 
       db.query(queryString, values)
-        .then(data => {
-          const newPin = data.rows[0];
-          res.json({ newPin });
+        .then(() => {
+          res.redirect(`/users/${userId}`);
         })
         .catch(err => {
           res
@@ -92,13 +92,12 @@ module.exports = (db) => {
     // Only run the query if a user is signed in
     if (userId) {
 
-      // Add this line and update the schema once we have unique URLs in seeds
-      // ON CONFLICT (user_id, url) DO NOTHING
       const queryString = `
         INSERT INTO pins (user_id, title, url, description, media)
         SELECT $1, title, url, description, media
         FROM pins
         WHERE id = $2
+        ON CONFLICT (user_id, url) DO NOTHING
         RETURNING *;
       `;
       const values = [userId, pinId];
@@ -109,6 +108,7 @@ module.exports = (db) => {
             INSERT INTO favourites (user_id, pin_id)
             VALUES ($1, $2)
             ON CONFLICT (user_id, pin_id) DO NOTHING
+            RETURNING pin_id;
           `;
           const values = [userId, pinId];
 
