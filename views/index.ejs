@@ -14,10 +14,16 @@
           <span class="fas fa-bars"></span>
         </button>
 
-        <form id="searchbar" class="form-outline" method="GET" action="/pins">
-          <input type="search" name="search" id="search" class="form-control" placeholder="Search for a pin!"
-          aria-label="Search"/>
-        </form>
+        <% if (searchTerm) { %>
+          <h4>Search for: <strong><%= searchTerm %></strong></h4>
+        <% } %>
+
+        <% if (page === 'explore') { %>
+          <form id="searchbar" class="form-outline" method="GET" action="/pins">
+            <input type="search" name="search" id="search" class="form-control" placeholder="Search for a pin!"
+            aria-label="Search"/>
+          </form>
+        <% } %>
       </div>
 
       <div class="content-body">

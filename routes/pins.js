@@ -32,7 +32,8 @@ module.exports = (db) => {
         const pins = data.rows;
         const userId = req.cookies.userId;
         const page = "explore";
-        res.render("index", { pins, userId, page });
+        const searchTerm = search.substring(1, search.length-1);
+        res.render("index", { pins, userId, page, searchTerm});
       })
       .catch(err => {
         res
