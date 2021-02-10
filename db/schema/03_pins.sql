@@ -7,5 +7,6 @@ CREATE TABLE pins(
   url VARCHAR(255) NOT NULL,
   description TEXT,
   media VARCHAR(255) NOT NULL,
-  created_at TIMESTAMP NOT NULL DEFAULT NOW()
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  UNIQUE(user_id, url)
 );

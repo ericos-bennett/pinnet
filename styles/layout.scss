@@ -259,6 +259,10 @@ h2 {
   CARDS (SMALL)
 ----------------------------------------------------- */
 
+.display-header {
+  cursor: pointer;
+}
+
 .card-sm h2 {
   white-space: wrap;
   overflow: hidden;
@@ -398,6 +402,10 @@ h2 {
   flex-direction: row;
 }
 
+.like:hover, .like:active, .like:focus {
+  outline: none;
+}
+
 .like-counter {
   font-size: 0.8em;
 }
@@ -413,7 +421,6 @@ h2 {
 }
 
 /* ---------------------------------------------------
-
   AUTH STYLES
 ----------------------------------------------------- */
 
