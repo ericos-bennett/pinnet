@@ -14,15 +14,15 @@ module.exports = (db) => {
     const userLink = req.params.user_id;
 
     const queryString = `
-    SELECT pins.*, count(favourites.id), ROUND(avg(ratings.rating), 1)
-    FROM pins
-    LEFT JOIN favourites
-    ON pins.id = favourites.pin_id
-    LEFT JOIN ratings
-    ON pins.id = ratings.pin_id
-    WHERE pins.user_id = $1
-    GROUP BY pins.id
-    ORDER BY created_at DESC;`;
+      SELECT pins.*, count(favourites.id), ROUND(avg(ratings.rating), 1)
+      FROM pins
+      LEFT JOIN favourites
+      ON pins.id = favourites.pin_id
+      LEFT JOIN ratings
+      ON pins.id = ratings.pin_id
+      WHERE pins.user_id = $1
+      GROUP BY pins.id
+      ORDER BY created_at DESC;`;
     const values = [userLink];
 
     db.query(queryString, values)
