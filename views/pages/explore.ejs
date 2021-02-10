@@ -9,30 +9,23 @@
       <div class="card-sm-info">
         <div class="card-sm-link">
           <h2><%= pin.title %></h2>
-          <a href="<%= pin.url %>" class="link">
-            <span class="fas fa-external-link-alt"></span>
-          </a>
         </div>
         <p><%= pin.description %></p>
         <div class="card-sm-avg-rating">
           <div class="fas fa-star checked">
-            <% if(Number(pin.rating) !== null) { %> <%=
-            Number(pin.rating).toFixed(1) %> <% } else { %>
-            <p>No ratings yet</p>
-            <% } %>
+            <% if(Number(pin.rating) !== 0.0) { %> <%=
+            Number(pin.rating).toFixed(1) %> <% } else { %> <%=
+            Number(pin.rating).toFixed()%> <% } %>
           </div>
+          <div class="fas fa-heart like-count"><%= pin.like_count %></div>
         </div>
       </div>
     </header>
     <footer>
-      <button>
-        <span class="far fa-plus-square"></span>
-      </button>
-
-      <div class="like">
-        <button class="far fa-heart"></button>
-        <%= pin.like_count %>
-      </div>
+      <button class="far fa-heart like"></button>
+      <a href="<%= pin.url %>" class="link">
+        <span class="fas fa-external-link-alt"></span>
+      </a>
     </footer>
 
     <!-- Pop-Out Content -->
@@ -40,21 +33,21 @@
       <div class="pop-content">
         <div class="close">+</div>
         <header>
-          <div>
+          <img src="<%= pin.media %> " />
+          <div class="text">
             <h2><%= pin.title %></h2>
-            <img src="<%= pin.media %> " />
-          </div>
-          <div class="card-lg-info">
-            <div class="card-lg-link"></div>
             <hr />
-            <p><%= pin.description %></p>
+            <div class="card-lg-info">
+              <p><%= pin.description %></p>
+            </div>
           </div>
         </header>
-        <footer>
+        <footer class="show">
           <div class="fas fa-star checked">
-            <% if(Number(pin.rating) !== null){ %>
-            <%=Number(pin.rating).toFixed(1) %> <% }else{ %> <%=
-            Number(pin.rating)%> <% } %>
+            <% if(Number(pin.rating) !== 0.0) { %> <%=
+            Number(pin.rating).toFixed(1) %> <% } else { %>
+            <p>No Rating Yet</p>
+            <% } %>
           </div>
           <div class="buttons">
             <button>
