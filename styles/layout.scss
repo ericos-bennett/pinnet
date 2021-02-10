@@ -18,12 +18,8 @@
 }
 
 /* ---------------------------------------------------
-  GENERAL
+  GENERAL LAYOUT
 ----------------------------------------------------- */
-
-.content-body {
-  height: 100%;
-}
 
 body {
   width: 100%;
@@ -33,12 +29,45 @@ body {
   background-image: linear-gradient(30deg, #5143B9, #44A8C4);
 }
 
-/* Override all button style defaults. */
+/* Override all button style defaults */
 button {
   border: none;
   font: inherit;
   color: inherit;
   background-color: transparent;
+}
+
+.checked {
+  color: orange;
+}
+
+.content {
+  width: calc(100% - 250px);
+  height: 100%;
+  padding: 50px;
+  min-height: 100vh;
+  transition: all 0.3s;
+  top: 0;
+  right: 0;
+
+  position: fixed;
+
+  background-color: #FCFCFC;
+
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.content.active {
+  width: 100%;
+}
+
+.content-body {
+  height: 100%;
+}
+
+h2 {
+  font-family: "Gotham Black", sans-serif;
 }
 
 /* ---------------------------------------------------
@@ -159,7 +188,7 @@ button {
 
 
 /* ---------------------------------------------------
-  TOGGLE BAR
+  SIDEBAR TOGGLE
 ----------------------------------------------------- */
 
 #sidebarCollapse {
@@ -182,29 +211,8 @@ button {
 }
 
 /* ---------------------------------------------------
-  CONTENT
+  EXPLORE PAGE
 ----------------------------------------------------- */
-
-.content {
-  width: calc(100% - 250px);
-  height: 100%;
-  padding: 50px;
-  min-height: 100vh;
-  transition: all 0.3s;
-  top: 0;
-  right: 0;
-
-  position: fixed;
-
-  background-color: #FCFCFC;
-
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-}
-
-.content.active {
-  width: 100%;
-}
 
 .explore {
   width: 100%;
@@ -241,17 +249,22 @@ button {
 }
 
 /* ---------------------------------------------------
-  CARD (SMALL)
+  CARDS (SMALL)
 ----------------------------------------------------- */
 
-h2 {
+.card-sm h2 {
   white-space: wrap;
   overflow: hidden;
   text-overflow: ellipsis;
   display: inline-block;
 
-  font-family: "Gotham Black";
   font-size: 1.5em;
+
+  cursor: pointer;
+}
+
+.card-sm h2:hover {
+  color: #5143B9;
 }
 
 .card-sm {
@@ -301,7 +314,6 @@ h2 {
   display: flex;
   flex-direction: row;
 
-  color: orange;
   font-size: 0.8em;
 }
 
@@ -424,12 +436,137 @@ h2 {
   transform: translate(-50%, -50%);
 
   height: calc(100% - 200px);
-  width: calc(100% - 10vw);
+  width: calc(100% - 15vw);
   z-index: 2;
 
-  background: white;
+  padding-right: 50px;
+  padding-left: 50px;
+
+  background: #FCFCFC;
+  border: 10px solid #516BFD;
+
+  font-family: "Gotham Light", sans-serif;
 
   overflow-y: scroll;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #ABABAB;
+    border-radius: 15px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover{
+    background: #5143B9;
+  }
+
+  ::-webkit-scrollbar-track{
+    background: #FCFCFC;
+    border-radius: 15px;
+  }
+
+  border-radius: 25px;
+
+  // !!!! Really laggy for me so commented out for now.
+  // animation: fadeIn ease 0.7s;
+
+  // @keyframes fadeIn {
+  //   0% {
+  //     opacity: 0;
+  //   }
+  //   100% {
+  //     opacity: 1;
+  //   }
+  // }
+}
+
+.close {
+  color: #ABABAB;
+  font-size: 2vw;
+
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #5143B9;
+}
+
+.modal-container {
+  display: flex;
+  flex-direction: column;
+
+  padding-top: 15px;
+}
+
+.modal-container header {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-creator-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.modal-creator-name {
+  font-size: 0.8em;
+}
+
+.modal-creator-time {
+  font-size: 0.6em;
+}
+
+.modal-image {
+  width: 300px;
+  height: 300px;
+
+  margin-right: 25px;
+
+  background-color: #44A8C4;
+  border-radius: 25px;
+}
+
+.modal-image img {
+  max-width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: inherit;
+}
+
+.modal-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal-link {
+
+  margin-bottom: 30px;
+
+  font-size: 2em;
+}
+
+.modal-nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  background-color: #FCFCFC;
+
+  z-index: 99;
 }
 
 
