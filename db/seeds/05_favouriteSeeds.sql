@@ -47,10 +47,6 @@ Values(4,28, true);
 INSERT INTO favourites(user_id, pin_id, is_liked)
 Values(5,29, true);
 INSERT INTO favourites(user_id, pin_id, is_liked)
-Values(6,12, true);
-INSERT INTO favourites(user_id, pin_id, is_liked)
-Values(2,21, true);
-INSERT INTO favourites(user_id, pin_id, is_liked)
 Values(2,16, true);
 INSERT INTO favourites(user_id, pin_id, is_liked)
 Values(6,10, true);

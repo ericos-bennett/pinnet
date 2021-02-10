@@ -48,8 +48,7 @@ module.exports = (db) => {
 
   });
 
-  // Add pins to my wall
-  // This route is triggered by both creating a new pin OR liking someone else's
+  // Add pins to my wall via the create form
   router.post('/', (req, res) => {
 
     // const userId = req.cookies.userId;
@@ -81,6 +80,42 @@ module.exports = (db) => {
     }
 
   });
+
+  // Add pins to my wall by liking someone else's
+  router.post('/:pin_id/like', (req, res) => {
+
+    const userId = req.cookies.userId;
+    const pinId = req.params.pin_id;
+
+    const queryString = `
+      INSERT INTO pins (user_id, title, url, description, media)
+      SELECT $1, title, url, description, media
+      FROM pins
+      WHERE id = $2
+      RETURNING *;
+    `;
+    const values = [userId, pinId];
+
+    db.query(queryString, values)
+      .then(() => {
+        const queryString = `
+          INSERT INTO favourites (user_id, pin_id)
+          VALUES ($1, $2)
+          ON CONFLICT (user_id, pin_id) DO NOTHING
+        `;
+        const values = [userId, pinId];
+
+        db.query(queryString, values)
+          .then(() => res.end())
+          .catch(err => console.log(err));
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
 
   // Edit pins on my wall (if the userId cookie is it's owner's user_id)
   router.put('/:pin_id', (req, res) => {
@@ -236,7 +271,7 @@ module.exports = (db) => {
           })
           .catch(err => console.log(err));
       })
-      .catch(err => console.log(err));`
+      .catch(err => console.log(err));
 
   });
 
