@@ -50,40 +50,42 @@
 <!-- Pop-Out Content -->
               <div class="pop-out hide">
                 <div class="pop-content">
-                    <div class="close fas fa-times"></div>
-                    <header>
-                      <div>
-                        <h2><%= pin.title %> </h2>
-                        <img src="<%= pin.media %> ">
-                      </div>
-                      <div class="card-lg-info">
-                        <div class="card-lg-link">
+                  <div class="close fas fa-times"></div>
+                    <div class="pop-container">
+                      <header>
+                        <div>
+                          <h2><%= pin.title %> </h2>
+                          <img src="<%= pin.media %> ">
                         </div>
-                        <hr>
-                        <p><%= pin.description %></p>
-                      </div>
-                    </header>
-                    <footer>
-                      <div class="fas fa-star checked">
-                        <% if(Number(pin.rating) !== null) { %>
-                          <%= Number(pin.rating).toFixed(1) %>
-                          <% } else { %>
-                          <%= Number(pin.rating) %>
-                          <% } %>
-                      </div>
-                      <div class="buttons">
-                        <button>
-                          <span class="far fa-plus-square"></span>
-                        </button>
-                        <div class="like">
-                          <button class="far fa-heart"></button>
-                          <p class="like-counter">25</p>
+                        <div class="card-lg-info">
+                          <div class="card-lg-link">
+                          </div>
+                          <hr>
+                          <p><%= pin.description %></p>
                         </div>
-                        <a href="<%= pin.url %>" class="link">
-                          <span class="fas fa-external-link-alt"></span>
-                        </a>
+                      </header>
+                      <footer>
+                        <div class="fas fa-star checked">
+                          <% if(Number(pin.rating) !== null) { %>
+                            <%= Number(pin.rating).toFixed(1) %>
+                            <% } else { %>
+                            <%= Number(pin.rating) %>
+                            <% } %>
+                        </div>
+                        <div class="buttons">
+                          <button>
+                            <span class="far fa-plus-square"></span>
+                          </button>
+                          <div class="like">
+                            <button class="far fa-heart"></button>
+                            <p class="like-counter">25</p>
+                          </div>
+                          <a href="<%= pin.url %>" class="link">
+                            <span class="fas fa-external-link-alt"></span>
+                          </a>
+                      </div>
+                      </footer>
                     </div>
-                    </footer>
                 </div>
               </div>
             </article>
