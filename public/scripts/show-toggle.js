@@ -1,12 +1,11 @@
 $(document).ready(function () {
-  $(".close").on("click", function () {
-    $("#display").addClass("hide");
-    $("#display").removeClass("show");
-    console.log("clicked");
-  });
-
-  $(".explore article").on("click", function () {
-    $("#display").addClass("show");
-    $("#display").removeClass("hide");
+  $(".display").click(function (e) {
+    if ($(event.target).hasClass("close")) {
+      $(this).find("div.pop-out").removeClass("show");
+      $(this).find("div.pop-out").addClass("hide");
+    } else {
+      $(this).find("div.pop-out").removeClass("hide");
+      $(this).find("div.pop-out").addClass("show");
+    }
   });
 });
