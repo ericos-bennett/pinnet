@@ -136,10 +136,22 @@ button {
   margin-left: -250px;
 }
 
+.sidebar a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.sidebar button {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
 .sidebar-header {
-  margin-top: 50px;
+  margin: 50px;
 
   font-family: "Gotham Black", sans-serif;
+  text-decoration: none;
+  color: #ffffff;
 
   display: flex;
   flex-direction: column;

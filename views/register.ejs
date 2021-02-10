@@ -1,15 +1,16 @@
-<%- include('partials/head') %> <%- include('partials/sideBar') %>
+<%- include('partials/head') %>
+<%- include('partials/sideBar') %>
 
 <div class="content">
   <div class="auth">
     <h2>Register Here!</h2>
     <form action="/register" method="POST">
       <div class="form-group">
-        <label for="exampleInputEmail1">Username</label>
+        <label for="exampleInputUsername1">Username</label>
         <input
-          type="email"
+          type="username"
           class="form-control"
-          id="exampleInputEmail1"
+          id="exampleInputUsername1"
           aria-describedby="emailHelp"
           placeholder="JaneDoe"
           name="username"

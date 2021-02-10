@@ -11,8 +11,6 @@ VALUES(3, 30,1);
 INSERT INTO ratings(user_id,pin_id,rating)
 VALUES(2, 29,3);
 INSERT INTO ratings(user_id,pin_id,rating)
-VALUES(1, 26,4);
-INSERT INTO ratings(user_id,pin_id,rating)
 VALUES(6, 17,5);
 INSERT INTO ratings(user_id,pin_id,rating)
 VALUES(3, 2,2);
@@ -32,8 +30,6 @@ INSERT INTO ratings(user_id,pin_id,rating)
 VALUES(2, 20,1);
 INSERT INTO ratings(user_id,pin_id,rating)
 VALUES(2, 21,3);
-INSERT INTO ratings(user_id,pin_id,rating)
-VALUES(2, 13,4);
 INSERT INTO ratings(user_id,pin_id,rating)
 VALUES(2, 11,4);
 INSERT INTO ratings(user_id,pin_id,rating)
