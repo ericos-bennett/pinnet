@@ -30,7 +30,7 @@ module.exports = (db) => {
         const pins = data.rows;
         const userId = req.cookies.userId;
         const page = "explore";
-        res.render("index", { pins, userId, page });
+        res.render("index", { pins, userId, page, searchTerm : null });
       })
       .catch(err => {
         res
