@@ -29,7 +29,8 @@ module.exports = (db) => {
       .then(data => {
         const pins = data.rows;
         const userId = req.cookies.userId;
-        res.render("index", { pins, userId });
+        const page = "explore";
+        res.render("index", { pins, userId, page });
       })
       .catch(err => {
         res
