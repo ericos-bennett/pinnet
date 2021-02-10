@@ -20,12 +20,11 @@
           <p><%= pin.description %> </p>
 
           <div class="card-sm-avg-rating">
-            <div class="fas fa-star checked"></div>
-            <div class="avg-rating">
+            <div class="fas fa-star checked">
               <% if(Number(pin.rating) !== null) { %>
-              <%= Number(pin.rating).toFixed(1) %>
+                <%= Number(pin.rating).toFixed(1) %>
               <% } else { %>
-              <%= Number(pin.rating) %>
+                <p>No ratings yet</p>
               <% } %>
             </div>
           </div>
@@ -39,8 +38,7 @@
         </button>
 
         <div class="like">
-          <button class="far fa-heart"></button>
-          <p class="like-counter">25</p>
+          <button class="far fa-heart"></button>25
         </div>
       </footer>
 
@@ -65,17 +63,16 @@
               <div class="fas fa-star checked">
                 <% if(Number(pin.rating) !== null) { %>
                   <%= Number(pin.rating).toFixed(1) %>
-                  <% } else { %>
-                  <%= Number(pin.rating) %>
-                  <% } %>
+                <% } else { %>
+                  <p>No ratings yet</p>
+                <% } %>
               </div>
               <div class="buttons">
                 <button>
                   <span class="far fa-plus-square"></span>
                 </button>
                 <div class="like">
-                  <button class="far fa-heart"></button>
-                  <p class="like-counter">25</p>
+                  <button class="far fa-heart">25</button>
                 </div>
                 <a href="<%= pin.url %>" class="link">
                   <span class="fas fa-external-link-alt"></span>
