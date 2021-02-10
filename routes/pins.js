@@ -89,35 +89,40 @@ module.exports = (db) => {
     const userId = req.cookies.userId;
     const pinId = req.params.pin_id;
 
-    const queryString = `
-      INSERT INTO pins (user_id, title, url, description, media)
-      SELECT $1, title, url, description, media
-      FROM pins
-      WHERE id = $2
-      RETURNING *;
-    `;
-    const values = [userId, pinId];
+    // Only run the query if a user is signed in
+    if (userId) {
 
-    db.query(queryString, values)
-      .then(() => {
-        const queryString = `
-          INSERT INTO favourites (user_id, pin_id)
-          VALUES ($1, $2)
-          ON CONFLICT (user_id, pin_id) DO NOTHING
-        `;
-        const values = [userId, pinId];
+      // Add this line and update the schema once we have unique URLs in seeds
+      // ON CONFLICT (user_id, url) DO NOTHING
+      const queryString = `
+        INSERT INTO pins (user_id, title, url, description, media)
+        SELECT $1, title, url, description, media
+        FROM pins
+        WHERE id = $2
+        RETURNING *;
+      `;
+      const values = [userId, pinId];
 
-        db.query(queryString, values)
-          .then(() => res.end())
-          .catch(err => console.log(err));
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
+      db.query(queryString, values)
+        .then(() => {
+          const queryString = `
+            INSERT INTO favourites (user_id, pin_id)
+            VALUES ($1, $2)
+            ON CONFLICT (user_id, pin_id) DO NOTHING
+          `;
+          const values = [userId, pinId];
+
+          db.query(queryString, values)
+            .then(() => res.end())
+            .catch(err => console.log(err));
+        })
+        .catch(err => console.log(err));
+
+    } else {
+      res.end();
+    }
+
   });
-
 
   // Edit pins on my wall (if the userId cookie is it's owner's user_id)
   router.put('/:pin_id', (req, res) => {

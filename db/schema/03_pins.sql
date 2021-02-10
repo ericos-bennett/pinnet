@@ -8,4 +8,5 @@ CREATE TABLE pins(
   description TEXT,
   media VARCHAR(255) NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT NOW()
+  -- UNIQUE(user_id, url)
 );
