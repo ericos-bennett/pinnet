@@ -100,17 +100,12 @@ button {
 }
 
 .menu {
-  font-size: 1.2em;
-}
-
-.menu {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   gap: 15px;
-
-  margin-bottom: 200px; /* remove this when figure out flexbox */
+  font-size: 1.2em;
 }
 
 .sidebar {
@@ -136,6 +131,20 @@ button {
   margin-left: -250px;
 }
 
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 70vh;
+  position: relative;
+  top: 10vh;
+}
+
+#mCSB_1:active, #mCSB_1:hover, #mCSB_1:focus {
+  outline: 0;
+}
+
 .sidebar a {
   text-decoration: none;
   color: #ffffff;
@@ -147,8 +156,6 @@ button {
 }
 
 .sidebar-header {
-  margin: 50px;
-
   font-family: "Gotham Black", sans-serif;
   text-decoration: none;
   color: #ffffff;
@@ -156,8 +163,10 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
 
-  margin-bottom: 150px; /* remove this when figure out flexbox */
+#searchbar {
+  width: 80%;
 }
 
 a[data-toggle="collapse"] {
@@ -183,8 +192,11 @@ a[data-toggle="collapse"] {
 
 #sidebarCollapse:hover {
   color: #5143b9;
-
   border: #5143b9 2px solid;
+}
+
+#sidebarCollapse:active, #sidebarCollapse:focus {
+  outline: 0;
 }
 
 /* ---------------------------------------------------
