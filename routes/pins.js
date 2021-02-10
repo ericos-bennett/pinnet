@@ -1,3 +1,4 @@
+
 /*
  * All routes for Users are defined here
  * These routes are mounted onto /users
@@ -19,10 +20,8 @@ module.exports = (db) => {
       ON pins.id = favourites.pin_id
       LEFT JOIN ratings
       ON pins.id = ratings.pin_id
-
       WHERE LOWER(title) LIKE $1
         OR LOWER(description) LIKE $1
-
       GROUP BY pins.id
       ORDER BY created_at DESC;
     ;`;
@@ -32,7 +31,9 @@ module.exports = (db) => {
       .then(data => {
         const pins = data.rows;
         const userId = req.cookies.userId;
-        res.render("index", { pins, userId });
+        const page = "explore";
+        const searchTerm = search.substring(1, search.length-1);
+        res.render("index", { pins, userId, page, searchTerm});
       })
       .catch(err => {
         res

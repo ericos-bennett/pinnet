@@ -1,0 +1,54 @@
+<div class="auth">
+  <div class="auth-header">
+    <h2>Register your account</h2>
+    <p>Start finding and sharing resources for your next project!</p>
+  </div>
+
+  <form action="/register" method="POST">
+    <div class="form-group">
+      <label for="exampleInputUsername1">Username <span class="required">*</span></label>
+      <input
+        type="username"
+        class="form-control"
+        id="exampleInputUsername1"
+        aria-describedby="emailHelp"
+        placeholder="pinnet"
+        name="username"
+        required
+        maxlength="30";
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email <span class="required">*</span></label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        placeholder="email@email.com"
+        name="email"
+        required
+        maxlength="255";
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password <span class="required">*</span></label>
+      <input
+        type="password"
+        class="form-control"
+        id="exampleInputPassword1"
+        placeholder="password"
+        name="password"
+        required
+        maxlength="255";
+      />
+    </div>
+
+    <div class="login-register-submit">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <p>Already have an account? <a href="/login">Login Here</a></p>
+    </div>
+  </form>
+</div>

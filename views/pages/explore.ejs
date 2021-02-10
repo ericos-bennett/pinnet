@@ -1,0 +1,109 @@
+<div class="explore">
+
+  <% for(const pin of pins){ %>
+
+    <article class="display card-sm">
+      <header>
+
+        <div class="card-sm-image">
+          <img src="<%= pin.media %>">
+        </div>
+
+        <div class="card-sm-info">
+          <div class="card-sm-link">
+            <h2><%= pin.title %></h2>
+            <a href="<%= pin.url %>" class="link">
+              <span class="fas fa-external-link-alt"></span>
+            </a>
+          </div>
+
+          <p><%= pin.description %> </p>
+
+          <div class="card-sm-avg-rating">
+            <div class="fas fa-star checked">
+              <% if(Number(pin.rating) !== null) { %>
+                <%= Number(pin.rating).toFixed(1) %>
+              <% } else { %>
+                <p>No ratings yet</p>
+              <% } %>
+            </div>
+          </div>
+        </div>
+
+      </header>
+
+      <footer>
+        <button>
+          <span class="far fa-plus-square"></span>
+        </button>
+
+        <div class="like">
+          <button class="far fa-heart"></button>
+          <%= pin.like_count %>
+        </div>
+      </footer>
+    </article>
+
+    <!-- Card modal popup -->
+    <div id="modal">
+
+      <div class="modal-nav">
+        <div class="close fas fa-times click"></div>
+        <div class="modal-creator">
+          <div class="modal-creator-profile-pic"></div>
+          <div class="modal-creator-info">
+            <div class="modal-creator-name">Created by <%= pin.user_id %></div>
+            <div class="modal-creator-time">on <%= pin.created_at %></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-container">
+        <header>
+          <div class="modal-image">
+            <img src="<%= pin.media %>">
+          </div>
+
+          <div class="modal-info">
+            <div class="modal-link">
+              <h2><%= pin.title %></h2>
+              <a href="<%= pin.url %>" class="link">
+                <span class="fas fa-external-link-alt"></span>
+              </a>
+            </div>
+
+            <div class="card-lg-link"></div>
+            <p><%= pin.description %></p>
+
+            <div class="fas fa-star checked">
+              <% if(Number(pin.rating) !== null) { %>
+                <%= Number(pin.rating).toFixed(1) %>
+              <% } else { %>
+                <p>No ratings yet</p>
+              <% } %>
+            </div>
+          </div>
+        </header>
+
+        <footer>
+          <div class="buttons">
+            <button><span class="far fa-plus-square"></span></button>
+
+            <div class="like">
+              <button class="far fa-heart"></button>
+              <%= pin.like_count %>
+            </div>
+
+            <a href="<%= pin.url %>" class="link">
+              <span class="fas fa-external-link-alt"></span>
+            </a>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+  <% } %>
+
+  <!-- Black out screen when modal pops up -->
+  <div id="screen"></div>
+</div>
