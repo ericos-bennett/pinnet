@@ -55,7 +55,7 @@ button {
 }
 .logins a {
   text-decoration: none;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .logins button:before,
@@ -66,7 +66,7 @@ button {
   bottom: 0;
   left: 0;
 
-  background-color: #ffffff;
+  background-color: #FFFFFF;
 
   visibility: hidden;
   transform: scaleX(0);
@@ -120,7 +120,7 @@ button {
   left: 0;
 
   font-family: "Gotham Light", sans-serif;
-  color: #ffffff;
+  color: #FFFFFF;
 
   display: flex;
   flex-direction: column;
@@ -137,7 +137,7 @@ button {
 
 .sidebar a {
   text-decoration: none;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .sidebar button {
@@ -150,7 +150,7 @@ button {
 
   font-family: "Gotham Black", sans-serif;
   text-decoration: none;
-  color: #ffffff;
+  color: #FFFFFF;
 
   display: flex;
   flex-direction: column;
@@ -169,9 +169,9 @@ button {
   border: none;
 
   font-size: 25px;
-  color: #ababab;
+  color: #ABABAB;
 
-  border: #ababab 2px solid;
+  border: #ABABAB 2px solid;
   border-radius: 10px;
 }
 
@@ -196,7 +196,7 @@ button {
 
   position: fixed;
 
-  background-color: #fcfcfc;
+  background-color: #FCFCFC;
 
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
@@ -235,7 +235,7 @@ button {
   }
 
   ::-webkit-scrollbar-track{
-    background: #fcfcfc;
+    background: #FCFCFC;
     border-radius: 15px;
   }
 }
@@ -269,7 +269,7 @@ h2 {
 
   visibility: hidden;
 
-  color: #ababab;
+  color: #ABABAB;
 }
 
 .card-sm header {
@@ -282,7 +282,7 @@ h2 {
   justify-content: center;
   gap: 25px;
 
-  border: #eeeeee 2px solid;
+  border: #EEEEEE 2px solid;
   border-radius: 25px;
 }
 
@@ -295,6 +295,14 @@ h2 {
 
 .card-sm:hover footer {
   visibility: unset;
+}
+
+.card-sm-avg-rating {
+  display: flex;
+  flex-direction: row;
+
+  color: orange;
+  font-size: 0.8em;
 }
 
 .card-sm-image {
@@ -337,7 +345,7 @@ h2 {
 }
 
 .link {
-  color: #ababab;
+  color: #ABABAB;
 }
 
 .link:hover {
@@ -366,39 +374,9 @@ h2 {
 }
 
 /* ---------------------------------------------------
-  RATINGS
+  AUTH STYLES
 ----------------------------------------------------- */
 
-.card-sm-avg-rating {
-  display: flex;
-  flex-direction: row;
-
-  color: orange;
-  font-size: 0.8em;
-}
-
-/* ---------------------------------------------------
-  MEDIAQUERIES
------------------------------------------------------ */
-
-@media (max-width: 768px) {
-  .sidebar {
-    margin-left: -250px;
-  }
-  .sidebar.active {
-    margin-left: 0;
-  }
-  .content {
-    width: 100%;
-  }
-  .content.active {
-    width: calc(100% - 250px);
-  }
-}
-
-/* ---------------------------------------------------
- Auth Styles
------------------------------------------------------ */
 .auth {
   height: 100%;
   margin: auto;
@@ -417,7 +395,7 @@ h2 {
 }
 
 /* ---------------------------------------------------
-  CARD MODAL
+  CARD MODAL POPUP
 ----------------------------------------------------- */
 
 #screen, #modal {
@@ -490,7 +468,7 @@ h2 {
 //   }
 
 //   ::-webkit-scrollbar-track{
-//     background: #fcfcfc;
+//     background: #FCFCFC;
 //     border-radius: 15px;
 //   }
 
@@ -589,3 +567,22 @@ h2 {
 //   padding-bottom: 10px;
 //   margin: 0 auto;
 // }
+
+/* ---------------------------------------------------
+  MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .sidebar {
+    margin-left: -250px;
+  }
+  .sidebar.active {
+    margin-left: 0;
+  }
+  .content {
+    width: 100%;
+  }
+  .content.active {
+    width: calc(100% - 250px);
+  }
+}
