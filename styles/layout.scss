@@ -131,17 +131,12 @@ h2 {
 }
 
 .menu {
-  font-size: 1.2em;
-}
-
-.menu {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   gap: 15px;
-
-  margin-bottom: 200px; /* remove this when figure out flexbox */
+  font-size: 1.2em;
 }
 
 .sidebar {
@@ -168,6 +163,20 @@ h2 {
   margin-left: -250px;
 }
 
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 70vh;
+  position: relative;
+  top: 10vh;
+}
+
+#mCSB_1:active, #mCSB_1:hover, #mCSB_1:focus {
+  outline: 0;
+}
+
 .sidebar a {
   text-decoration: none;
   color: #FFFFFF;
@@ -179,8 +188,6 @@ h2 {
 }
 
 .sidebar-header {
-  margin: 50px;
-
   font-family: "Gotham Black", sans-serif;
   text-decoration: none;
   color: #FFFFFF;
@@ -194,6 +201,10 @@ h2 {
 /* ---------------------------------------------------
   SIDEBAR TOGGLE
 ----------------------------------------------------- */
+
+#toggle {
+  position: absolute;
+}
 
 #sidebarCollapse {
   width: 50px;
@@ -214,6 +225,10 @@ h2 {
   border: #5143B9 2px solid;
 }
 
+#sidebarCollapse:active, #sidebarCollapse:focus {
+  outline: 0;
+}
+
 /* ---------------------------------------------------
   EXPLORE PAGE
 ----------------------------------------------------- */
@@ -222,34 +237,29 @@ h2 {
   width: 100%;
   height: 100%;
 
-  padding: 50px;
-
   display: flex;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 5%;
 
   overflow-y: scroll;
+}
 
-  ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-  }
+::-webkit-scrollbar
+{
+  width: 12px;  /* for vertical scrollbars */
+  height: 12px; /* for horizontal scrollbars */
+}
 
-  ::-webkit-scrollbar-thumb {
-    background: #ABABAB;
-    border-radius: 15px;
-  }
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 0, 0, 0.05);
+}
 
-  ::-webkit-scrollbar-thumb:hover{
-    background: #5143B9;
-  }
-
-  ::-webkit-scrollbar-track{
-    background: #FCFCFC;
-    border-radius: 15px;
-  }
+::-webkit-scrollbar-thumb
+{
+  background: rgba(0, 0, 0, 0.2);
 }
 
 /* ---------------------------------------------------
