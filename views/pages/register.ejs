@@ -1,0 +1,49 @@
+<div class="auth">
+  <h2>Register your account</h2>
+  <p>Start finding and sharing resources for your next project!</p>
+
+  <form action="/register" method="POST">
+    <div class="form-group">
+      <label for="exampleInputUsername1">Username</label>
+      <input
+        type="username"
+        class="form-control"
+        id="exampleInputUsername1"
+        aria-describedby="emailHelp"
+        placeholder="JaneDoe"
+        name="username"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        placeholder="JaneDoe@hotmail.com"
+        name="email"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="exampleInputPassword1"
+        placeholder="Password"
+        name="password"
+        required
+      />
+    </div>
+
+    <div class="login-register-submit">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <p>Already have an account? <a href="/login">Login Here</a></p>
+    </div>
+  </form>
+</div>
