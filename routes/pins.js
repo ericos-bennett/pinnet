@@ -14,15 +14,20 @@ module.exports = (db) => {
 
     const search = `%${req.query.search}%`.toLowerCase();
     const queryString = `
-      SELECT pins.*, COUNT(favourites.id) AS like_count, ROUND(avg(ratings.rating), 1) AS rating
+      SELECT
+        pins.*,
+        users.username AS creator,
+        users.profile_picture AS creator_picture,
+        COUNT(favourites.id) AS like_count,
+        ROUND(avg(ratings.rating), 1) AS rating
       FROM pins
       LEFT JOIN favourites
       ON pins.id = favourites.pin_id
       LEFT JOIN ratings
       ON pins.id = ratings.pin_id
-      WHERE LOWER(title) LIKE $1
-        OR LOWER(description) LIKE $1
-      GROUP BY pins.id
+      LEFT JOIN users
+      ON pins.user_id = users.id
+      GROUP BY pins.id, users.id
       ORDER BY created_at DESC;
     ;`;
     const values = [search];
