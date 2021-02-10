@@ -41,6 +41,10 @@ button {
   color: orange;
 }
 
+.like-count {
+  color: #CB3365;
+}
+
 .content {
   width: calc(100% - 250px);
   height: 100%;
@@ -282,7 +286,11 @@ h2 {
 
   visibility: hidden;
 
+  font-size: 1em;
   color: #ABABAB;
+
+  padding-top: 5px;
+  padding-right: 25px;
 }
 
 .card-sm header {
@@ -313,6 +321,7 @@ h2 {
 .card-sm-avg-rating {
   display: flex;
   flex-direction: row;
+  gap: 25px;
 
   font-size: 0.8em;
 }
@@ -352,37 +361,14 @@ h2 {
   flex-direction: row;
 }
 
-.external-link-alt {
-  font-size: 0.8em;
-}
-
-.link {
+.like,
+.fa-external-link-alt {
   color: #ABABAB;
 }
 
-.link:hover {
+.like:hover,
+.fa-external-link-alt:hover {
   color: #5143B9;
-}
-
-/* ---------------------------------------------------
-  PIN AND LIKES
------------------------------------------------------ */
-
-.fa-heart:hover {
-  color: #5143B9;
-}
-
-.fa-plus-square:hover {
-  color: #5143B9;
-}
-
-.like {
-  display: flex;
-  flex-direction: row;
-}
-
-.like-counter {
-  font-size: 0.8em;
 }
 
 /* ---------------------------------------------------
@@ -619,6 +605,14 @@ h2 {
   background-color: #FCFCFC;
 
   z-index: 99;
+}
+
+.stats {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+
+  font-size: 1em;
 }
 
 /* ---------------------------------------------------
