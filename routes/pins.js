@@ -12,6 +12,8 @@ module.exports = (db) => {
   // Route for the search bar ('/pins?search=[query]') - case insensitive
   router.get('/', (req, res) => {
 
+    console.log(req.query.search);
+
     const search = `%${req.query.search}%`.toLowerCase();
     const queryString = `
       SELECT
