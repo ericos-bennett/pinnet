@@ -1,47 +1,31 @@
-<body>
-  <!-- Sidebar  -->
-  <div class="sidebar">
-      <a href="/" class="sidebar-header">
-        <div class="logo-icon"></div>
-        <h1>pinnet</h1>
-    </a>
+<div class="sidebar">
+  <a href="/" class="sidebar-header">
+    <div class="logo-icon"></div>
+    <h1>pinnet</h1>
+  </a>
 
-    <% if (userId) { %>
-
+  <!-- User is logged in -->
+  <% if (userId) { %>
     <div class="menu">
-      <a href="/">
-        <button>Explore</button>
-      </a>
-      <a href="/users/<%= userId %>">
-        <button>My Pins</button>
-      </a>
+      <a href="/">Explore</a>
+      <a href="/users/<%= userId %>">My Pins</a>
     </div>
 
     <div class="logins">
-        <form class="form-inline" method="POST" action="/logout">
-          <button>Log Out</button>
-        </form>
+      <form class="form-inline" method="POST" action="/logout">
+        <button>Log Out</button>
+      </form>
     </div>
 
-    <% } else { %>
+    <!-- User is not logged in -->
+  <% } else { %>
+    <div class="menu">
+      <a href="/">Explore</a>
+    </div>
 
-      <div class="menu">
-        <a href="/">
-          <button>Explore</button>
-        </a>
-       </div>
-
-      <div class="logins">
-        <a href="/login">
-          <button>Login</button>
-        </a>
-        <a href="/register">
-          <button>Register</button>
-        </a>
-      </div>
-
-    <% } %>
-
-
-  </div>
-
+    <div class="logins">
+      <a href="/login">Login</a>
+      <a href="/register">Register</a>
+    </div>
+  <% } %>
+</div>
