@@ -569,141 +569,30 @@ h2 {
   z-index: 99;
 }
 
+/* ---------------------------------------------------
+  SEARCH BAR
+----------------------------------------------------- */
+
+#search {
+  background: #EEEEEE;
+  color: #ABABAB;
+  border-radius: 50px;
+}
+
+#search::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ABABAB;
+  opacity: 1; /* Firefox */
+}
+
+#search:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #ABABAB;
+}
+
+#search::-ms-input-placeholder { /* Microsoft Edge */
+  color: #ABABAB;
+}
 
 
-
-// .pop-out {
-//   width: 100vw;
-//   height: 100%;
-//   background-color: rgba(0, 0, 0, 0.7);
-//   top: 0;
-//   left: 0;
-//   justify-content: center;
-//   align-items: center;
-//   display: hide;
-
-
-//   border-top-left-radius: 25px;
-//   border-bottom-left-radius: 25px;
-// }
-
-// .pop-container {
-//   overflow-y: scroll;
-
-//   ::-webkit-scrollbar {
-//     width: 5px;
-//     height: 5px;
-//   }
-
-//   ::-webkit-scrollbar-thumb {
-//     background: #ABABAB;
-//     border-radius: 15px;
-//   }
-
-//   ::-webkit-scrollbar-thumb:hover{
-//     background: #5143B9;
-//   }
-
-//   ::-webkit-scrollbar-track{
-//     background: #FCFCFC;
-//     border-radius: 15px;
-//   }
-
-//   header {
-//     width: 100%;
-//     height: 100%;
-//     flex-direction: column;
-//     align-items: flex-start;
-//     justify-content: flex-start;
-//     border: none;
-//     text-align: center;
-
-//     div {
-//       width: 95%;
-//       margin: 0 auto;
-//       padding: 0;
-
-//       img {
-//         width: 90%;
-//         height: 90%;
-//         border-radius: 15px;
-//       }
-//     }
-//   }
-
-//   h2 {
-//     text-align: center;
-//     font-family: "Gotham black";
-//     margin-bottom: 20px;
-//   }
-
-//   header:hover {
-//     -webkit-box-shadow: none;
-//     -moz-box-shadow: none;
-//     box-shadow: none;
-//   }
-
-//   footer {
-//     display: flex;
-//     justify-content: space-between;
-//     margin: 20px;
-//     font-size: 18px;
-
-//     .fa-star {
-//       color: orange;
-//     }
-//   }
-
-//   .buttons {
-//     display: flex;
-//   }
-// }
-
-// .pop-content {
-//   height: calc(100% - 200px);
-//   width: calc(100% - 600px);
-//   margin: auto auto;
-//   padding: 25px;
-//   background-color: #FFFFFF;
-//   border-radius: 25px;
-//   display: flex;
-//   flex-direction: column;
-//   border: 10px solid #516bfd;
-//   font-family: "Gotham light";
-//   animation: fadeIn ease 0.7s;
-
-//   @keyframes fadeIn {
-//     0% {
-//       opacity: 0;
-//     }
-//     100% {
-//       opacity: 1;
-//     }
-//   }
-
-
-// }
-
-// .close {
-//   font-size: 42px;
-//   align-self: flex-end;
-//   padding: 10px;
-//   cursor: pointer;
-// }
-
-// .show {
-//   display: flex;
-// }
-
-// .hide {
-//   display: none;
-// }
-
-// hr {
-//   width: 80%;
-//   padding-bottom: 10px;
-//   margin: 0 auto;
-// }
 
 /* ---------------------------------------------------
   MEDIAQUERIES
