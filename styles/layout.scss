@@ -128,6 +128,8 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 70vh;
+  top: 10vh;
 
   transition: all 0.3s;
 }
@@ -156,8 +158,6 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  margin-bottom: 150px; /* remove this when figure out flexbox */
 }
 
 a[data-toggle="collapse"] {
@@ -457,7 +457,7 @@ h2 {
   ::-webkit-scrollbar-thumb:hover{
     background: #5143B9;
   }
-  
+
   ::-webkit-scrollbar-track{
     background: #fcfcfc;
     border-radius: 15px;
