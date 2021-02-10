@@ -16,23 +16,23 @@
               <article class="display card-sm">
                 <header>
                   <div class="card-sm-image">
-                    <img src="<%= pin.media %> ">
+                    <img src="<%= pin.media %>">
                   </div>
                   <div class="card-sm-info">
                     <div class="card-sm-link">
-                      <h2><%= pin.title %> </h2>
-                      <button class="link">
+                      <h2><%= pin.title %></h2>
+                      <a href="<%= pin.url %>" class="link">
                         <span class="fas fa-external-link-alt"></span>
-                      </button>
+                      </a>
                     </div>
                     <p><%= pin.description %> </p>
                     <div class="card-sm-avg-rating">
                       <div class="fas fa-star checked"></div>
                       <div class="avg-rating">
-                        <% if(Number(pin.rating) !== null){ %>
-                        <%=Number(pin.rating).toFixed(1) %>
-                        <% }else{ %>
-                        <%= Number(pin.rating)  %>
+                        <% if(Number(pin.rating) !== null) { %>
+                        <%= Number(pin.rating).toFixed(1) %>
+                        <% } else { %>
+                        <%= Number(pin.rating) %>
                         <% } %></div>
                     </div>
                   </div>
@@ -65,10 +65,10 @@
                     </header>
                     <footer>
                       <div class="fas fa-star checked">
-                        <% if(Number(pin.rating) !== null){ %>
-                          <%=Number(pin.rating).toFixed(1) %>
-                          <% }else{ %>
-                          <%= Number(pin.rating)%>
+                        <% if(Number(pin.rating) !== null) { %>
+                          <%= Number(pin.rating).toFixed(1) %>
+                          <% } else { %>
+                          <%= Number(pin.rating) %>
                           <% } %>
                       </div>
                       <div class="buttons">
@@ -79,9 +79,9 @@
                           <button class="far fa-heart"></button>
                           <p class="like-counter">25</p>
                         </div>
-                        <button class="link">
-                          <span class="fas fa-external-link-alt"><a href="<%= pin.url %> "></a></span>
-                        </button>
+                        <a href="<%= pin.url %>" class="link">
+                          <span class="fas fa-external-link-alt"></span>
+                        </a>
                     </div>
                     </footer>
                 </div>
