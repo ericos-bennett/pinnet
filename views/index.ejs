@@ -13,9 +13,12 @@
           <span class="fas fa-bars"></span>
         </button>
 
-        <% if (searchTerm) { %>
-        <h4>Search for: <strong><%= searchTerm %></strong></h4>
-        <% } %> <% if (page === 'explore') { %>
+        <% if (page === 'explore') { %>
+
+          <% if (searchTerm) { %>
+          <h4>Search for: <strong><%= searchTerm %></strong></h4>
+          <% } %>
+
         <form id="searchbar" class="form-outline" method="GET" action="/pins">
           <input
             type="search"
@@ -30,7 +33,7 @@
       </div>
 
       <div class="content-body">
-        <% if (page === 'explore') { %> <%- include('pages/explore') %> <% } %>
+        <% if (page === 'explore' || page === 'myPins') { %> <%- include('pages/explore') %> <% } %>
         <% if (page === 'register') { %> <%- include('pages/register') %> <% }
         %> <% if (page === 'login') { %> <%- include('pages/login') %> <% } %>
       </div>
