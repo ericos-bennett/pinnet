@@ -724,18 +724,26 @@ i {
   display: flex;
   justify-self: flex-start;
 }
-#edit {
-  margin: 5px;
-}
 #delete:hover {
   font-size: 1.2em;
   color: red;
   transition: font-size 0.1s;
 }
-#edit:hover {
+.fa-edit:hover {
   font-size: 1.2em;
   color: orange;
   transition: font-size 0.1s;
+}
+.edit {
+  margin: 5px;
+}
+
+.edit-content {
+  color: #ababab;
+  h2 {
+    color: black;
+    text-decoration: none;
+  }
 }
 
 // edit form styles
