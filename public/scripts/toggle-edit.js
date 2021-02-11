@@ -2,7 +2,6 @@ $(document).ready(function () {
   $(".edit").on("click", function () {
     $(".edit-form").addClass("show");
     $(".edit-form").removeClass("hide");
-    console.log(this.innerText);
   });
   $(".form-close").on("click", function () {
     $(".edit-form").addClass("hide");

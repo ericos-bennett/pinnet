@@ -694,7 +694,7 @@ hr {
 /* -----------------------------------------------------
   Create Form Styles
 ----------------------------------------------------- */
-.edit-form {
+.create-form {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
@@ -706,7 +706,7 @@ hr {
   z-index: 999;
 }
 
-.edit-content {
+.create-content {
   height: 70vh;
   width: 70vw;
   background-color: #fff;
@@ -729,7 +729,7 @@ hr {
     }
   }
 
-  #edit-form {
+  #create-form {
     width: 60%;
     textarea {
       width: 100%;
