@@ -131,7 +131,7 @@
           </div>
         </header>
 
-
+        <% if (userId) { %>
         <form action="/:pin_id/rating" method="POST" class="rate-me" id="<%= pin.id %>" data-user="<%= userId %>">
           <label>
             <input type="radio" name="rate-me" value="5" title="5 stars">
@@ -149,8 +149,7 @@
             <input type="radio" name="rate-me" value="1" title="1 star">
           </label>
         </form>
-
-
+        <% } %>
 
         <footer class="show">
           <div class="card-sm-avg-rating">
