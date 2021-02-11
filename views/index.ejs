@@ -41,9 +41,12 @@
               </button>
              <% } %>
           </div>
-          <div id="invisible-topic-item">
 
-          </div>
+          <form id="new-topic" class="form-group" action="/users/topics"
+            method="POST">
+            <input class="form-control" id="topic" name="topic" type="text" placeholder="Add a new topic">
+          </form>
+
         <% } %>
 
       </div>
