@@ -19,4 +19,28 @@ $(function() {
     });
   });
 
+  // Make the pins cards draggable
+  $('.mypins-cards').draggable({
+    revert: true,
+    zIndex: 100,
+    opacity: 0.5,
+    containment: $(".content")
+  });
+
+  // Make the topics droppable
+  $(".topic-button").droppable({
+    tolerance: "pointer",
+    over: function() {
+      $(this).removeClass('btn-outline-primary').addClass('btn-success');
+    },
+    out: function() {
+      $(this).removeClass('btn-success').addClass('btn-outline-primary');
+    },
+    drop: function() {
+      $(this).removeClass('btn-success').addClass('btn-outline-primary');
+      console.log('dropped');
+      // ajax request - add to topics route
+    }
+  });
+
 });
