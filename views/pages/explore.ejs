@@ -22,6 +22,14 @@
       </div>
     </header>
     <footer>
+
+      <div class="pin-actions">
+        <button class="far fa-heart like"></button>
+        <a href="<%= pin.url %>" class="link" target="_blank">
+          <span class="fas fa-external-link-alt"></span>
+        </a>
+      </div>
+
       <% if(Number(userId) === Number(pin.user_id)){ %>
 
       <div class="edit-buttons">
@@ -101,12 +109,6 @@
       </div>
       <% } %>
 
-      <div class="pin-actions">
-        <button class="far fa-heart like"></button>
-        <a href="<%= pin.url %>" class="link" target="_blank">
-          <span class="fas fa-external-link-alt"></span>
-        </a>
-      </div>
     </footer>
 
     <!-- -------------------------- -->
