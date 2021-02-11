@@ -657,6 +657,37 @@ hr {
 }
 
 /* ---------------------------------------------------
+  RATINGS
+----------------------------------------------------- */
+
+.rate-me {
+  direction: rtl;
+}
+
+.rate-me input {
+  position: absolute;
+  left: -999999px;
+}
+
+.rate-me label {
+  display: inline-block;
+}
+
+.rate-me > label:before {
+  position: relative;
+  font: 1em FontAwesome;
+  display: block;
+  content: "\f005";
+  color: #ccc;
+}
+
+.rate-me > label:hover:before,
+.rate-me > label:hover ~ label:before,
+.rate-me > label.selected:before,
+.rate-me > label.selected ~ label:before {
+  color: orange;
+}
+
   Create Form Styles
 ----------------------------------------------------- */
 .create-form {
@@ -714,6 +745,7 @@ hr {
 i {
   margin: 1px;
 }
+
 /* ---------------------------------------------------
   MEDIAQUERIES
 ----------------------------------------------------- */

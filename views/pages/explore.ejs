@@ -47,6 +47,28 @@
             </div>
           </div>
         </header>
+
+
+        <form action="/:pin_id/rating" method="POST" class="rate-me" id="<%= pin.id %>" data-user="<%= userId %>">
+          <label>
+            <input type="radio" name="rate-me" value="5" title="5 stars">
+          </label>
+          <label>
+            <input type="radio" name="rate-me" value="4" title="4 stars">
+          </label>
+          <label>
+            <input type="radio" name="rate-me" value="3" title="3 stars">
+          </label>
+          <label>
+            <input type="radio" name="rate-me" value="2" title="2 stars">
+          </label>
+          <label>
+            <input type="radio" name="rate-me" value="1" title="1 star">
+          </label>
+        </form>
+
+
+
         <footer class="show">
           <div class="card-sm-avg-rating">
             <div id="rating" class="fas fa-star checked">
