@@ -2,7 +2,7 @@
   <% for(const pin of pins){ %>
 
   <article id="pin<%= pin.id %>" class="display card-sm"
-    <% if(Number(userId) === Number(pin.user_id)){ %> draggable="true" <% } %>
+    <% if(page === 'myPins'){ %> draggable="true" <% } %>
   >
     <header class="display-header">
       <div class="card-sm-image">
