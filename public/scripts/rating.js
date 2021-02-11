@@ -13,7 +13,7 @@ $(document).ready(function() {
         rating: $(this).val()
       },
       success: function(data) {
-        alert("Success");
+        console.log("Success");
       }
     });
   });
