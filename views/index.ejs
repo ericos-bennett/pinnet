@@ -13,6 +13,7 @@
           <span class="fas fa-bars"></span>
         </button>
 
+        <!-- Searchar IF on explore page -->
         <% if (page === 'explore') { %>
 
           <% if (searchTerm) { %>
@@ -30,6 +31,21 @@
           />
         </form>
         <% } %>
+
+        <!-- Topics header if on myPins page -->
+        <% if(page === 'myPins'){ %>
+          <div class="topics-container">
+            <% for(const topic of [{name: 'Programming'},{name: 'Sports'}]){ %>
+              <button type="button" class="btn btn-outline-primary">
+                <%= topic.name %>
+              </button>
+             <% } %>
+          </div>
+          <div id="invisible-topic-item">
+
+          </div>
+        <% } %>
+
       </div>
 
       <div class="content-body">
