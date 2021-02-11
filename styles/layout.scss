@@ -288,8 +288,9 @@ h2 {
 .card-sm footer {
   display: flex;
   flex-direction: row;
-  align-content: center;
-  justify-content: center;
+  align-content: flex-start;
+  justify-content: space-between;
+  width: 100%;
 
   visibility: hidden;
 
@@ -402,7 +403,9 @@ h2 {
   flex-direction: row;
 }
 
-.like:hover, .like:active, .like:focus {
+.like:hover,
+.like:active,
+.like:focus {
   outline: none;
 }
 
@@ -713,6 +716,26 @@ hr {
 }
 i {
   margin: 1px;
+}
+/* ---------------------------------------------------
+  Edit & Delete styles
+----------------------------------------------------- */
+.display footer .edit-buttons {
+  display: flex;
+  transition: font-size 12s;
+}
+#edit {
+  margin: 5px;
+}
+#delete:hover {
+  font-size: 1.2em;
+  color: red;
+  transition: font-size 0.1s;
+}
+#edit:hover {
+  font-size: 1.2em;
+  color: orange;
+  transition: font-size 0.1s;
 }
 /* ---------------------------------------------------
   MEDIAQUERIES

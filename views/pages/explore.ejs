@@ -22,15 +22,20 @@
       </div>
     </header>
     <footer>
+      <% if(Number(userId) === Number(pin.user_id)){ %>
       <div class="edit-buttons">
         <form action="/pins/<%= pin.id %>?_method=DELETE" method="POST">
-          <button type="submit" class="fas fa-trash-alt"></button>
+          <button id="delete" type="submit" class="fas fa-trash-alt"></button>
         </form>
+        <p id="edit" class="fas fa-edit"></p>
       </div>
-      <button class="far fa-heart like"></button>
-      <a href="<%= pin.url %>" class="link" target="_blank">
-        <span class="fas fa-external-link-alt"></span>
-      </a>
+      <% } %>
+      <div class="pin-actions">
+        <button class="far fa-heart like"></button>
+        <a href="<%= pin.url %>" class="link" target="_blank">
+          <span class="fas fa-link"></span>
+        </a>
+      </div>
     </footer>
 
     <!-- -------------------------- -->
@@ -72,7 +77,7 @@
             </div>
 
             <button class="link">
-              <span class="fas fa-external-link-alt"
+              <span class="fas fa-link"
                 ><a href="<%= pin.url %>" target="blank"></a
               ></span>
             </button>
