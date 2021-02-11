@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require("morgan");
+const methodOverride = require("method-override");
 
 const cookieParser = require("cookie-parser");
 app.use(cookieParser());
@@ -26,6 +27,7 @@ app.use(morgan("dev"));
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 app.use(
   "/styles",
   sass({
