@@ -12,7 +12,7 @@
         </div>
         <p><%= pin.description %></p>
         <div class="card-sm-avg-rating">
-          <div class="fas fa-heart like-count"><%= pin.like_count %></div>
+          <div class="fas fa-heart like-count"> <%= pin.like_count %></div>
           <div id="rating" class="fas fa-star checked">
             <% if (pin.rating) { %>
               <%= Number(pin.rating).toFixed(1) %>
@@ -155,7 +155,7 @@
 
         <footer class="show">
           <div class="card-sm-avg-rating">
-            <div class="fas fa-heart like-count"><%= pin.like_count %></div>
+            <div class="fas fa-heart like-count"> <%= pin.like_count %></div>
             <div id="rating" class="fas fa-star checked">
               <% if (pin.rating) { %>
                 <%= Number(pin.rating).toFixed(1) %>
