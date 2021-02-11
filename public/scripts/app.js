@@ -36,10 +36,27 @@ $(function() {
     out: function() {
       $(this).removeClass('btn-success').addClass('btn-outline-primary');
     },
-    drop: function() {
+    drop: function(event, ui) {
       $(this).removeClass('btn-success').addClass('btn-outline-primary');
       console.log('dropped');
+
+      const pinId = ui.draggable[0].parentNode.id.slice(3);
+      const topicId = event.target.id.slice(5);
+
+      console.log('pinId', pinId);
+      console.log('topicId', topicId);
+
       // ajax request - add to topics route
+      $.ajax({
+        url: `/pins/${pinId}/topic`,
+        type: "POST",
+        data: {topicId}
+      }).always(function(data) {
+
+      });
+
+
+
     }
   });
 

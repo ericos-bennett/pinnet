@@ -33,12 +33,12 @@ module.exports = (db) => {
         const page = "myPins";
 
         // Get array of topics
-        db.query(`SELECT name FROM topics;`)
+        db.query(`SELECT * FROM topics;`)
           .then(topicData => {
 
             let topics = [];
             for (let topic of topicData.rows) {
-              topics.push(topic.name);
+              topics.push(topic);
             }
 
             res.render("index", { pins, userId, page, topics, searchTerm : null });

@@ -36,8 +36,8 @@
         <% if(page === 'myPins'){ %>
           <div class="topics-container">
             <% for(const topic of topics) { %>
-              <button type="button" class="topic-button btn btn-outline-primary">
-                <%= topic %>
+              <button type="button" class="topic-button btn btn-outline-primary" id="topic<%= topic.id %>">
+                <%= topic.name %>
               </button>
              <% } %>
           </div>
