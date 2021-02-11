@@ -1,0 +1,60 @@
+<!-- -------------------------- -->
+<!-- Create Pop up Form -->
+<!-- ------------------------- -->
+<div class="create-form hide">
+  <div class="create-content">
+    <div class="form-close">+</div>
+    <div class="form-head">
+      <h2>Create A New Pin</h2>
+      <hr />
+    </div>
+    <form id="create-form" action="/pins" method="POST">
+      <div class="form-group">
+        <label for="title">Title <span class="required">*</span></label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="pinnet"
+          name="title"
+          required
+          ;
+        />
+      </div>
+      <div class="form-group">
+        <label for="url">Url <span class="required">*</span></label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="https://"
+          name="url"
+          required
+          ;
+        />
+      </div>
+      <div class="form-group">
+        <label for="media">Media<span class="required">*</span></label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Add a Photo"
+          name="media"
+          required
+          ;
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          name="description"
+          cols="30"
+          rows="10"
+          placeholder="Give your Pin a Description"
+        >
+        </textarea>
+      </div>
+      <div class="login-register-submit">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
