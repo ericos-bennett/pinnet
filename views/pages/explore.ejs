@@ -1,5 +1,6 @@
 <div class="explore">
   <% for(const pin of pins){ %>
+  <% console.log(pin.id, "YEeeeeeeeeeeeeeeeeeeee") %>
 
   <article id="pin<%= pin.id %>" class="display card-sm">
     <header class="display-header">
@@ -117,11 +118,11 @@
     <div class="pop-out hide">
       <div class="pop-content">
         <div class="top-show">
-          <div class="time"><%= pin.created_at%>By:</div>
+          <div class="time"><%= pin.created_at %>By:</div>
           <div class="close">+</div>
         </div>
         <header>
-          <img src="<%= pin.media %> " />
+          <img src="<%= pin.media %>" />
           <div class="text">
             <h2><%= pin.title %></h2>
             <hr />
@@ -131,8 +132,13 @@
           </div>
         </header>
 
+
+
+
+
+
         <% if (userId) { %>
-        <form action="/:pin_id/rating" method="POST" class="rate-me" id="<%= pin.id %>" data-user="<%= userId %>">
+        <form action="/<%= pin.id %>/rating" method="POST" class="rate-me" data-id="<%= pin.id %>">
           <label>
             <input type="radio" name="rate-me" value="5" title="5 stars">
           </label>
@@ -150,6 +156,15 @@
           </label>
         </form>
         <% } %>
+
+
+
+
+
+
+
+
+
 
         <footer class="show">
           <div class="card-sm-avg-rating">
