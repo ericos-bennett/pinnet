@@ -140,7 +140,7 @@ module.exports = (db) => {
     db.query(queryString)
       .then((data) => {
         const updatedPin = data.rows[0];
-        res.json({ updatedPin });
+        res.redirect("back");
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -159,7 +159,7 @@ module.exports = (db) => {
     const values = [pinId, userId];
 
     db.query(queryString, values)
-      .then(() => res.redirect("/"))
+      .then(() => res.redirect("back"))
       .catch((err) => console.log(err));
   });
 
