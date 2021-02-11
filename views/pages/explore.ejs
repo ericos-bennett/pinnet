@@ -1,6 +1,5 @@
 <div class="explore">
   <% for(const pin of pins){ %>
-  <% console.log(pin.id, "YEeeeeeeeeeeeeeeeeeeee") %>
 
   <article id="pin<%= pin.id %>" class="display card-sm">
     <header class="display-header">
@@ -13,12 +12,14 @@
         </div>
         <p><%= pin.description %></p>
         <div class="card-sm-avg-rating">
-          <div id="rating" class="fas fa-star checked">
-            <% if(Number(pin.rating) !== 0.0) { %> <%=
-            Number(pin.rating).toFixed(1) %> <% } else { %> <%=
-            Number(pin.rating).toFixed()%> <% } %>
-          </div>
           <div class="fas fa-heart like-count"><%= pin.like_count %></div>
+          <div id="rating" class="fas fa-star checked">
+            <% if (pin.rating) { %>
+              <%= Number(pin.rating).toFixed(1) %>
+            <% } else { %>
+              No ratings yet
+            <% } %>
+          </div>
         </div>
       </div>
     </header>
@@ -132,11 +133,6 @@
           </div>
         </header>
 
-
-
-
-
-
         <% if (userId) { %>
         <form action="/<%= pin.id %>/rating" method="POST" class="rate-me" data-id="<%= pin.id %>">
           <label>
@@ -157,23 +153,16 @@
         </form>
         <% } %>
 
-
-
-
-
-
-
-
-
-
         <footer class="show">
           <div class="card-sm-avg-rating">
-            <div id="rating" class="fas fa-star checked">
-              <% if(Number(pin.rating) !== 0.0) { %> <%=
-              Number(pin.rating).toFixed(1) %> <% } else { %> <%=
-              Number(pin.rating).toFixed()%> <% } %>
-            </div>
             <div class="fas fa-heart like-count"><%= pin.like_count %></div>
+            <div id="rating" class="fas fa-star checked">
+              <% if (pin.rating) { %>
+                <%= Number(pin.rating).toFixed(1) %>
+              <% } else { %>
+                No ratings yet
+              <% } %>
+            </div>
           </div>
           <div class="buttons">
             <button>
