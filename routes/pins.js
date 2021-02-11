@@ -180,8 +180,9 @@ module.exports = (db) => {
 
       db.query(queryString, values)
         .then((data) => {
-          const newComment = data.rows[0];
-          res.json(newComment);
+          console.log("data", data.rows);
+
+          res.redirect("/pins/" + pin_id);
         })
         .catch((err) => console.log(err));
     } else {

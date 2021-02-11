@@ -831,10 +831,24 @@ i {
     margin-right: 10px;
   }
 }
+
 i {
   margin: 1px;
 }
 
+/* ---------------------------------------------------
+  Comment Styles
+----------------------------------------------------- */
+#comments-area {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.comment-form {
+  display: flex;
+  flex-direction: column;
+}
 /* ---------------------------------------------------
   MEDIAQUERIES
 ----------------------------------------------------- */
