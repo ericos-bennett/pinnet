@@ -27,24 +27,32 @@ module.exports = (db) => {
 
     db.query(queryString, values)
       .then(data => {
+
         const pins = data.rows;
         const userId = req.cookies.userId;
         const page = "myPins";
-        res.render("index", { pins, userId, page, searchTerm : null });
+
+        // Get array of topics
+        db.query(`SELECT name FROM topics;`)
+          .then(topicData => {
+
+            let topics = [];
+            for (let topic of topicData.rows) {
+              topics.push(topic.name);
+            }
+
+            res.render("index", { pins, userId, page, topics, searchTerm : null });
+          })
+          .catch(err => console.log(err));
+
       })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
+      .catch(err => console.log(err));
   });
 
   // Adds a new topic (right now they're universal, TBD user-specific)
   router.post('/topics', (req, res) => {
 
     const newTopic = req.body.topic;
-
-    console.log(newTopic);
 
     const queryString = `
       INSERT INTO topics (name)

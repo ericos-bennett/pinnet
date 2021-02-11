@@ -35,9 +35,9 @@
         <!-- Topics header if on myPins page -->
         <% if(page === 'myPins'){ %>
           <div class="topics-container">
-            <% for(const topic of [{name: 'Programming'},{name: 'Sports'},{name: 'Cooking'}, {name: 'Animals'}]){ %>
+            <% for(const topic of topics) { %>
               <button type="button" class="topic-button btn btn-outline-primary">
-                <%= topic.name %>
+                <%= topic %>
               </button>
              <% } %>
           </div>
