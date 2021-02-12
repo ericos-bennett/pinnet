@@ -536,8 +536,8 @@ h2 {
 
   .top-show {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: flex-end;
+    align-items: flex-end;
     margin-bottom: 50px;
 
     .time {
@@ -549,7 +549,7 @@ h2 {
       cursor: pointer;
       z-index: 999;
       font-size: 3em;
-      margin-top: 0;
+      margin-right: 10px;
       padding: 0;
     }
   }
