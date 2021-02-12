@@ -1,18 +1,19 @@
 $(document).ready(function() {
   $('.rate-me input').change(function () {
     var $radio = $(this);
+
     $('.rate-me .selected').removeClass('selected');
     $radio.closest('label').addClass('selected');
 
     $.ajax({
       type: "POST",
-      url: `/pins/${$(".rate-me").attr('id')}/rating`,
+      url: `/pins/${$(this).parent().parent()[0].getAttribute('data-id')}/rating`,
       data: {
-        userId: $(".rate-me").attr('data-user'),
+        pin_id: $(this).parent().parent()[0].getAttribute('data-id'),
         rating: $(this).val()
       },
-      success: () => {
-        alert("Success");
+      success: function(data) {
+        console.log("Success");
       }
     });
   });

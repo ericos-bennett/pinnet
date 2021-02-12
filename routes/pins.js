@@ -192,17 +192,18 @@ module.exports = (db) => {
   // Rate someone's pin (only one rating user/pin pair allowed)
   router.post("/:pin_id/rating", (req, res) => {
     const userId = req.cookies.userId;
-    const pinId = req.params.pin_id;
+    const pinId = req.body.pin_id;
     const rating = req.body.rating;
 
     // Only send the query if all values are truthy
     if (userId && pinId && rating) {
-      const queryString = `
-      INSERT INTO ratings (user_id, pin_id, rating)
-      VALUES ($1, $2, $3)
-      ON CONFLICT (user_id, pin_id) DO NOTHING
-      RETURNING *;
-    `;
+      const queryString =  `
+        INSERT INTO ratings (user_id, pin_id, rating)
+        VALUES ($1, $2, $3)
+        ON CONFLICT (user_id, pin_id) DO UPDATE
+        SET rating = $3
+        RETURNING *;
+      `;
       const values = [userId, pinId, rating];
 
       db.query(queryString, values)

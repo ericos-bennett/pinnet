@@ -15,29 +15,35 @@ module.exports = (db) => {
 
   // Renders the main welcome page
   router.get("/", (req, res) => {
-    db.query(
-      `
+    db.query(`
       SELECT
         pins.*,
         users.username AS creator,
         users.profile_picture AS creator_picture,
-        COUNT(favourites.id) AS like_count,
         ROUND(avg(ratings.rating), 1) AS rating
       FROM pins
-      LEFT JOIN favourites
-      ON pins.id = favourites.pin_id
       LEFT JOIN ratings
       ON pins.id = ratings.pin_id
       LEFT JOIN users
       ON pins.user_id = users.id
       GROUP BY pins.id, users.id
-      ORDER BY created_at DESC;`
-    )
+      ORDER BY created_at DESC;
+    `)
       .then((data) => {
         const pins = data.rows;
         const userId = req.cookies.userId;
         const page = "explore";
-        res.render("index", { pins, userId, page, searchTerm: null });
+
+        db.query(`
+          SELECT pin_id, count(*) as numLikes
+          FROM favourites
+          GROUP BY pin_id
+        `)
+        .then((data) => {
+          const likes = data.rows;
+
+          res.render("index", { pins, likes, userId, page, searchTerm: null });
+        })
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
