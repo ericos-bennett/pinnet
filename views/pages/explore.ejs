@@ -157,7 +157,7 @@
           <button class="btn btn-primary" type="button">Comments</button>
         </p>
 
-        <div class="comment-area collapse" id="collapseExample">
+        <div class="comment-area collapse"  ">
           <div id="comments-area" class="card card-body">
             <div class="comment-container">
               <h4>Comments</h4>
@@ -166,12 +166,13 @@
             </div>
             <% if(userId){ %>
             <form
+            id="<%= pin.id %>"
               class="comment-form"
-              action="/pins/<%=pin.id%>/comment"
+              action="/pins/<%=pin.id%>/comments"
               method="POST"
             >
               <label for="comments"> Leave a Comment</label>
-              <textarea name="commentBody" cols="30" rows="2"></textarea>
+              <textarea id="comment-text" name="commentBody" cols="30" rows="2"></textarea>
               <button class="bt btn-primary">Post</button>
             </form>
             <% } %>
