@@ -1,17 +1,17 @@
 INSERT INTO ratings(user_id,pin_id,rating)
-VALUES(5, 24,4);
+VALUES(5, 3,4);
 INSERT INTO ratings(user_id,pin_id,rating)
 VALUES(3, 11,5);
 INSERT INTO ratings(user_id,pin_id,rating)
-VALUES(4, 19,4);
+VALUES(4, 12,4);
 INSERT INTO ratings(user_id,pin_id,rating)
-VALUES(2, 18,1);
+VALUES(2, 15,1);
 INSERT INTO ratings(user_id,pin_id,rating)
-VALUES(3, 30,1);
+VALUES(3, 1,1);
 INSERT INTO ratings(user_id,pin_id,rating)
-VALUES(2, 29,3);
+VALUES(2, 4,3);
 INSERT INTO ratings(user_id,pin_id,rating)
-VALUES(6, 17,5);
+VALUES(6, 11,5);
 INSERT INTO ratings(user_id,pin_id,rating)
 VALUES(3, 2,2);
 INSERT INTO ratings(user_id,pin_id,rating)
@@ -21,15 +21,15 @@ VALUES(2, 13,5);
 INSERT INTO ratings(user_id,pin_id,rating)
 VALUES(4, 2,5);
 INSERT INTO ratings(user_id,pin_id,rating)
-VALUES(6, 28,2);
+VALUES(6, 12,2);
 INSERT INTO ratings(user_id,pin_id,rating)
 VALUES(4, 3,3);
 INSERT INTO ratings(user_id,pin_id,rating)
-VALUES(4, 28,5);
+VALUES(4, 14,5);
 INSERT INTO ratings(user_id,pin_id,rating)
-VALUES(2, 20,1);
+VALUES(2, 1,1);
 INSERT INTO ratings(user_id,pin_id,rating)
-VALUES(2, 21,3);
+VALUES(2, 12,3);
 INSERT INTO ratings(user_id,pin_id,rating)
 VALUES(2, 11,4);
 INSERT INTO ratings(user_id,pin_id,rating)
@@ -39,18 +39,18 @@ VALUES(6, 7,2);
 INSERT INTO ratings(user_id,pin_id,rating)
 VALUES(3, 7,2);
 INSERT INTO ratings(user_id,pin_id,rating)
-VALUES(3, 26,1);
+VALUES(3, 15,1);
 INSERT INTO ratings(user_id,pin_id,rating)
-VALUES(3, 24,5);
+VALUES(3, 14,5);
 INSERT INTO ratings(user_id,pin_id,rating)
 VALUES(1, 3,4);
 INSERT INTO ratings(user_id,pin_id,rating)
-VALUES(6, 21,1);
+VALUES(6, 15,1);
 INSERT INTO ratings(user_id,pin_id,rating)
-VALUES(1, 26,2);
+VALUES(1, 6,2);
 INSERT INTO ratings(user_id,pin_id,rating)
-VALUES(5, 21,5);
+VALUES(5, 7,5);
 INSERT INTO ratings(user_id,pin_id,rating)
 VALUES(5, 5,4);
 INSERT INTO ratings(user_id,pin_id,rating)
-VALUES(3, 18,4);
+VALUES(3, 9,4);

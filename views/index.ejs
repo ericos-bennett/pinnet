@@ -13,9 +13,13 @@
           <span class="fas fa-bars"></span>
         </button>
 
-        <% if (searchTerm) { %>
-        <h4>Search for: <strong><%= searchTerm %></strong></h4>
-        <% } %> <% if (page === 'explore') { %>
+        <!-- Searchar IF on explore page -->
+        <% if (page === 'explore') { %>
+
+          <% if (searchTerm) { %>
+          <h4>Search for: <strong><%= searchTerm %></strong></h4>
+          <% } %>
+
         <form id="searchbar" class="form-outline" method="GET" action="/pins">
           <input
             type="search"
@@ -27,10 +31,46 @@
           />
         </form>
         <% } %>
+
+        <!-- Topics header if on myPins page -->
+        <% if(page === 'myPins'){ %>
+          <div class="topics-container">
+
+            <form class="form-inline" method="GET" action="/users/<%= userId %> ">
+              <button
+                type="submit"
+                class="topic-button btn btn-outline-primary">
+                All My Pins
+              </button>
+            </form>
+
+
+            <% for(const topic of topics) { %>
+              <form class="form-inline" method="GET" action="/users/<%= userId %>">
+                <button
+                  type="submit"
+                  class="topic-button btn btn-outline-primary"
+                  id="topic<%= topic.id %>"
+                  name="topicId"
+                  value="<%= topic.id %>"
+                >
+                  <%= topic.name %>
+                </button>
+              </form>
+             <% } %>
+          </div>
+
+          <form id="new-topic" class="form-group" action="/users/topics"
+            method="POST">
+            <input class="form-control" id="topic" name="topic" type="text" placeholder="Add a new topic">
+          </form>
+
+        <% } %>
+
       </div>
 
       <div class="content-body">
-        <% if (page === 'explore') { %> <%- include('pages/explore') %> <% } %>
+        <% if (page === 'explore' || page === 'myPins') { %> <%- include('pages/explore') %> <% } %>
         <% if (page === 'register') { %> <%- include('pages/register') %> <% }
         %> <% if (page === 'login') { %> <%- include('pages/login') %> <% } %>
       </div>
