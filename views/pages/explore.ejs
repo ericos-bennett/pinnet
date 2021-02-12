@@ -2,7 +2,7 @@
   <% for(const pin of pins){ %>
 
   <article id="pin<%= pin.id %>" class="display card-sm">
-    <header class="display-header">
+    <header class="display-header<% if(page === 'myPins'){ %> mypins-cards <% } %>" <% if(page === 'myPins'){ %> draggable="true" <% } %>>
       <div class="card-sm-image">
         <img src="<%= pin.media %>" />
       </div>
@@ -12,12 +12,20 @@
         </div>
         <p><%= pin.description %></p>
         <div class="card-sm-avg-rating">
-          <div id="rating" class="fas fa-star checked">
-            <% if(Number(pin.rating) !== 0.0) { %> <%=
-            Number(pin.rating).toFixed(1) %> <% } else { %> <%=
-            Number(pin.rating).toFixed()%> <% } %>
+          <div class="fas fa-heart like-count">
+            <% for (const like of likes) { %>
+              <% if (like.pin_id===pin.id) { %>
+                <%= numLikes=like.numlikes %>
+              <% } %>
+            <% } %>
           </div>
-          <div class="fas fa-heart like-count"><%= pin.like_count %></div>
+          <div id="rating" class="fas fa-star checked">
+            <% if (pin.rating) { %>
+              <%= Number(pin.rating).toFixed(1) %>
+            <% } else { %>
+              No ratings yet
+            <% } %>
+          </div>
         </div>
       </div>
     </header>
@@ -29,7 +37,7 @@
         </a>
       </div>
 
-      <% if(Number(userId) === Number(pin.user_id)){ %>
+      <% if(page === 'myPins'){ %>
 
       <div class="edit-buttons">
         <!-- delete pin form -->
@@ -52,9 +60,9 @@
                 method="POST"
               >
                 <div class="form-group">
-                  <label for="title"
-                    >Title <span class="required">*</span></label
-                  >
+                  <label for="title">Title
+                    <span class="required">*</span>
+                  </label>
                   <input
                     type="text"
                     class="form-control"
@@ -65,7 +73,7 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label for="url">Url <span class="required">*</span></label>
+                  <label for="url">URL <span class="required">*</span></label>
                   <input
                     type="text"
                     class="form-control"
@@ -115,13 +123,15 @@
     <div class="pop-out hide">
       <div class="pop-content">
         <div class="top-show">
-          <div class="time"><%= pin.created_at%>By:</div>
+          <div class="time"><%= pin.created_at %>By:</div>
           <div class="close">+</div>
         </div>
         <header>
-          <img src="<%= pin.media %> " />
+          <img src="<%= pin.media %>" />
           <div class="text">
-            <h2><%= pin.title %></h2>
+            <a href="<%= pin.url %>">
+              <h2><%= pin.title %></h2>
+            </a>
             <hr />
             <div class="card-lg-info">
               <p><%= pin.description %></p>
@@ -129,13 +139,8 @@
           </div>
         </header>
 
-        <form
-          action="/:pin_id/rating"
-          method="POST"
-          class="rate-me"
-          id="<%= pin.id %>"
-          data-user="<%= userId %>"
-        >
+        <% if (userId) { %>
+        <form action="/<%= pin.id %>/rating" method="POST" class="rate-me" data-id="<%= pin.id %>">
           <label>
             <input type="radio" name="rate-me" value="5" title="5 stars" />
           </label>
@@ -152,6 +157,8 @@
             <input type="radio" name="rate-me" value="1" title="1 star" />
           </label>
         </form>
+        <% } %>
+
 
 <!-- Comments Section -->
         <p class="comments">
@@ -182,12 +189,20 @@
 
         <footer class="show">
           <div class="card-sm-avg-rating">
-            <div id="rating" class="fas fa-star checked">
-              <% if(Number(pin.rating) !== 0.0) { %> <%=
-              Number(pin.rating).toFixed(1) %> <% } else { %> <%=
-              Number(pin.rating).toFixed()%> <% } %>
+            <div class="fas fa-heart like-count">
+              <% for (const like of likes) { %>
+                <% if (like.pin_id===pin.id) { %>
+                  <%= numLikes=like.numlikes %>
+                <% } %>
+              <% } %>
             </div>
-            <div class="fas fa-heart like-count"><%= pin.like_count %></div>
+            <div id="rating" class="fas fa-star checked">
+              <% if (pin.rating) { %>
+                <%= Number(pin.rating).toFixed(1) %>
+              <% } else { %>
+                No ratings yet
+              <% } %>
+            </div>
           </div>
           <div class="buttons">
             <button>
@@ -209,5 +224,7 @@
       </div>
     </div>
   </article>
-  <% } %> <%- include('../pages/create') %>
+  <% } %>
+
+  <%- include('../pages/create') %>
 </div>
