@@ -26,6 +26,7 @@ $(function () {
     const pin = this.parentElement.parentElement.parentElement.parentElement;
     $(pin).find("div.pop-out").removeClass("show");
     $(pin).find("div.pop-out").addClass("hide");
+    $(".comment-area").toggleClass("collapse show");
     $(".child-comment").remove();
   });
 
@@ -34,6 +35,8 @@ $(function () {
     const pin = this.parentElement;
     $(pin).find("div.pop-out").removeClass("show");
     $(pin).find("div.pop-out").addClass("hide");
+    $(".comment-area").toggleClass("collapse show");
+    $(".child-comment").remove();
   });
 
   // Don't close the popup when you click within it
