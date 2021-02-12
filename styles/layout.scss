@@ -295,15 +295,12 @@ h2 {
   flex-direction: row-reverse;
   align-content: flex-start;
   justify-content: space-between;
-  width: 100%;
 
   visibility: hidden;
 
   font-size: 1em;
   color: #ababab;
 
-  padding-top: 5px;
-  padding-right: 25px;
 }
 
 .card-sm header {
@@ -392,6 +389,11 @@ h2 {
 
 .link:hover {
   color: #5143b9;
+}
+
+.card-lg-info {
+  overflow: auto;
+  height: 300px;
 }
 
 /* ---------------------------------------------------
@@ -538,7 +540,6 @@ h2 {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    margin-bottom: 50px;
 
     .time {
       margin-top: 10px;
