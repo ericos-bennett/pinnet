@@ -193,6 +193,10 @@ h2 {
   align-items: center;
 }
 
+.create-pin{
+  cursor: pointer;
+}
+
 /* ---------------------------------------------------
   SIDEBAR TOGGLE
 ----------------------------------------------------- */
@@ -574,8 +578,16 @@ h2 {
       margin-left: 10%;
       margin-right: 15px;
 
+      a {
+        color: black;
+      }
+
       h2 {
         font-size: 2.5em;
+      }
+
+      h2:hover {
+        color: default;
       }
 
       p {
@@ -804,6 +816,11 @@ i {
   justify-content: center;
   align-items: center;
   z-index: 999;
+}
+
+.form-head h2:hover {
+  color: black;
+  cursor: default;
 }
 
 .edit-content {

@@ -138,8 +138,7 @@ module.exports = (db) => {
         RETURNING *;`;
 
     db.query(queryString)
-      .then((data) => {
-        const updatedPin = data.rows[0];
+      .then(() => {
         res.redirect("back");
       })
       .catch((err) => {

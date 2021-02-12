@@ -14,7 +14,7 @@ module.exports = (db) => {
     const topicId = req.query.topicId;
     const userLink = req.params.user_id;
 
-    const queryString = `
+    let queryString = `
       SELECT
         pins.*,
         ROUND(avg(ratings.rating), 1) AS rating
@@ -33,8 +33,6 @@ module.exports = (db) => {
       `GROUP BY pins.id
       ORDER BY created_at DESC;`;
 
-    console.log(queryString);
-
     const values = [userLink];
 
     db.query(queryString, values)
@@ -51,19 +49,19 @@ module.exports = (db) => {
             for (let topic of topicData.rows) {
               topics.push(topic);
             }
-          
+
             db.query(`
               SELECT pin_id, count(*) as numLikes
               FROM favourites
               GROUP BY pin_id
             `)
-            .then((data) => {
-              const likes = data.rows;
-              const page = "myPins";
-              
-              res.render("index", { pins, topics, likes, userId, page, searchTerm : null });
-            }) 
-            .catch(err => console.log(err));
+              .then((data) => {
+                const likes = data.rows;
+                const page = "myPins";
+
+                res.render("index", { pins, topics, likes, userId, page, searchTerm : null });
+              })
+              .catch(err => console.log(err));
           })
           .catch(err => console.log(err));
       })

@@ -39,11 +39,11 @@ module.exports = (db) => {
           FROM favourites
           GROUP BY pin_id
         `)
-        .then((data) => {
-          const likes = data.rows;
+          .then((data) => {
+            const likes = data.rows;
 
-          res.render("index", { pins, likes, userId, page, searchTerm: null });
-        })
+            res.render("index", { pins, likes, userId, page, searchTerm: null });
+          });
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
