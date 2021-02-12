@@ -153,6 +153,7 @@
           </label>
         </form>
 
+<!-- Comments Section -->
         <p class="comments">
           <button class="btn btn-primary" type="button">Comments</button>
         </p>
@@ -166,14 +167,14 @@
             </div>
             <% if(userId){ %>
             <form
-            id="<%= pin.id %>"
+               id="<%= pin.id %>"
               class="comment-form"
               action="/pins/<%=pin.id%>/comments"
               method="POST"
             >
               <label for="comments"> Leave a Comment</label>
-              <textarea id="comment-text" name="commentBody" cols="30" rows="2"></textarea>
-              <button class="bt btn-primary">Post</button>
+              <textarea class="comment-text" name="commentBody" cols="30" rows="2"></textarea>
+              <button type="submit" class="bt btn-primary">Post</button>
             </form>
             <% } %>
           </div>

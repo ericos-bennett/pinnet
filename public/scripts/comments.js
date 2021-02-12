@@ -7,12 +7,13 @@ $(document).ready(function () {
     event.preventDefault();
     const pin = this;
     const pinId = pin.id;
-    const newComment = $("#comment-text");
+
+    const commentBody = $(this).find("textarea").val();
+
     $.ajax({
-      url: `pins/${pinId}/comments`,
+      url: `/pins/${pinId}/comments`,
       type: "POST",
-      data: newComment,
-      contentType: "application/json; charset=utf-8",
+      data: { commentBody },
     })
       .then((data) => {
         $(".comment-content").append(

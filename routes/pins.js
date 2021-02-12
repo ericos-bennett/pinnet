@@ -167,7 +167,6 @@ module.exports = (db) => {
   router.get("/:pin_id/comments", (req, res) => {
     const pinId = req.params.pin_id;
     const values = [pinId];
-    const path = "explore";
     const queryString = ` SELECT * FROM comments
     WHERE pin_id = $1 ;`;
 
@@ -182,13 +181,9 @@ module.exports = (db) => {
 
   // Leave a comment on someone's pin
   router.post("/:pin_id/comments", (req, res) => {
-    // const userId = req.cookies.userId;
-    // const pinId = req.params.pin_id;
-    // const commentBody = req.body.commentBody;
-    const userId = 1;
-    const pinId = 2;
-    const commentBody = "dsdsdsd";
-
+    const userId = req.cookies.userId;
+    const pinId = req.params.pin_id;
+    const commentBody = req.body.commentBody;
     // Only send the query if all values are truthy
     if (userId && pinId && commentBody) {
       const queryString = `
