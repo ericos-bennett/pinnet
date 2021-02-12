@@ -14,10 +14,10 @@ module.exports = (db) => {
     const userLink = req.params.user_id;
 
     const queryString = `
-      SELECT pins.*, count(favourites.id) AS like_count, ROUND(avg(ratings.rating), 1) AS rating
+      SELECT
+        pins.*,
+        ROUND(avg(ratings.rating), 1) AS rating
       FROM pins
-      LEFT JOIN favourites
-      ON pins.id = favourites.pin_id
       LEFT JOIN ratings
       ON pins.id = ratings.pin_id
       WHERE pins.user_id = $1
@@ -30,7 +30,17 @@ module.exports = (db) => {
         const pins = data.rows;
         const userId = req.cookies.userId;
         const page = "explore";
-        res.render("index", { pins, userId, page, searchTerm : null });
+
+        db.query(`
+          SELECT pin_id, count(*) as numLikes
+          FROM favourites
+          GROUP BY pin_id
+        `)
+        .then((data) => {
+          const likes = data.rows;
+
+          res.render("index", { pins, likes, userId, page, searchTerm: null });
+        })
       })
       .catch(err => {
         res
