@@ -52,12 +52,7 @@ $(function() {
         type: "POST",
         data: {topicId}
       }).always(function(data) {
-
       });
-
-
-
     }
   });
-
 });

@@ -1,201 +1,26 @@
 <div class="explore">
   <% for(const pin of pins){ %>
+    <article id="pin<%= pin.id %>" class="display card-sm">
 
-  <article id="pin<%= pin.id %>" class="display card-sm">
-    <header class="display-header<% if(page === 'myPins'){ %> mypins-cards <% } %>" <% if(page === 'myPins'){ %> draggable="true" <% } %>>
-      <div class="card-sm-image">
-        <img src="<%= pin.media %>" />
-      </div>
-      <div class="card-sm-info">
-        <div class="card-sm-link">
-          <h2><%= pin.title %></h2>
-        </div>
-        <p><%= pin.description %></p>
-        <div class="card-sm-avg-rating">
-          <div class="fas fa-heart like-count">
-            <% for (const like of likes) { %>
-              <% if (like.pin_id===pin.id) { %>
-                <%= numLikes=like.numlikes %>
-              <% } %>
-            <% } %>
-          </div>
-          <div id="rating" class="fas fa-star checked">
-            <% if (pin.rating) { %>
-              <%= Number(pin.rating).toFixed(1) %>
-            <% } else { %>
-              No ratings yet
-            <% } %>
-          </div>
-        </div>
-      </div>
-    </header>
-    <footer>
-      <div class="pin-actions">
-        <button class="far fa-heart like"></button>
-        <a href="<%= pin.url %>" class="link" target="_blank">
-          <span class="fas fa-external-link-alt"></span>
-        </a>
-      </div>
+      <!-- My Pins page topic bar  -->
+      <header class="display-header<% if(page === 'myPins'){ %> mypins-cards <% } %>" <% if(page === 'myPins'){ %> draggable="true" <% } %>>
 
-      <% if(page === 'myPins'){ %>
+        <img class="card-sm-image" src="<%= pin.media %>"/>
 
-      <div class="edit-buttons">
-        <!-- delete pin form -->
-        <form action="/pins/<%= pin.id %>?_method=DELETE" method="POST">
-          <button id="delete" type="submit" class="fas fa-trash-alt"></button>
-        </form>
+        <div class="card-sm-info">
+          <h2 class="card-sm-title"><%= pin.title %></h2>
+          <p class="card-sm-description"><%= pin.description %></p>
 
-        <!-- edit pin form -->
-        <div class="edit fas fa-edit">
-          <div class="edit-form hide">
-            <div class="edit-content">
-              <div class="form-close">+</div>
-              <div class="form-head">
-                <h2>Editing <%= pin.title %></h2>
-                <hr />
-              </div>
-              <form
-                id="edit-form"
-                action="/pins/<%=pin.id%>?_method=PUT "
-                method="POST"
-              >
-                <div class="form-group">
-                  <label for="title">Title
-                    <span class="required">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="<%= pin.title %> "
-                    name="title"
-                    required
-                    ;
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="url">URL <span class="required">*</span></label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    value="<%= pin.url %> "
-                    name="url"
-                    required
-                    ;
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="media"
-                    >Media<span class="required">*</span></label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    value=" <%= pin.media %> "
-                    name="media"
-                    required
-                    ;
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="description">Description</label>
-                  <textarea
-                    name="description"
-                    cols="30"
-                    rows="10"
-                    value=" <%= pin.description %> "
-                  >
-                  </textarea>
-                </div>
-                <div class="login-register-submit">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <% } %>
-    </footer>
-
-    <!-- -------------------------- -->
-    <!-- Pop-Out Content -->
-    <!-- -------------------------- -->
-    <div class="pop-out hide">
-      <div class="pop-content">
-        <div class="top-show">
-          <div class="close">+</div>
-        </div>
-        <header>
-          <img src="<%= pin.media %>" />
-          <div class="text">
-            <a href="<%= pin.url %>">
-              <h2><%= pin.title %></h2>
-            </a>
-            <hr />
-            <div class="card-lg-info">
-              <p><%= pin.description %></p>
-            </div>
-          </div>
-        </header>
-
-        <% if (userId) { %>
-        <form action="/<%= pin.id %>/rating" method="POST" class="rate-me" data-id="<%= pin.id %>">
-          <label>
-            <input type="radio" name="rate-me" value="5" title="5 stars" />
-          </label>
-          <label>
-            <input type="radio" name="rate-me" value="4" title="4 stars" />
-          </label>
-          <label>
-            <input type="radio" name="rate-me" value="3" title="3 stars" />
-          </label>
-          <label>
-            <input type="radio" name="rate-me" value="2" title="2 stars" />
-          </label>
-          <label>
-            <input type="radio" name="rate-me" value="1" title="1 star" />
-          </label>
-        </form>
-        <% } %>
-
-
-<!-- Comments Section -->
-        <p class="comments">
-          <button class="btn btn-primary" type="button">Comments</button>
-        </p>
-
-        <div class="comment-area collapse">
-          <div id="comments-area" class="card card-body">
-            <div class="comment-container">
-              <h4>Comments</h4>
-              <hr />
-              <div class="comment-content"></div>
-            </div>
-            <% if(userId){ %>
-            <form
-               id="<%= pin.id %>"
-              class="comment-form"
-              action="/pins/<%=pin.id%>/comments"
-              method="POST"
-            >
-              <label for="comments"> Leave a Comment</label>
-              <textarea class="comment-text" name="commentBody" cols="30" rows="2"></textarea>
-              <button type="submit" class="bt btn-primary">Post</button>
-            </form>
-            <% } %>
-          </div>
-        </div>
-
-        <footer class="show">
-          <div class="card-sm-avg-rating">
-            <div class="fas fa-heart like-count">
+          <div class="card-sm-stats">
+            <div class="fas fa-thumbtack">
               <% for (const like of likes) { %>
                 <% if (like.pin_id===pin.id) { %>
                   <%= numLikes=like.numlikes %>
                 <% } %>
               <% } %>
             </div>
-            <div id="rating" class="fas fa-star checked">
+
+            <div class="fas fa-star">
               <% if (pin.rating) { %>
                 <%= Number(pin.rating).toFixed(1) %>
               <% } else { %>
@@ -203,17 +28,189 @@
               <% } %>
             </div>
           </div>
-          <div class="buttons">
-            <button class="link">
-              <span class="fas fa-external-link-alt"
-                ><a href="<%= pin.url %>" target="blank"></a
-              ></span>
-            </button>
+        </div>
+      </header>
+
+      <footer>
+        <div class="card-sm-actions">
+          <% if(page === 'myPins') { %>
+            <!-- Delete action -->
+            <form action="/pins/<%= pin.id %>?_method=DELETE" method="POST">
+              <button id="delete" type="submit" class="fas fa-trash"></button>
+            </form>
+
+            <!-- Edit action -->
+            <div class="edit fas fa-edit">
+
+              <!-- Edit modal -->
+              <div class="edit-form hide">
+                <div class="edit-content">
+                  <div class="fas fa-times form-close"></div>
+
+                  <div class="form-head">
+                    <h2>Editing "<%= pin.title %>"</h2>
+                  </div>
+
+                  <form id="edit-form" action="/pins/<%=pin.id%>?_method=PUT "method="POST">
+                    <div class="form-group">
+                      <label for="title">Title <span class="required">*</span></label>
+                      <input type="text"
+                              class="form-control"
+                              value="<%= pin.title %>"
+                              name="title"
+                              required
+                              maxlength="30";/>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="url">URL <span class="required">*</span></label>
+                      <input type="text"
+                            class="form-control"
+                            value="<%= pin.url %>"
+                            name="url"
+                            required
+                            maxlength="255";/>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="media">Media <span class="required">*</span></label>
+
+                      <input type="text"
+                            class="form-control"
+                            value="<%= pin.media %>"
+                            name="media"
+                            required
+                            maxlength="255";/>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="description">Description <span class="required">*</span></label>
+                      <textarea name="description"
+                                cols="30"
+                                rows="10"
+                                value="<%= pin.description %>"
+                                required
+                                maxlength="255";>
+                      </textarea>
+                    </div>
+
+                    <div class="login-register-submit">
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          <% } %>
+
+          <button class="fas fa-thumbtack like"></button>
+          <a href="<%= pin.url %>" class="link" target="_blank">
+            <span class="fas fa-external-link-alt"></span>
+          </a>
+        </div>
+      </footer>
+
+      <!-- -------------------------- -->
+      <!-- Pop-Out content            -->
+      <!-- -------------------------- -->
+      <div class="pop-out hide">
+        <div class="pop-content">
+          <div class="fas fa-times form-close close"></div>
+
+          <header>
+            <div class="card-lg-image-container">
+              <img class="card-lg-image" src="<%= pin.media %>"/>
+            </div>
+
+            <div class="card-lg-info">
+              <div class="card-lg-head">
+                <h2 class="card-lg-title"><%= pin.title %></h2>
+                <button class="fas fa-thumbtack like"></button>
+                <a href="<%= pin.url %>" class="card-lg-link" target="_blank">
+                  <span class="fas fa-external-link-alt"></span>
+                </a>
+              </div>
+
+              <p class="card-lg-description"><%= pin.description %></p>
+
+              <div class="card-lg-stats">
+                <div class="fas fa-thumbtack">
+                  <% for (const like of likes) { %>
+                    <% if (like.pin_id===pin.id) { %>
+                      <%= numLikes=like.numlikes %>
+                    <% } %>
+                  <% } %>
+                </div>
+
+                <div class="fas fa-star">
+                  <% if (pin.rating) { %>
+                    <%= Number(pin.rating).toFixed(1) %>
+                  <% } else { %>
+                    No ratings yet
+                  <% } %>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <hr />
+          <div class="card-lg-creator">
+            <h4>Created by:</h4>
+            <p class="card-lg-creator-name"><%= pin.creator %></p>
+            <p class="card-lg-creator-time">on <%= pin.created_at %></p>
           </div>
-        </footer>
+
+          <hr />
+          <div class="ratings-section">
+            <% if (userId) { %>
+              <h3>Rate this resource:</h3>
+              <form action="/<%= pin.id %>/rating" method="POST" class="rate-me" data-id="<%= pin.id %>">
+                <label>
+                  <input type="radio" name="rate-me" value="5" title="5 stars" />
+                </label>
+                <label>
+                  <input type="radio" name="rate-me" value="4" title="4 stars" />
+                </label>
+                <label>
+                  <input type="radio" name="rate-me" value="3" title="3 stars" />
+                </label>
+                <label>
+                  <input type="radio" name="rate-me" value="2" title="2 stars" />
+                </label>
+                <label>
+                  <input type="radio" name="rate-me" value="1" title="1 star" />
+                </label>
+              </form>
+            <% } else { %>
+              <h3>Login to rate this resource!</h3>
+            <% }  %>
+          </div>
+
+          <hr />
+          <!-- Comments section -->
+          <button class="btn btn-primary comments" type="button">Toggle comments</button>
+
+          <div class="comment-area collapse">
+            <div id="comments-area" class="card card-body">
+              <div class="comment-content"></div>
+
+              <% if(userId){ %>
+                <form id="<%= pin.id %>"
+                      class="comment-form"
+                      action="/pins/<%=pin.id%>/comments"
+                      method="POST">
+                  <label for="comments"> Leave a Comment</label>
+
+                  <textarea class="comment-text" name="commentBody" cols="30" rows="2"></textarea>
+                  <button type="submit" class="bt btn-primary">Post</button>
+                </form>
+              <% } %>
+
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </article>
+    </article>
   <% } %>
 
   <%- include('../pages/create') %>
