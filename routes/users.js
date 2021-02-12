@@ -11,18 +11,32 @@ module.exports = (db) => {
   // Responds with the wall cotents given the user id
   router.get('/:user_id', (req, res) => {
 
+    const topicId = req.query.topicId;
     const userLink = req.params.user_id;
 
-    const queryString = `
+    console.log(topicId);
+
+    let queryString = `
       SELECT pins.*, count(favourites.id) AS like_count, ROUND(avg(ratings.rating), 1) AS rating
       FROM pins
       LEFT JOIN favourites
       ON pins.id = favourites.pin_id
       LEFT JOIN ratings
       ON pins.id = ratings.pin_id
-      WHERE pins.user_id = $1
-      GROUP BY pins.id
+      LEFT JOIN topics
+      ON topic_id = topics.id
+      WHERE pins.user_id = $1`;
+
+    if (topicId) {
+      queryString += ` AND topics.id = ${topicId} `;
+    }
+
+    queryString +=
+      `GROUP BY pins.id
       ORDER BY created_at DESC;`;
+
+    console.log(queryString);
+
     const values = [userLink];
 
     db.query(queryString, values)

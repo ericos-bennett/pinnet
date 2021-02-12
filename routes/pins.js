@@ -219,8 +219,6 @@ module.exports = (db) => {
   // Add a topic to a pin
   router.post("/:pin_id/topic", (req, res) => {
 
-    console.log(req.body);
-
     const topicId = req.body.topicId;
     const pinId = req.params.pin_id;
     const userId = req.cookies.userId;

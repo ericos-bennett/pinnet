@@ -35,10 +35,28 @@
         <!-- Topics header if on myPins page -->
         <% if(page === 'myPins'){ %>
           <div class="topics-container">
-            <% for(const topic of topics) { %>
-              <button type="button" class="topic-button btn btn-outline-primary" id="topic<%= topic.id %>">
-                <%= topic.name %>
+
+            <form class="form-inline" method="GET" action="/users/<%= userId %> ">
+              <button
+                type="submit"
+                class="topic-button btn btn-outline-primary">
+                All My Pins
               </button>
+            </form>
+
+
+            <% for(const topic of topics) { %>
+              <form class="form-inline" method="GET" action="/users/<%= userId %>">
+                <button
+                  type="submit"
+                  class="topic-button btn btn-outline-primary"
+                  id="topic<%= topic.id %>"
+                  name="topicId"
+                  value="<%= topic.id %>"
+                >
+                  <%= topic.name %>
+                </button>
+              </form>
              <% } %>
           </div>
 
