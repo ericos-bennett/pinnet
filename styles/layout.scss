@@ -18,6 +18,135 @@
 }
 
 /* ---------------------------------------------------
+  CARDS (SMALL)
+----------------------------------------------------- */
+
+.card-sm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  width: 450px;
+}
+
+.card-sm-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+
+  margin-top: 5px;
+  padding-right: 25px;
+
+  color: #ABABAB;
+}
+
+.card-sm-description {
+  font-family: "Gotham Light", sans-serif;
+}
+
+.card-sm-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 25px;
+  object-fit: cover;
+}
+
+.card-sm-stats {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+
+  font-size: 0.8em;
+}
+
+.card-sm-title {
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+
+  font-size: 1.5em;
+}
+
+/* ---------------------------------------------------
+  CARDS (LARGE)
+----------------------------------------------------- */
+
+.card-lg-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+.card-lg-image-container {
+  width: 300px;
+  height: 300px;
+  border-radius: 50px;
+}
+
+/* ---------------------------------------------------
+  ACTION ICONS
+----------------------------------------------------- */
+
+.fa-star {
+  color: #FFA500;
+}
+
+.fa-thumbtack {
+  color: #CB3365;
+}
+
+.fa-trash:hover { color: #FF0000; }
+
+.fa-edit:hover { color: #FFA500; }
+
+.fa-external-link-alt,
+.like {
+  color: #ABABAB;
+}
+
+.fa-external-link-alt:hover,
+.like:hover {
+  color: #5143B9;
+}
+
+.form-close {
+  display: flex;
+  justify-content: flex-start;
+  align-self: flex-end;
+
+  z-index: 999;
+
+  color: #ABABAB;
+  font-size: 1.5em;
+
+  cursor: pointer;
+}
+
+.form-close:hover {
+  color: #5143B9;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------------
   GENERAL LAYOUT
 ----------------------------------------------------- */
 
@@ -259,49 +388,27 @@ h2 {
   background: rgba(0, 0, 0, 0.2);
 }
 
-/* ---------------------------------------------------
-  CARDS (SMALL)
------------------------------------------------------ */
+
+
+
+
+
+
+
+
+
 
 .display-header {
   cursor: pointer;
   background-color: white;
 }
 
-.card-sm h2 {
-  white-space: wrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: inline-block;
 
-  font-size: 1.5em;
 
-  cursor: pointer;
-}
 
-.card-sm h2:hover {
-  color: #5143b9;
-}
 
-.card-sm {
-  width: 450px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
 
-.card-sm footer {
-  display: flex;
-  flex-direction: row-reverse;
-  align-content: flex-start;
-  justify-content: space-between;
 
-  visibility: hidden;
-
-  font-size: 1em;
-  color: #ababab;
-
-}
 
 .card-sm header {
   width: 100%;
@@ -328,31 +435,9 @@ h2 {
   visibility: unset;
 }
 
-.card-sm-avg-rating {
-  display: flex;
-  flex-direction: row;
-  gap: 25px;
-  font-size: 0.8em;
-  align-items: center;
-  color: red;
 
-  #rating {
-    margin: 5px;
-  }
-}
 
-.card-sm-image {
-  width: 160px;
-  height: 160px;
-  border-radius: 25px;
-}
 
-.card-sm-image img {
-  max-width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  object-fit: cover;
-}
 
 .card-sm-info {
   width: 220px;
@@ -369,26 +454,8 @@ h2 {
   overflow: hidden;
 }
 
-.card-sm-link {
-  display: flex;
-  flex-direction: row
-}
-
-.card-sm-link h2:hover{
-  color: black;
-
-}
-
 .external-link-alt {
   font-size: 0.8em;
-}
-
-.link {
-  color: #ababab;
-}
-
-.link:hover {
-  color: #5143b9;
 }
 
 .card-lg-info {
@@ -396,42 +463,9 @@ h2 {
   height: 300px;
 }
 
-/* ---------------------------------------------------
-  PIN AND LIKES
------------------------------------------------------ */
 
-.fa-heart:hover {
-  color: #5143b9;
-}
 
-.fa-plus-square:hover {
-  color: #5143b9;
-}
 
-.like {
-  display: flex;
-  flex-direction: row;
-}
-
-.like:hover,
-.like:active,
-.like:focus {
-  outline: none;
-}
-
-.like-counter {
-  font-size: 0.8em;
-}
-
-.like,
-.fa-external-link-alt {
-  color: #ababab;
-}
-
-.like:hover,
-.fa-external-link-alt:hover {
-  color: #5143b9;
-}
 
 /* ---------------------------------------------------
   AUTH STYLES
@@ -501,6 +535,13 @@ h2 {
 /* ---------------------------------------------------
   CARD MODAL POPUP
 ----------------------------------------------------- */
+
+
+
+
+
+
+
 // controls black out background
 .pop-out {
   width: 100%;
@@ -536,6 +577,8 @@ h2 {
     }
   }
 
+
+
   .top-show {
     display: flex;
     justify-content: flex-end;
@@ -543,15 +586,6 @@ h2 {
 
     .time {
       margin-top: 10px;
-    }
-    // controls the model close
-    .close {
-      transform: rotate(45deg);
-      cursor: pointer;
-      z-index: 999;
-      font-size: 3em;
-      margin-right: 10px;
-      padding: 0;
     }
   }
   header {
@@ -563,15 +597,6 @@ h2 {
     justify-content: flex-start;
     word-wrap: break-word;
     text-align: center;
-
-    img {
-      width: 30%;
-      height: auto;
-      border-radius: 15px;
-      justify-self: flex-start;
-      margin-left: 50px;
-      margin-top: -20px;
-    }
 
     .text {
       display: flex;
@@ -764,47 +789,65 @@ hr {
     }
   }
 
-  .form-close {
-    transform: rotate(45deg);
-    cursor: pointer;
-    z-index: 999;
-    align-self: flex-end;
-    justify-content: flex-start;
-    font-size: 3em;
-    margin-right: 10px;
-  }
+
 }
 i {
   margin: 1px;
 }
 /* ---------------------------------------------------
-  Edit & Delete styles
+  DELETE & EDIT
 ----------------------------------------------------- */
-.edit-buttons {
-  display: flex;
-  justify-self: flex-start;
-}
-#delete:hover {
-  font-size: 1.2em;
-  color: red;
-  transition: font-size 0.1s;
-}
-.fa-edit:hover {
-  font-size: 1.2em;
-  color: orange;
-  transition: font-size 0.1s;
-}
-.edit {
-  margin: 5px;
-}
+
+textarea { resize: none; border-color: #D0D4DC; border-radius: 5px }
+textarea:focus { outline: none }
+
+.form-head { margin-bottom: 25px; }
 
 .edit-content {
-  color: #ababab;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 70vh;
+  width: 70vw;
+  padding: 25px;
+
+  background-color: #FFFFFF;
+
+  border: 10px solid #516BFD;
+  border-radius: 25px;
+
+  color: #ABABAB;
+  font-family: "Gotham light", sans-serif;
+
+  animation: fadeIn ease 0.2s;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   h2 {
-    color: black;
-    text-decoration: none;
+    color: #000000;
+  }
+
+  #edit-form {
+    width: 60%;
+    textarea {
+      width: 100%;
+    }
   }
 }
+
+
+
+
+
 
 // edit form styles
 .edit-form {
@@ -819,55 +862,7 @@ i {
   z-index: 999;
 }
 
-.form-head h2:hover {
-  color: black;
-  cursor: default;
-}
 
-.edit-content {
-  height: 70vh;
-  width: 70vw;
-  background-color: #fff;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 10px solid black;
-  border-color: #516bfd;
-  font-family: "Gotham light";
-  animation: fadeIn ease 0.2s;
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  #edit-form {
-    width: 60%;
-    textarea {
-      width: 100%;
-    }
-  }
-
-  .form-close {
-    transform: rotate(45deg);
-    cursor: pointer;
-    z-index: 999;
-    align-self: flex-end;
-    justify-content: flex-start;
-    font-size: 3em;
-    margin-right: 10px;
-  }
-}
-
-i {
-  margin: 1px;
-}
 
 /* ---------------------------------------------------
   Comment Styles
@@ -894,6 +889,7 @@ i {
   border: none;
   overflow: auto;
 }
+
 /* ---------------------------------------------------
   MEDIAQUERIES
 ----------------------------------------------------- */
