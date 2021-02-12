@@ -704,6 +704,11 @@ textarea:focus { outline: none }
   color: #ABABAB;
 }
 
+.like:focus {
+  border: none;
+  outline:none;
+}
+
 .fa-external-link-alt:hover,
 .like:hover {
   color: #5143B9;
