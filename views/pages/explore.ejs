@@ -12,7 +12,7 @@
         </div>
         <p><%= pin.description %></p>
         <div class="card-sm-avg-rating">
-          <div class="fas fa-heart like-count"> 
+          <div class="fas fa-heart like-count">
             <% for (const like of likes) { %>
               <% if (like.pin_id===pin.id) { %>
                 <%= numLikes=like.numlikes %>
@@ -74,7 +74,7 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label for="url">Url <span class="required">*</span></label>
+                  <label for="url">URL <span class="required">*</span></label>
                   <input
                     type="text"
                     class="form-control"
@@ -131,7 +131,9 @@
         <header>
           <img src="<%= pin.media %>" />
           <div class="text">
-            <h2><%= pin.title %></h2>
+            <a href="<%= pin.url %>">
+              <h2><%= pin.title %></h2>
+            </a>
             <hr />
             <div class="card-lg-info">
               <p><%= pin.description %></p>
