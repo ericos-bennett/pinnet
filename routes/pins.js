@@ -37,7 +37,18 @@ module.exports = (db) => {
         const userId = req.cookies.userId;
         const page = "explore";
         const searchTerm = search.substring(1, search.length - 1);
-        res.render("index", { pins, userId, page, searchTerm });
+
+        db.query(`
+        SELECT pin_id, count(*) as numLikes
+        FROM favourites
+        GROUP BY pin_id
+      `)
+          .then((data) => {
+            const likes = data.rows;
+
+            res.render("index", { pins, likes, userId, page, searchTerm });
+          }).catch(err => console.log(err));
+
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
