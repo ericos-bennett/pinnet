@@ -218,42 +218,22 @@ module.exports = (db) => {
 
   // Add a topic to a pin
   router.post("/:pin_id/topic", (req, res) => {
-    const topic = req.body.topic;
 
-    // Add a new topic to the topics table and return its id
+    const topicId = req.body.topicId;
+    const pinId = req.params.pin_id;
+    const userId = req.cookies.userId;
+
+    // Update the pin with its new topic
     const queryString = `
-      INSERT INTO topics (name)
-      VALUES ($1)
-      ON CONFLICT (name)
-      DO UPDATE
-      SET name = $1
-      RETURNING id;
-    `;
-    const values = [topic];
-
-    console.log(topic);
-
-    db.query(queryString, values)
-      .then((data) => {
-        const topicId = data.rows[0].id;
-        const pinId = req.params.pin_id;
-        const userId = req.cookies.userId;
-
-        // Update the pins table with the new topic_id
-        const queryString = `
           UPDATE pins
           SET topic_id = $1
-          WHERE id = $2 AND user_id = $3
-          RETURNING *
+          WHERE id = $2 AND user_id = $3;
           `;
-        const values = [topicId, pinId, userId];
+    const values = [topicId, pinId, userId];
 
-        db.query(queryString, values)
-          .then((data) => {
-            const updatedPin = data.rows[0];
-            res.json(updatedPin);
-          })
-          .catch((err) => console.log(err));
+    db.query(queryString, values)
+      .then(() => {
+        res.end();
       })
       .catch((err) => console.log(err));
   });

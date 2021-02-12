@@ -261,6 +261,7 @@ h2 {
 
 .display-header {
   cursor: pointer;
+  background-color: white;
 }
 
 .card-sm h2 {
@@ -342,8 +343,6 @@ h2 {
 .card-sm-image {
   width: 160px;
   height: 160px;
-
-  background-color: #44a8c4;
   border-radius: 25px;
 }
 
@@ -371,7 +370,12 @@ h2 {
 
 .card-sm-link {
   display: flex;
-  flex-direction: row;
+  flex-direction: row
+}
+
+.card-sm-link h2:hover{
+  color: black;
+
 }
 
 .external-link-alt {
@@ -450,14 +454,6 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.btn {
-  background-color: #5143b9;
-}
-
-.btn:hover {
-  background-color: #7469c9;
 }
 
 .form-group {
@@ -657,6 +653,25 @@ hr {
 #search::-ms-input-placeholder {
   /* Microsoft Edge */
   color: #ababab;
+}
+
+/* ---------------------------------------------------
+  TOPICS
+----------------------------------------------------- */
+
+.topics-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 70%;
+}
+
+#invisible-topic-item {
+  visibility: hidden;
+  width: 50px;
+}
+
+#new-topic {
+  width: 200px;
 }
 
 /* ---------------------------------------------------

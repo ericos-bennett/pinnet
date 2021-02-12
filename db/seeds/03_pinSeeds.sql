@@ -2,17 +2,20 @@ INSERT INTO pins(user_id,topic_id,title,url,description,media)VALUES(6,7, 'Princ
 
 INSERT INTO pins(user_id,topic_id,title,url,description,media)VALUES(2,5, 'Central Data Associate', 'http://example.edu/2','Molestiae aperiam deserunt eveniet velit unde perferendis rerum rerum vitae.', 'http://placeimg.com/640/480/technics');
 
-INSERT INTO pins(user_id,topic_id,title,url,description,media)VALUES(3,7, 'Dynamic Integration Supervisor', 'http://example.edu/3','Earum qui sunt.', 'http://placeimg.com/640/480/cats');
+INSERT INTO pins(user_id,topic_id,title,url,description,media)VALUES(3,7, 'Unicode.org', 'https://home.unicode.org/','Everyone in the world should be able to use their own language on phones and computers.', 'https://home.unicode.org/wp-content/uploads/2019/12/Unicode-Logo-Final-Blue-95x112.jpg');
 
-INSERT INTO pins(user_id,topic_id,title,url,description,media)VALUES(6,6, 'Central Solutions Associate', 'http://example.edu/4','Id omnis quidem id est temporibus adipisci magnam deserunt suscipit.', 'http://placeimg.com/640/480/transport');
+INSERT INTO pins(user_id,topic_id,title,url,description,media)VALUES(6,6, 'Network Programming', 'https://beej.us/guide/bgnet/html/','Hey! Socket programming got you down? Is this stuff just a little too difficult to figure out from the man pages? You want to do cool Internet programming, but you don’t have time to wade through a gob of structs trying to figure out if you have to call bind() before you connect(), etc., etc.', 'http://placeimg.com/640/480/animals');
 
-INSERT INTO pins(user_id,topic_id,title,url,description,media)VALUES(5,7, 'Future Security Liaison', 'http://example.edu/5','Nihil quasi quia voluptas voluptas quisquam non a.', 'http://placeimg.com/640/480/city');
+INSERT INTO pins(user_id,topic_id,title,url,description,media)VALUES(5,7, 'Latency', 'http://calpaterson.com/latency.html','What''s the fastest place to put my server? Beyond the time taken for servers to respond to requests it takes time just to traverse the internet, just to get a packet from A to B.
 
-INSERT INTO pins(user_id,topic_id,title,url,description,media)VALUES(1,1, 'Central Division Technician', 'http://example.edu/6','Accusantium consequuntur aspernatur deserunt.', 'http://placeimg.com/640/480/transport');
+To estimate what the theoretical best physical place to put my own server is I''ve combined publicly available data on latencies with my own web server accesslogs. I''m aiming to get a rough, quantitative, answer that''s based on a real data set.', 'http://calpaterson.com/assets/network-transit-times.png');
 
-INSERT INTO pins(user_id,topic_id,title,url,description,media)VALUES(6,1, 'Product Solutions Designer', 'http://example.edu/7','Sit molestiae tempore ut unde distinctio sunt sunt officia.', 'http://placeimg.com/640/480/nature');
+INSERT INTO pins(user_id,topic_id,title,url,description,media)VALUES(1,1, 'API Directory', 'https://www.programmableweb.com/apis/directory','A handly resource of publicly available APIs to get inspiration from and experiment with.', 'https://www.programmableweb.com/sites/all/themes/pw_bootstrap_two/images/logo-65x65.png');
 
-INSERT INTO pins(user_id,topic_id,title,url,description,media)VALUES(1,4, 'Corporate Marketing Administrator', 'http://example.edu/8','In rerum rerum est quis nam assumenda placeat rerum.', 'http://placeimg.com/640/480/people');
+INSERT INTO pins(user_id,topic_id,title,url,description,media)VALUES(6,1, 'Feather Icons', 'https://feathericons.com/','Simply beautiful open source icons
+', 'https://feathericons.com/feather-og.png');
+
+INSERT INTO pins(user_id,topic_id,title,url,description,media)VALUES(1,4, 'How to open a file in Emacs', 'https://www.murilopereira.com/how-to-open-a-file-in-emacs/','I''ve recently joined a company that for security reasons doesn’t allow their source code on laptops. Development happens strictly on workstations inside their private networks, with some using their text editor''s support for remote file editing and others running editors on those machines via SSH.', 'https://www.murilopereira.com/tron.jpg');
 
 INSERT INTO pins(user_id,topic_id,title,url,description,media)VALUES(5,7, 'Forward Intranet Technician', 'http://example.edu/9','Laudantium nihil explicabo illum atque hic doloribus dolorem ipsum.', 'http://placeimg.com/640/480/nature');
 
