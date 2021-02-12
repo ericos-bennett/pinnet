@@ -162,12 +162,27 @@ module.exports = (db) => {
       .catch((err) => console.log(err));
   });
 
+  //gets comments for specific pin id
+  router.get("/:pin_id/comments", (req, res) => {
+    const pinId = req.params.pin_id;
+    const values = [pinId];
+    const queryString = ` SELECT * FROM comments
+    WHERE pin_id = $1 ;`;
+
+    db.query(queryString, values)
+      .then((data) => {
+        res.json(data.rows);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
+
   // Leave a comment on someone's pin
-  router.post("/:pin_id/comment", (req, res) => {
+  router.post("/:pin_id/comments", (req, res) => {
     const userId = req.cookies.userId;
     const pinId = req.params.pin_id;
     const commentBody = req.body.commentBody;
-
     // Only send the query if all values are truthy
     if (userId && pinId && commentBody) {
       const queryString = `
@@ -179,8 +194,7 @@ module.exports = (db) => {
 
       db.query(queryString, values)
         .then((data) => {
-          const newComment = data.rows[0];
-          res.json(newComment);
+          res.json(data.rows);
         })
         .catch((err) => console.log(err));
     } else {

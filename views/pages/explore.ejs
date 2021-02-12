@@ -30,7 +30,6 @@
       </div>
     </header>
     <footer>
-
       <div class="pin-actions">
         <button class="far fa-heart like"></button>
         <a href="<%= pin.url %>" class="link" target="_blank">
@@ -116,7 +115,6 @@
         </div>
       </div>
       <% } %>
-
     </footer>
 
     <!-- -------------------------- -->
@@ -144,22 +142,50 @@
         <% if (userId) { %>
         <form action="/<%= pin.id %>/rating" method="POST" class="rate-me" data-id="<%= pin.id %>">
           <label>
-            <input type="radio" name="rate-me" value="5" title="5 stars">
+            <input type="radio" name="rate-me" value="5" title="5 stars" />
           </label>
           <label>
-            <input type="radio" name="rate-me" value="4" title="4 stars">
+            <input type="radio" name="rate-me" value="4" title="4 stars" />
           </label>
           <label>
-            <input type="radio" name="rate-me" value="3" title="3 stars">
+            <input type="radio" name="rate-me" value="3" title="3 stars" />
           </label>
           <label>
-            <input type="radio" name="rate-me" value="2" title="2 stars">
+            <input type="radio" name="rate-me" value="2" title="2 stars" />
           </label>
           <label>
-            <input type="radio" name="rate-me" value="1" title="1 star">
+            <input type="radio" name="rate-me" value="1" title="1 star" />
           </label>
         </form>
         <% } %>
+
+
+<!-- Comments Section -->
+        <p class="comments">
+          <button class="btn btn-primary" type="button">Comments</button>
+        </p>
+
+        <div class="comment-area collapse"  ">
+          <div id="comments-area" class="card card-body">
+            <div class="comment-container">
+              <h4>Comments</h4>
+              <hr />
+              <div class="comment-content"></div>
+            </div>
+            <% if(userId){ %>
+            <form
+               id="<%= pin.id %>"
+              class="comment-form"
+              action="/pins/<%=pin.id%>/comments"
+              method="POST"
+            >
+              <label for="comments"> Leave a Comment</label>
+              <textarea class="comment-text" name="commentBody" cols="30" rows="2"></textarea>
+              <button type="submit" class="bt btn-primary">Post</button>
+            </form>
+            <% } %>
+          </div>
+        </div>
 
         <footer class="show">
           <div class="card-sm-avg-rating">

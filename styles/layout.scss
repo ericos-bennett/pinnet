@@ -863,10 +863,36 @@ i {
     margin-right: 10px;
   }
 }
+
 i {
   margin: 1px;
 }
 
+/* ---------------------------------------------------
+  Comment Styles
+----------------------------------------------------- */
+#comments-area {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.comment-container {
+  text-align: center;
+}
+.comment-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-content {
+  border: 1px black;
+  text-align: center;
+  height: 130px;
+  width: 120%;
+  border: none;
+  overflow: auto;
+}
 /* ---------------------------------------------------
   MEDIAQUERIES
 ----------------------------------------------------- */
