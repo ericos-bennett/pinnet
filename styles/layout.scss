@@ -845,9 +845,21 @@ i {
   flex-direction: row;
   justify-content: space-around;
 }
+.comment-container {
+  text-align: center;
+}
 .comment-form {
   display: flex;
   flex-direction: column;
+}
+
+.comment-content {
+  border: 1px black;
+  text-align: center;
+  height: 130px;
+  width: 120%;
+  border: none;
+  overflow: auto;
 }
 /* ---------------------------------------------------
   MEDIAQUERIES

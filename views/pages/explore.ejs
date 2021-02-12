@@ -162,16 +162,19 @@
             <div class="comment-container">
               <h4>Comments</h4>
               <hr />
+              <div class="comment-content"></div>
             </div>
+            <% if(userId){ %>
             <form
               class="comment-form"
-              action="/pins/<%= pin.id %>/comment"
+              action="/pins/<%=pin.id%>/comment"
               method="POST"
             >
               <label for="comments"> Leave a Comment</label>
-              <textarea name="commentBody" id="" cols="30" rows="2"></textarea>
+              <textarea name="commentBody" cols="30" rows="2"></textarea>
               <button class="bt btn-primary">Post</button>
             </form>
+            <% } %>
           </div>
         </div>
 
