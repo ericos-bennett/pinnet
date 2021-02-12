@@ -115,9 +115,7 @@
       <!-- -------------------------- -->
       <div class="pop-out hide">
         <div class="pop-content">
-          <div class="top-show">
-            <div class="fas fa-times form-close close"></div>
-          </div>
+          <div class="fas fa-times form-close close"></div>
 
           <header>
             <div class="card-lg-image-container">
@@ -155,30 +153,41 @@
             </div>
           </header>
 
-          <% if (userId) { %>
-            <h3>Rate this resource:</h3>
-            <form action="/<%= pin.id %>/rating" method="POST" class="rate-me" data-id="<%= pin.id %>">
-              <label>
-                <input type="radio" name="rate-me" value="5" title="5 stars" />
-              </label>
-              <label>
-                <input type="radio" name="rate-me" value="4" title="4 stars" />
-              </label>
-              <label>
-                <input type="radio" name="rate-me" value="3" title="3 stars" />
-              </label>
-              <label>
-                <input type="radio" name="rate-me" value="2" title="2 stars" />
-              </label>
-              <label>
-                <input type="radio" name="rate-me" value="1" title="1 star" />
-              </label>
-            </form>
-          <% } %>
+          <hr />
+          <div class="card-lg-creator">
+            <h4>Created by:</h4>
+            <p class="card-lg-creator-name"><%= pin.creator %></p>
+            <p class="card-lg-creator-time">on <%= pin.created_at %></p>
+          </div>
 
+          <hr />
+          <div class="ratings-section">
+            <% if (userId) { %>
+              <h3>Rate this resource:</h3>
+              <form action="/<%= pin.id %>/rating" method="POST" class="rate-me" data-id="<%= pin.id %>">
+                <label>
+                  <input type="radio" name="rate-me" value="5" title="5 stars" />
+                </label>
+                <label>
+                  <input type="radio" name="rate-me" value="4" title="4 stars" />
+                </label>
+                <label>
+                  <input type="radio" name="rate-me" value="3" title="3 stars" />
+                </label>
+                <label>
+                  <input type="radio" name="rate-me" value="2" title="2 stars" />
+                </label>
+                <label>
+                  <input type="radio" name="rate-me" value="1" title="1 star" />
+                </label>
+              </form>
+            <% } else { %>
+              <h3>Login to rate this resource!</h3>
+            <% }  %>
+          </div>
 
+          <hr />
           <!-- Comments section -->
-          <h3>Comments</h3>
           <button class="btn btn-primary comments" type="button">Toggle comments</button>
 
           <div class="comment-area collapse">

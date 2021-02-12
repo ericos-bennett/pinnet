@@ -18,135 +18,6 @@
 }
 
 /* ---------------------------------------------------
-  CARDS (SMALL)
------------------------------------------------------ */
-
-.card-sm {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-
-  width: 450px;
-}
-
-.card-sm-actions {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 5px;
-
-  margin-top: 5px;
-  padding-right: 25px;
-
-  color: #ABABAB;
-}
-
-.card-sm-description {
-  font-family: "Gotham Light", sans-serif;
-}
-
-.card-sm-image {
-  width: 160px;
-  height: 160px;
-  border-radius: 25px;
-  object-fit: cover;
-}
-
-.card-sm-stats {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 25px;
-
-  font-size: 0.8em;
-}
-
-.card-sm-title {
-  white-space: wrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: inline-block;
-
-  font-size: 1.5em;
-}
-
-/* ---------------------------------------------------
-  CARDS (LARGE)
------------------------------------------------------ */
-
-.card-lg-image {
-  width: 100%;
-  height: 100%;
-  border-radius: 50px;
-  object-fit: cover;
-}
-
-.card-lg-image-container {
-  width: 300px;
-  height: 300px;
-  border-radius: 50px;
-}
-
-/* ---------------------------------------------------
-  ACTION ICONS
------------------------------------------------------ */
-
-.fa-star {
-  color: #FFA500;
-}
-
-.fa-thumbtack {
-  color: #CB3365;
-}
-
-.fa-trash:hover { color: #FF0000; }
-
-.fa-edit:hover { color: #FFA500; }
-
-.fa-external-link-alt,
-.like {
-  color: #ABABAB;
-}
-
-.fa-external-link-alt:hover,
-.like:hover {
-  color: #5143B9;
-}
-
-.form-close {
-  display: flex;
-  justify-content: flex-start;
-  align-self: flex-end;
-
-  z-index: 999;
-
-  color: #ABABAB;
-  font-size: 1.5em;
-
-  cursor: pointer;
-}
-
-.form-close:hover {
-  color: #5143B9;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ---------------------------------------------------
   GENERAL LAYOUT
 ----------------------------------------------------- */
 
@@ -155,7 +26,7 @@ body {
   height: 100%;
 
   background-attachment: fixed;
-  background-image: linear-gradient(30deg, #5143b9, #44a8c4);
+  background-image: linear-gradient(30deg, #5143B9, #44A8C4);
 }
 
 /* Override all button style defaults */
@@ -166,12 +37,16 @@ button {
   background-color: transparent;
 }
 
-.checked {
-  color: orange;
+h2 {
+  font-family: "Gotham Black", sans-serif;
 }
 
-.like-count {
-  color: #cb3365;
+h3, h4 {
+  font-size: 1em;
+}
+
+hr {
+  margin: 25px;
 }
 
 .content {
@@ -185,7 +60,7 @@ button {
 
   position: fixed;
 
-  background-color: #fcfcfc;
+  background-color: #FCFCFC;
 
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
@@ -197,10 +72,6 @@ button {
 
 .content-body {
   height: 100%;
-}
-
-h2 {
-  font-family: "Gotham Black", sans-serif;
 }
 
 /* ---------------------------------------------------
@@ -217,7 +88,7 @@ h2 {
 }
 .logins a {
   text-decoration: none;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .logins button:before,
@@ -228,7 +99,7 @@ h2 {
   bottom: 0;
   left: 0;
 
-  background-color: #ffffff;
+  background-color: #FFFFFF;
 
   visibility: hidden;
   transform: scaleX(0);
@@ -304,7 +175,7 @@ h2 {
 
 .sidebar a {
   text-decoration: none;
-  color: #ffffff;
+  color: #FFFFFF;
 }
 
 .sidebar button {
@@ -315,7 +186,7 @@ h2 {
 .sidebar-header {
   font-family: "Gotham Black", sans-serif;
   text-decoration: none;
-  color: #ffffff;
+  color: #FFFFFF;
 
   display: flex;
   flex-direction: column;
@@ -324,6 +195,353 @@ h2 {
 
 .create-pin{
   cursor: pointer;
+}
+
+/* ---------------------------------------------------
+  CARDS (SMALL)
+----------------------------------------------------- */
+
+.card-sm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  width: 450px;
+}
+
+.card-sm:hover footer {
+  visibility: unset;
+}
+
+.card-sm header {
+  width: 100%;
+  height: 200px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+
+  border: #EEEEEE 2px solid;
+  border-radius: 25px;
+}
+
+.card-sm header:hover {
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(171, 171, 171, 0.3);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(171, 171, 171, 0.3);
+  box-shadow: 0px 0px 15px 0px rgba(171, 171, 171, 0.3);
+  border-radius: 25px;
+}
+
+.card-sm-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+
+  margin-top: 5px;
+  padding-right: 25px;
+
+  color: #ABABAB;
+}
+
+.card-sm-description {
+  font-family: "Gotham Light", sans-serif;
+}
+
+.card-sm-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 25px;
+  object-fit: cover;
+}
+
+.card-sm-info {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  max-height: 160px;
+}
+
+.card-sm-info p {
+  font-size: 0.8em;
+
+  overflow: hidden;
+}
+
+.card-sm-stats {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+
+  font-size: 0.8em;
+}
+
+.card-sm-title {
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+
+  font-size: 1.5em;
+}
+
+/* Toggle */
+.hide {
+  display: none;
+}
+
+.show {
+  display: flex;
+}
+
+/* ---------------------------------------------------
+  CARDS (LARGE)
+----------------------------------------------------- */
+
+.card-lg-creator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-lg-creator-name {
+  font-family: "Gotham Bold", sans-serif;
+}
+
+.card-lg-creator-time {
+  font-size: 0.5em;
+}
+
+.card-lg-description {
+  width: 500px;
+  margin-bottom: 25px;
+  overflow-wrap: break-word;
+}
+
+.card-lg-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+.card-lg-image-container {
+  width: 300px;
+  height: 300px;
+  border-radius: 50px;
+
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.card-lg-head {
+  display: flex;
+  flex-direction: row;
+
+  margin-bottom: 25px;
+}
+
+.card-lg-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  overflow: auto;
+  height: 300px;
+}
+
+.card-lg-link {
+  align-self: center;
+}
+
+.card-lg-stats {
+  display: flex;
+  justify-content: flex-start;
+  gap: 50px;
+}
+
+.card-lg-title {
+  font-size: 2em;
+}
+
+// controls black out background
+.pop-out {
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  background-color: rgba(0, 0, 0, 0.7);
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.ratings-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.pop-content {
+  display: flex;
+  flex-direction: column;
+
+  height: 70vh;
+  width: 70vw;
+  padding: 25px;
+
+  overflow-y: scroll;
+
+  background-color: #FFFFFF;
+  border-radius: 25px;
+
+  border: 10px solid #516BFD;
+
+  font-family: "Gotham light";
+  animation: fadeIn ease 0.2s;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 50px;
+
+    height: 100%;
+    border: none;
+  }
+
+  header:hover {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
+/* ---------------------------------------------------
+  ACTION ICONS
+----------------------------------------------------- */
+
+.fa-star {
+  color: #FFA500;
+}
+
+.fa-thumbtack {
+  color: #CB3365;
+}
+
+.fa-trash:hover { color: #FF0000; }
+
+.fa-edit:hover { color: #FFA500; }
+
+.fa-external-link-alt,
+.like {
+  color: #ABABAB;
+}
+
+.fa-external-link-alt:hover,
+.like:hover {
+  color: #5143B9;
+}
+
+.form-close {
+  display: flex;
+  justify-content: flex-start;
+  align-self: flex-end;
+
+  z-index: 999;
+
+  color: #ABABAB;
+  font-size: 1.5em;
+
+  cursor: pointer;
+}
+
+.form-close:hover {
+  color: #5143B9;
+}
+
+/* ---------------------------------------------------
+  DELETE & EDIT
+----------------------------------------------------- */
+
+textarea { resize: none; border-color: #D0D4DC; border-radius: 5px }
+textarea:focus { outline: none }
+
+.form-head { margin-bottom: 25px; }
+
+.edit-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 70vh;
+  width: 70vw;
+  padding: 25px;
+
+  background-color: #FFFFFF;
+
+  border: 10px solid #516BFD;
+  border-radius: 25px;
+
+  color: #ABABAB;
+  font-family: "Gotham light", sans-serif;
+
+  animation: fadeIn ease 0.2s;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  h2 {
+    color: #000000;
+  }
+
+  #edit-form {
+    width: 60%;
+    textarea {
+      width: 100%;
+    }
+  }
+}
+
+.edit-form {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
 
 /* ---------------------------------------------------
@@ -362,6 +580,11 @@ h2 {
   EXPLORE PAGE
 ----------------------------------------------------- */
 
+.display-header {
+  cursor: pointer;
+  background-color: white;
+}
+
 .explore {
   width: 100%;
   height: 100%;
@@ -370,9 +593,11 @@ h2 {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 5%;
+  gap: 2%;
 
   overflow-y: scroll;
+
+  padding-bottom: 80px;
 }
 
 ::-webkit-scrollbar {
@@ -387,85 +612,6 @@ h2 {
 ::-webkit-scrollbar-thumb {
   background: rgba(0, 0, 0, 0.2);
 }
-
-
-
-
-
-
-
-
-
-
-
-.display-header {
-  cursor: pointer;
-  background-color: white;
-}
-
-
-
-
-
-
-
-
-.card-sm header {
-  width: 100%;
-  height: 200px;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 25px;
-
-  border: #eeeeee 2px solid;
-  border-radius: 25px;
-}
-
-.card-sm header:hover {
-  -webkit-box-shadow: 0px 0px 15px 0px rgba(171, 171, 171, 0.3);
-  -moz-box-shadow: 0px 0px 15px 0px rgba(171, 171, 171, 0.3);
-  box-shadow: 0px 0px 15px 0px rgba(171, 171, 171, 0.3);
-  border-radius: 25px;
-}
-
-.card-sm:hover footer {
-  visibility: unset;
-}
-
-
-
-
-
-.card-sm-info {
-  width: 220px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  max-height: 160px;
-}
-
-.card-sm-info p {
-  font-size: 0.8em;
-
-  overflow: hidden;
-}
-
-.external-link-alt {
-  font-size: 0.8em;
-}
-
-.card-lg-info {
-  overflow: auto;
-  height: 300px;
-}
-
-
-
-
 
 /* ---------------------------------------------------
   AUTH STYLES
@@ -533,143 +679,12 @@ h2 {
 }
 
 /* ---------------------------------------------------
-  CARD MODAL POPUP
------------------------------------------------------ */
-
-
-
-
-
-
-
-// controls black out background
-.pop-out {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  top: 0;
-  left: 0;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-//controls all styles withing the pop-out card
-.pop-content {
-  height: 70vh;
-  width: 70vw;
-  background-color: #fff;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  border: 10px solid black;
-  border-color: #516bfd;
-  font-family: "Gotham light";
-  animation: fadeIn ease 0.2s;
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-
-
-  .top-show {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-
-    .time {
-      margin-top: 10px;
-    }
-  }
-  header {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    border: none;
-    align-items: flex-start;
-    justify-content: flex-start;
-    word-wrap: break-word;
-    text-align: center;
-
-    .text {
-      display: flex;
-      flex-direction: column;
-      margin-left: 10%;
-      margin-right: 15px;
-
-      a {
-        color: black;
-      }
-
-      h2 {
-        font-size: 2.5em;
-      }
-
-      h2:hover {
-        color: default;
-      }
-
-      p {
-        font-size: 1.2em;
-      }
-    }
-  }
-
-  header:hover {
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-  }
-
-  .show {
-    visibility: visible;
-    display: flex;
-    justify-content: space-between;
-    margin: 20px;
-    font-size: 1.2em;
-
-    .fa-star {
-      color: orange;
-    }
-  }
-
-  .buttons {
-    display: flex;
-  }
-}
-
-// hide show toggle
-.show {
-  display: flex;
-}
-.hide {
-  display: none;
-}
-
-hr {
-  width: 80%;
-  margin: auto auto;
-  margin-bottom: 40px;
-}
-
-.stats {
-  display: flex;
-  flex-direction: row;
-  gap: 25px;
-
-  font-size: 1em;
-}
-
-/* ---------------------------------------------------
   SEARCH BAR
 ----------------------------------------------------- */
+
+.checked {
+  color: orange;
+}
 
 #search {
   background: #eeeeee;
@@ -745,8 +760,9 @@ hr {
 }
 
 /* -----------------------------------------------------
-  Create Form Styles
+  CREATE FORM
 ----------------------------------------------------- */
+
 .create-form {
   width: 100%;
   height: 100%;
@@ -791,91 +807,22 @@ hr {
 
 
 }
-i {
-  margin: 1px;
-}
-/* ---------------------------------------------------
-  DELETE & EDIT
------------------------------------------------------ */
-
-textarea { resize: none; border-color: #D0D4DC; border-radius: 5px }
-textarea:focus { outline: none }
-
-.form-head { margin-bottom: 25px; }
-
-.edit-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  height: 70vh;
-  width: 70vw;
-  padding: 25px;
-
-  background-color: #FFFFFF;
-
-  border: 10px solid #516BFD;
-  border-radius: 25px;
-
-  color: #ABABAB;
-  font-family: "Gotham light", sans-serif;
-
-  animation: fadeIn ease 0.2s;
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  h2 {
-    color: #000000;
-  }
-
-  #edit-form {
-    width: 60%;
-    textarea {
-      width: 100%;
-    }
-  }
-}
-
-
-
-
-
-
-// edit form styles
-.edit-form {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  top: 0;
-  left: 0;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-
 
 /* ---------------------------------------------------
   Comment Styles
 ----------------------------------------------------- */
+
 #comments-area {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
+
 .comment-container {
   text-align: center;
 }
+
 .comment-form {
   display: flex;
   flex-direction: column;
