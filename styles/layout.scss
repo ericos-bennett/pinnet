@@ -75,6 +75,108 @@ hr {
 }
 
 /* ---------------------------------------------------
+  CARDS (SMALL)
+----------------------------------------------------- */
+
+.card-sm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  width: 450px;
+}
+
+.card-sm:hover footer {
+  visibility: unset;
+}
+
+.card-sm header {
+  width: 100%;
+  height: 200px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+
+  border: #EEEEEE 2px solid;
+  border-radius: 25px;
+}
+
+.card-sm header:hover {
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(171, 171, 171, 0.3);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(171, 171, 171, 0.3);
+  box-shadow: 0px 0px 15px 0px rgba(171, 171, 171, 0.3);
+  border-radius: 25px;
+}
+
+.card-sm-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+
+  margin-top: 5px;
+  padding-right: 25px;
+
+  color: #ABABAB;
+}
+
+.card-sm-description {
+  font-family: "Gotham Light", sans-serif;
+}
+
+.card-sm-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 25px;
+  object-fit: cover;
+}
+
+.card-sm-info {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  max-height: 160px;
+}
+
+.card-sm-info p {
+  font-size: 0.8em;
+
+  overflow: hidden;
+}
+
+.card-sm-stats {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+
+  font-size: 0.8em;
+}
+
+.card-sm-title {
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+
+  font-size: 1.5em;
+}
+
+/* Toggle */
+.hide {
+  display: none;
+}
+
+.show {
+  display: flex;
+}
+
+/* ---------------------------------------------------
   SIDEBAR
 ----------------------------------------------------- */
 
@@ -198,105 +300,431 @@ hr {
 }
 
 /* ---------------------------------------------------
-  CARDS (SMALL)
+  DELETE & EDIT
 ----------------------------------------------------- */
 
-.card-sm {
+textarea { resize: none; border-color: #D0D4DC; border-radius: 5px }
+textarea:focus { outline: none }
+
+.form-head { margin-bottom: 25px; }
+
+.edit-content {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
 
-  width: 450px;
+  height: 70vh;
+  width: 70vw;
+  padding: 25px;
+
+  background-color: #FFFFFF;
+
+  border: 10px solid #516BFD;
+  border-radius: 25px;
+
+  color: #ABABAB;
+  font-family: "Gotham light", sans-serif;
+
+  animation: fadeIn ease 0.2s;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  h2 {
+    color: #000000;
+  }
+
+  #edit-form {
+    width: 60%;
+    textarea {
+      width: 100%;
+    }
+  }
 }
 
-.card-sm:hover footer {
-  visibility: unset;
-}
-
-.card-sm header {
+.edit-form {
   width: 100%;
-  height: 200px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* ---------------------------------------------------
+  SIDEBAR TOGGLE
+----------------------------------------------------- */
+
+#toggle {
+  position: absolute;
+}
+
+#sidebarCollapse {
+  width: 40px;
+  height: 40px;
+
+  border: none;
+
+  font-size: 15px;
+  color: #ABABAB;
+
+  border: #ABABAB 2px solid;
+  border-radius: 10px;
+}
+
+#sidebarCollapse:hover {
+  color: #5143B9;
+
+  border: #5143B9 2px solid;
+}
+
+#sidebarCollapse:active,
+#sidebarCollapse:focus {
+  outline: 0;
+}
+
+/* ---------------------------------------------------
+  EXPLORE PAGE
+----------------------------------------------------- */
+
+.display-header {
+  cursor: pointer;
+  background-color: white;
+}
+
+.explore {
+  width: 100%;
+  height: 100%;
 
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
-  gap: 25px;
+  flex-wrap: wrap;
+  gap: 2%;
 
-  border: #EEEEEE 2px solid;
-  border-radius: 25px;
+  overflow-y: scroll;
+
+  padding-top: 50px;
+  padding-bottom: 80px;
 }
 
-.card-sm header:hover {
-  -webkit-box-shadow: 0px 0px 15px 0px rgba(171, 171, 171, 0.3);
-  -moz-box-shadow: 0px 0px 15px 0px rgba(171, 171, 171, 0.3);
-  box-shadow: 0px 0px 15px 0px rgba(171, 171, 171, 0.3);
-  border-radius: 25px;
+::-webkit-scrollbar {
+  width: 12px; /* for vertical scrollbars */
+  height: 12px; /* for horizontal scrollbars */
 }
 
-.card-sm-actions {
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* ---------------------------------------------------
+  AUTH STYLES
+----------------------------------------------------- */
+
+.auth {
+  height: calc(100% - 200px);
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 5px;
+}
 
-  margin-top: 5px;
-  padding-right: 25px;
+.auth form {
+  width: 50%;
+}
 
+.auth form .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.auth-header {
+  margin-bottom: 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group {
+  margin-bottom: 10px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-group label {
+  width: 150px;
+}
+
+.login-register-submit {
+  margin-top: 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-register-submit p {
+  color: #ababab;
+  font-size: 0.8em;
+
+  margin-top: 50px;
+}
+
+.login-register-submit a {
+  color: #ababab;
+}
+
+.required {
+  color: red;
+}
+
+/* ---------------------------------------------------
+  SEARCH BAR
+----------------------------------------------------- */
+
+#search {
+  background: #EEEEEE;
+  color: #ABABAB;
+  border-radius: 50px;
+}
+
+#search::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ABABAB;
+  opacity: 1; /* Firefox */
+}
+
+#search:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
   color: #ABABAB;
 }
 
-.card-sm-description {
-  font-family: "Gotham Light", sans-serif;
+#search::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #ABABAB;
 }
 
-.card-sm-image {
-  width: 160px;
-  height: 160px;
-  border-radius: 25px;
-  object-fit: cover;
+/* ---------------------------------------------------
+  TOPICS
+----------------------------------------------------- */
+
+.topics-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 70%;
 }
 
-.card-sm-info {
-  width: 220px;
+#invisible-topic-item {
+  visibility: hidden;
+  width: 50px;
+}
+
+#topic {
+  background: #EEEEEE;
+  color: #ABABAB;
+  border-radius: 50px;
+}
+
+#topic::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ABABAB;
+  opacity: 1; /* Firefox */
+}
+
+#topic:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #ABABAB;
+}
+
+#topic::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #ABABAB;
+}
+
+/* ---------------------------------------------------
+  RATINGS
+----------------------------------------------------- */
+
+.checked {
+  color: orange;
+}
+
+.rate-me {
+  direction: rtl;
+}
+
+.rate-me input {
+  position: absolute;
+  left: -999999px;
+}
+
+.rate-me label {
+  display: inline-block;
+}
+
+.rate-me > label:before {
+  position: relative;
+  font: 1em FontAwesome;
+  display: block;
+  content: "\f005";
+  color: #ccc;
+}
+
+.rate-me > label:hover:before,
+.rate-me > label:hover ~ label:before,
+.rate-me > label.selected:before,
+.rate-me > label.selected ~ label:before {
+  color: orange;
+}
+
+/* -----------------------------------------------------
+  CREATE FORM
+----------------------------------------------------- */
+
+.create-form {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.create-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 
-  max-height: 160px;
+  height: 70vh;
+  width: 70vw;
+  padding: 25px;
+
+  overflow-y: scroll;
+
+  background-color: #FFFFFF;
+
+  border: 10px solid #516BFD;
+  border-radius: 25px;
+
+  color: #ABABAB;
+  font-family: "Gotham light", sans-serif;
+
+  animation: fadeIn ease 0.2s;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  h2 {
+    color: #000000;
+  }
+
+  #create-form {
+    width: 60%;
+    textarea {
+      width: 100%;
+    }
+  }
 }
 
-.card-sm-info p {
-  font-size: 0.8em;
+/* ---------------------------------------------------
+  COMMENTS
+----------------------------------------------------- */
 
-  overflow: hidden;
-}
-
-.card-sm-stats {
+#comments-area {
+  width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  gap: 25px;
-
-  font-size: 0.8em;
+  justify-content: space-around;
 }
 
-.card-sm-title {
-  white-space: wrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: inline-block;
-
-  font-size: 1.5em;
+.comment-container {
+  text-align: center;
 }
 
-/* Toggle */
-.hide {
-  display: none;
-}
-
-.show {
+.comment-form {
   display: flex;
+  flex-direction: column;
+}
+
+.comment-content {
+  border: 1px black;
+  text-align: center;
+  height: 130px;
+  width: 120%;
+  border: none;
+  overflow: auto;
+}
+
+/* ---------------------------------------------------
+  ACTION ICONS
+----------------------------------------------------- */
+
+.fa-star {
+  color: #FFA500;
+}
+
+.fa-thumbtack {
+  color: #CB3365;
+}
+
+.fa-trash:hover { color: #FF0000; }
+
+.fa-edit:hover { color: #FFA500; }
+
+.fa-external-link-alt,
+.like {
+  color: #ABABAB;
+}
+
+.fa-external-link-alt:hover,
+.like:hover {
+  color: #5143B9;
+}
+
+.form-close {
+  display: flex;
+  justify-content: flex-start;
+  align-self: flex-end;
+
+  z-index: 999;
+
+  color: #ABABAB;
+  font-size: 1.5em;
+
+  cursor: pointer;
+}
+
+.form-close:hover {
+  color: #5143B9;
 }
 
 /* ---------------------------------------------------
@@ -437,404 +865,6 @@ hr {
     -moz-box-shadow: none;
     box-shadow: none;
   }
-}
-
-/* ---------------------------------------------------
-  ACTION ICONS
------------------------------------------------------ */
-
-.fa-star {
-  color: #FFA500;
-}
-
-.fa-thumbtack {
-  color: #CB3365;
-}
-
-.fa-trash:hover { color: #FF0000; }
-
-.fa-edit:hover { color: #FFA500; }
-
-.fa-external-link-alt,
-.like {
-  color: #ABABAB;
-}
-
-.fa-external-link-alt:hover,
-.like:hover {
-  color: #5143B9;
-}
-
-.form-close {
-  display: flex;
-  justify-content: flex-start;
-  align-self: flex-end;
-
-  z-index: 999;
-
-  color: #ABABAB;
-  font-size: 1.5em;
-
-  cursor: pointer;
-}
-
-.form-close:hover {
-  color: #5143B9;
-}
-
-/* ---------------------------------------------------
-  DELETE & EDIT
------------------------------------------------------ */
-
-textarea { resize: none; border-color: #D0D4DC; border-radius: 5px }
-textarea:focus { outline: none }
-
-.form-head { margin-bottom: 25px; }
-
-.edit-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  height: 70vh;
-  width: 70vw;
-  padding: 25px;
-
-  background-color: #FFFFFF;
-
-  border: 10px solid #516BFD;
-  border-radius: 25px;
-
-  color: #ABABAB;
-  font-family: "Gotham light", sans-serif;
-
-  animation: fadeIn ease 0.2s;
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  h2 {
-    color: #000000;
-  }
-
-  #edit-form {
-    width: 60%;
-    textarea {
-      width: 100%;
-    }
-  }
-}
-
-.edit-form {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  top: 0;
-  left: 0;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-/* ---------------------------------------------------
-  SIDEBAR TOGGLE
------------------------------------------------------ */
-
-#toggle {
-  position: absolute;
-}
-
-#sidebarCollapse {
-  width: 50px;
-  height: 50px;
-
-  border: none;
-
-  font-size: 25px;
-  color: #ababab;
-
-  border: #ababab 2px solid;
-  border-radius: 10px;
-}
-
-#sidebarCollapse:hover {
-  color: #5143b9;
-
-  border: #5143b9 2px solid;
-}
-
-#sidebarCollapse:active,
-#sidebarCollapse:focus {
-  outline: 0;
-}
-
-/* ---------------------------------------------------
-  EXPLORE PAGE
------------------------------------------------------ */
-
-.display-header {
-  cursor: pointer;
-  background-color: white;
-}
-
-.explore {
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2%;
-
-  overflow-y: scroll;
-
-  padding-bottom: 80px;
-}
-
-::-webkit-scrollbar {
-  width: 12px; /* for vertical scrollbars */
-  height: 12px; /* for horizontal scrollbars */
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
-}
-
-/* ---------------------------------------------------
-  AUTH STYLES
------------------------------------------------------ */
-
-.auth {
-  height: calc(100% - 200px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.auth form {
-  width: 50%;
-}
-
-.auth form .container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.auth-header {
-  margin-bottom: 25px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form-group {
-  margin-bottom: 10px;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.form-group label {
-  width: 150px;
-}
-
-.login-register-submit {
-  margin-top: 25px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.login-register-submit p {
-  color: #ababab;
-  font-size: 0.8em;
-
-  margin-top: 50px;
-}
-
-.login-register-submit a {
-  color: #ababab;
-}
-
-.required {
-  color: red;
-}
-
-/* ---------------------------------------------------
-  SEARCH BAR
------------------------------------------------------ */
-
-.checked {
-  color: orange;
-}
-
-#search {
-  background: #eeeeee;
-  color: #ababab;
-  border-radius: 50px;
-}
-
-#search::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #ababab;
-  opacity: 1; /* Firefox */
-}
-
-#search:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #ababab;
-}
-
-#search::-ms-input-placeholder {
-  /* Microsoft Edge */
-  color: #ababab;
-}
-
-/* ---------------------------------------------------
-  TOPICS
------------------------------------------------------ */
-
-.topics-container {
-  display: flex;
-  justify-content: space-evenly;
-  width: 70%;
-}
-
-#invisible-topic-item {
-  visibility: hidden;
-  width: 50px;
-}
-
-#new-topic {
-  width: 200px;
-}
-
-/* ---------------------------------------------------
-  RATINGS
------------------------------------------------------ */
-
-.rate-me {
-  direction: rtl;
-}
-
-.rate-me input {
-  position: absolute;
-  left: -999999px;
-}
-
-.rate-me label {
-  display: inline-block;
-}
-
-.rate-me > label:before {
-  position: relative;
-  font: 1em FontAwesome;
-  display: block;
-  content: "\f005";
-  color: #ccc;
-}
-
-.rate-me > label:hover:before,
-.rate-me > label:hover ~ label:before,
-.rate-me > label.selected:before,
-.rate-me > label.selected ~ label:before {
-  color: orange;
-}
-
-/* -----------------------------------------------------
-  CREATE FORM
------------------------------------------------------ */
-
-.create-form {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  top: 0;
-  left: 0;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.create-content {
-  height: 70vh;
-  width: 70vw;
-  background-color: #fff;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 10px solid black;
-  border-color: #516bfd;
-  font-family: "Gotham light";
-  animation: fadeIn ease 0.2s;
-
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-
-  #create-form {
-    width: 60%;
-    textarea {
-      width: 100%;
-    }
-  }
-
-
-}
-
-/* ---------------------------------------------------
-  Comment Styles
------------------------------------------------------ */
-
-#comments-area {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.comment-container {
-  text-align: center;
-}
-
-.comment-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.comment-content {
-  border: 1px black;
-  text-align: center;
-  height: 130px;
-  width: 120%;
-  border: none;
-  overflow: auto;
 }
 
 /* ---------------------------------------------------
