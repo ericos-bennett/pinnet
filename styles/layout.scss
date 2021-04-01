@@ -26,7 +26,7 @@ body {
   height: 100%;
 
   background-attachment: fixed;
-  background-image: linear-gradient(30deg, #5143B9, #44A8C4);
+  background-image: linear-gradient(30deg, #5143b9, #44a8c4);
 }
 
 /* Override all button style defaults */
@@ -41,7 +41,8 @@ h2 {
   font-family: "Gotham Black", sans-serif;
 }
 
-h3, h4 {
+h3,
+h4 {
   font-size: 1em;
 }
 
@@ -60,7 +61,7 @@ hr {
 
   position: fixed;
 
-  background-color: #FCFCFC;
+  background-color: #fcfcfc;
 
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
@@ -100,7 +101,7 @@ hr {
   justify-content: center;
   gap: 25px;
 
-  border: #EEEEEE 2px solid;
+  border: #eeeeee 2px solid;
   border-radius: 25px;
 }
 
@@ -120,7 +121,7 @@ hr {
   margin-top: 5px;
   padding-right: 25px;
 
-  color: #ABABAB;
+  color: #ababab;
 }
 
 .card-sm-description {
@@ -190,7 +191,7 @@ hr {
 }
 .logins a {
   text-decoration: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .logins button:before,
@@ -201,7 +202,7 @@ hr {
   bottom: 0;
   left: 0;
 
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 
   visibility: hidden;
   transform: scaleX(0);
@@ -277,7 +278,7 @@ hr {
 
 .sidebar a {
   text-decoration: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .sidebar button {
@@ -288,14 +289,14 @@ hr {
 .sidebar-header {
   font-family: "Gotham Black", sans-serif;
   text-decoration: none;
-  color: #FFFFFF;
+  color: #ffffff;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.create-pin{
+.create-pin {
   cursor: pointer;
 }
 
@@ -303,10 +304,18 @@ hr {
   DELETE & EDIT
 ----------------------------------------------------- */
 
-textarea { resize: none; border-color: #D0D4DC; border-radius: 5px }
-textarea:focus { outline: none }
+textarea {
+  resize: none;
+  border-color: #d0d4dc;
+  border-radius: 5px;
+}
+textarea:focus {
+  outline: none;
+}
 
-.form-head { margin-bottom: 25px; }
+.form-head {
+  margin-bottom: 25px;
+}
 
 .edit-content {
   display: flex;
@@ -318,12 +327,12 @@ textarea:focus { outline: none }
   width: 70vw;
   padding: 25px;
 
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 
-  border: 10px solid #516BFD;
+  border: 10px solid #516bfd;
   border-radius: 25px;
 
-  color: #ABABAB;
+  color: #ababab;
   font-family: "Gotham light", sans-serif;
 
   animation: fadeIn ease 0.2s;
@@ -376,16 +385,16 @@ textarea:focus { outline: none }
   border: none;
 
   font-size: 15px;
-  color: #ABABAB;
+  color: #ababab;
 
-  border: #ABABAB 2px solid;
+  border: #ababab 2px solid;
   border-radius: 10px;
 }
 
 #sidebarCollapse:hover {
-  color: #5143B9;
+  color: #5143b9;
 
-  border: #5143B9 2px solid;
+  border: #5143b9 2px solid;
 }
 
 #sidebarCollapse:active,
@@ -501,25 +510,25 @@ textarea:focus { outline: none }
 ----------------------------------------------------- */
 
 #search {
-  background: #EEEEEE;
-  color: #ABABAB;
+  background: #eeeeee;
+  color: #ababab;
   border-radius: 50px;
 }
 
 #search::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #ABABAB;
+  color: #ababab;
   opacity: 1; /* Firefox */
 }
 
 #search:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #ABABAB;
+  color: #ababab;
 }
 
 #search::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #ABABAB;
+  color: #ababab;
 }
 
 /* ---------------------------------------------------
@@ -539,25 +548,25 @@ textarea:focus { outline: none }
 }
 
 #topic {
-  background: #EEEEEE;
-  color: #ABABAB;
+  background: #eeeeee;
+  color: #ababab;
   border-radius: 50px;
 }
 
 #topic::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #ABABAB;
+  color: #ababab;
   opacity: 1; /* Firefox */
 }
 
 #topic:-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #ABABAB;
+  color: #ababab;
 }
 
 #topic::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #ABABAB;
+  color: #ababab;
 }
 
 /* ---------------------------------------------------
@@ -623,12 +632,12 @@ textarea:focus { outline: none }
 
   overflow-y: scroll;
 
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 
-  border: 10px solid #516BFD;
+  border: 10px solid #516bfd;
   border-radius: 25px;
 
-  color: #ABABAB;
+  color: #ababab;
   font-family: "Gotham light", sans-serif;
 
   animation: fadeIn ease 0.2s;
@@ -688,30 +697,34 @@ textarea:focus { outline: none }
 ----------------------------------------------------- */
 
 .fa-star {
-  color: #FFA500;
+  color: #ffa500;
 }
 
 .fa-thumbtack {
-  color: #CB3365;
+  color: #cb3365;
 }
 
-.fa-trash:hover { color: #FF0000; }
+.fa-trash:hover {
+  color: #ff0000;
+}
 
-.fa-edit:hover { color: #FFA500; }
+.fa-edit:hover {
+  color: #ffa500;
+}
 
 .fa-external-link-alt,
 .like {
-  color: #ABABAB;
+  color: #ababab;
 }
 
 .like:focus {
   border: none;
-  outline:none;
+  outline: none;
 }
 
 .fa-external-link-alt:hover,
 .like:hover {
-  color: #5143B9;
+  color: #5143b9;
 }
 
 .form-close {
@@ -721,14 +734,14 @@ textarea:focus { outline: none }
 
   z-index: 999;
 
-  color: #ABABAB;
+  color: #ababab;
   font-size: 1.5em;
 
   cursor: pointer;
 }
 
 .form-close:hover {
-  color: #5143B9;
+  color: #5143b9;
 }
 
 /* ---------------------------------------------------
@@ -837,10 +850,10 @@ textarea:focus { outline: none }
 
   overflow-y: scroll;
 
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 25px;
 
-  border: 10px solid #516BFD;
+  border: 10px solid #516bfd;
 
   font-family: "Gotham light";
   animation: fadeIn ease 0.2s;
@@ -857,7 +870,7 @@ textarea:focus { outline: none }
   header {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-around;
     gap: 50px;
 
     height: 100%;
