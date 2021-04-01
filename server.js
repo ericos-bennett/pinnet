@@ -19,7 +19,6 @@ const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
 
-// Do we need this connect???
 db.connect();
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
