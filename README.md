@@ -1,6 +1,6 @@
 # Pinnet
 
-Pinterest-inspired 'resource wall' app using jQuery, Express, and PostgreSQL. Users can explore, save, and organize links to their favorite resources and like, comment or rate those of others.
+Pinterest-inspired 'resource wall' app using jQuery, Express, and PostgreSQL. Users can explore, save, and organize links to their favorite resources and like, comment or rate those of others. Deployed live at [https://pinnet.herokuapp.com/](https://pinnet.herokuapp.com/)
 
 ## Screenshots
 
