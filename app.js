@@ -7,10 +7,10 @@ const ENV = process.env.ENV || "development";
 const express = require("express");
 const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
-const app = express();
 const morgan = require("morgan");
 const methodOverride = require("method-override");
 const cookieParser = require("cookie-parser");
+const app = express();
 
 // PG database client/connection setup
 const pg = require("pg");
